@@ -34,16 +34,34 @@
       </table>
     </form>
   </header>
-  <section>
+  <section id="section-intro-network">
     <h4>La primera red social para emprendedores peruanos</h4>
     <p class="slider">ABC conecta a todos los emprendedores y personas interesadas a emprender. Comparte ideas, proyectos,
       encuentra colaboradores y más.</p>
     <p class="is-free">Comienza es gratis</p>
-    <form class="start-btn">
-      <button type="submit" id="login-btn">Iniciar sesión</button>
+    <div class="start-btn">
+      <button type="submit" id="login-btn-access" class="login-btn">Iniciar sesión</button>
       <button type="submit" id="signup-btn">Regístrate</button>
+    </div>
+  </section>
+
+  <section id="section-intro-network-login" class="section-intro-network-login">
+    <h4>Iniciar sesión con:</h4>
+    <img src="..\src\Imagenes\Iconos_redes_sociales\facebook.png" alt="img-facebook">
+    <img src="..\src\Imagenes\Iconos_redes_sociales\search.png" alt="img-google">
+    <div class="_43mg"><span class="_43mh">o</span></div>
+    <form class="start-btn">
+      <input  type="email" required id="name-login" class="input-login" placeholder="Correo electrónico">
+      <input type="password" id="password-login" class="input-login" minlength="6" placeholder="Contraseña">
+      <button type="submit" id="login-btn" class="login-btn">Regístrate</button>
     </form>
   </section>
+
+
+
+
+
+
   <script type="module" src="main.js"></script>
 </body>
 
