@@ -1,0 +1,89 @@
+h2, section {
+    text-align: center;
+}
+.is-free {
+    margin-top: 15%;
+    font-size: 0.7em;
+}
+.slider {
+    margin-top: 10%;
+    font-size: 0.8em;
+}
+#login-btn, #signup-btn {
+    width: 300px;
+    /* min-width: 300px; */
+    background: #fff;
+    margin: 10px auto 0px;
+    padding: 10px;
+    cursor: pointer;
+}
+#login-form {
+    display: none;
+}
+/* #sign-up {
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    margin-top: 10px;
+} */
+
+/* Por encima de los 760px-tablets */
+@media screen and (min-width: 760px){
+    h4 {
+        margin-top: 10%;
+    }
+   .slider {
+        margin: 10%;
+   }
+   #login-btn, #signup-btn {
+        margin: 10px 50px;  
+   }
+
+}
+/* por encima de los 1024px */
+@media screen and (min-width: 1024px){
+    h2, h4, .slider {
+        text-align: left;
+        /* margin-left: 3%; */
+    }
+    #login-form {
+        margin: 0;
+        padding: 0;
+        display: block;
+        font-size: 12px;
+        position: absolute;
+        top: 2%;
+        right: 20%;
+    }
+    table {
+        display: table;
+        border-collapse: separate;
+    }
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+    }
+    #login-btn {
+        width: 10%;
+        padding: 0;
+        box-sizing: border-box;
+        position: absolute;
+        top: 3.5%;
+        right: 4%;
+    }
+    #signup-btn {
+        position: absolute;
+        top: 85%;
+        left: 55%;
+    }
+    h4, .slider {
+        margin-left: 2%;
+    }
+    .slider {
+        margin-top: 2%;
+        margin-right: 55%;
+    }
+    
+
+
+}
