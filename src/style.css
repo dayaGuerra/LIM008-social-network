@@ -9,7 +9,7 @@ h2, section {
     margin-top: 10%;
     font-size: 0.8em;
 }
-#login-btn, #signup-btn {
+.login-btn, #signup-btn {
     width: 300px;
     /* min-width: 300px; */
     background: #fff;
@@ -87,3 +87,44 @@ h2, section {
 
 
 }
+
+/*Ocultarb pantalla Login*/
+.section-intro-network-login{
+    display: none;
+}
+/*Ocultar pantalla Login*/
+
+/*Clase input login*/
+.input-login{
+width: 275px;
+background: #fff;
+margin: 10px auto 0px;
+padding: 10px;
+cursor: pointer;
+}
+/*Clase input login*/
+
+
+
+/*Clase span  o*/
+._43mg {
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    width: 90%;
+}
+._43mg {
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    width: 90%;
+}
+/*Clase span o*/
