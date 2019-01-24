@@ -87,3 +87,85 @@ h2, section {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cabecera,.cabecera-izq {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: inline-table;
+    margin-bottom: 3em;
+}
+.text-register,.img,.form-register-user{
+    margin-bottom: 1em;
+    margin-left: 4.5em;
+}
+
+.img{
+    width : 20%;
+    height : 10%;
+    border-radius: 200px;
+    margin-left: 5em;
+}
+
+.text-register{
+ margin-left: 7em;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
