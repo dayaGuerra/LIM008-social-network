@@ -1,4 +1,3 @@
-
 h2, section {
     text-align: center;
 }
@@ -28,8 +27,17 @@ h2, section {
     margin-top: 10px;
 } */
 
+.img{
+    width: 20px;
+    height: 20px;
+    margin-right: 20%;
+}
 /* Por encima de los 760px-tablets */
 @media screen and (min-width: 760px){
+    .form-register-user{
+        margin-right: 50%;
+        margin-left: 52%;
+        }
     h4 {
         margin-top: 10%;
     }
@@ -95,6 +103,11 @@ cursor: pointer;
 /*--------------------------------------------------*/
 /* por encima de los 1024px */
 @media screen and (min-width: 1024px){
+    .form-register-user{
+    margin-right: 50em;
+    margin-left: 32em;
+    position: absolute;
+    }
     h2, h4, .slider {
         text-align: left;
         /* margin-left: 3%; */
