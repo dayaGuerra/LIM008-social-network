@@ -40,58 +40,19 @@ h2, section {
    }
 
 }
-/* por encima de los 1024px */
-@media screen and (min-width: 1024px){
-    h2, h4, .slider {
-        text-align: left;
-        /* margin-left: 3%; */
-    }
-    #login-form {
-        margin: 0;
-        padding: 0;
-        display: block;
-        font-size: 12px;
-        position: absolute;
-        top: 2%;
-        right: 20%;
-    }
-    table {
-        display: table;
-        border-collapse: separate;
-    }
-    tbody {
-        display: table-row-group;
-        vertical-align: middle;
-    }
-    #login-btn {
-        width: 10%;
-        padding: 0;
-        box-sizing: border-box;
-        position: absolute;
-        top: 3.5%;
-        right: 4%;
-    }
-    #signup-btn {
-        position: absolute;
-        top: 85%;
-        left: 55%;
-    }
-    h4, .slider {
-        margin-left: 2%;
-    }
-    .slider {
-        margin-top: 2%;
-        margin-right: 55%;
-    }
-    
 
-
-}
 
 /*Ocultarb pantalla Login*/
 .section-intro-network-login{
-    display: none;
+    display:none;
 }
+
+.section-register-user{
+    display:none;
+}
+
+
+
 /*Ocultar pantalla Login*/
 
 /*Clase input login*/
@@ -127,4 +88,64 @@ cursor: pointer;
     white-space: nowrap;
     width: 90%;
 }
-/*Clase span o*/
+/*Fin Clase span o*/
+
+
+/*--------------------------------------------------*/
+/* por encima de los 1024px */
+@media screen and (min-width: 1024px){
+    h2, h4, .slider {
+        text-align: left;
+        /* margin-left: 3%; */
+    }
+    #login-form {
+        margin: 0;
+        padding: 0;
+        display: block;
+        font-size: 12px;
+        position: absolute;
+        top: 2%;
+        right: 20%;
+    }
+    table {
+        display: table;
+        border-collapse: separate;
+    }
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+    }
+
+    #login-btn {
+        width: 10%;
+        padding: 0;
+        box-sizing: border-box;
+        position: absolute;
+        top: 3.5%;
+        right: 4%;
+        display:none;
+    }
+ #login-btn-access {
+        display:none;
+    }
+
+
+    
+    #signup-btn {
+        position: absolute;
+        top: 85%;
+        left: 55%;
+    }
+    h4, .slider {
+        margin-left: 2%;
+    }
+    .slider {
+        margin-top: 2%;
+        margin-right: 55%;
+    }
+    
+    .section-intro-network-login{
+        display:none;
+    }
+
+}
