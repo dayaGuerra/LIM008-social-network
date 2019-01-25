@@ -38,7 +38,10 @@ h2, section {
    #login-btn, #signup-btn {
         margin: 10px 50px;  
    }
-
+/*3 era pantalla*/
+.text-style {
+    display:inline-grid;
+}
 }
 
 
@@ -89,7 +92,16 @@ cursor: pointer;
     width: 90%;
 }
 /*Fin Clase span o*/
-
+/*-----------*/
+.img{
+    width: 20px;
+    height: 20px;
+    margin-right: 80%;
+}
+.text-up{
+    margin-left: 60%;
+    cursor:pointer;
+}
 
 /*--------------------------------------------------*/
 /* por encima de los 1024px */
@@ -128,9 +140,12 @@ cursor: pointer;
  #login-btn-access {
         display:none;
     }
+<<<<<<< HEAD
 
 /*  */
     
+=======
+>>>>>>> 5609da68bedd9b232a0d8e7cce13366d166da2f8
     #signup-btn {
         position: absolute;
         top: 85%;
@@ -148,5 +163,8 @@ cursor: pointer;
         display:block;
     }
 
-    /* aqui none */
+    /*3era pantalla*/
+    .text-style {
+        display:inline-grid;
+    }
 }

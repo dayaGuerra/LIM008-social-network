@@ -1,5 +1,4 @@
 // Este es el punto de entrada de tu aplicacion
-
 import { myFunction } from './lib/index.js';
 
 myFunction();
@@ -16,4 +15,16 @@ signUp.addEventListener('click', () => {
     document.getElementById('section-intro-network').style.display = 'none';
     document.getElementById('section-intro-network-login').style.display = 'none';
     document.getElementById('section-register-user').style.display = 'block';
+    document.getElementById('login-form').style.display ='none';
+});
+const textUp = document.getElementById('back-page-sign');
+textUp.addEventListener('click',() => {
+    document.getElementById('section-register-user').style.display = 'none';
+    document.getElementById('section-intro-network').style.display = 'block';
+});
+const backPage =   document.getElementById('back-page');
+backPage.addEventListener('click', () => {
+    document.getElementById('section-intro-network').style.display = 'block';
+    document.getElementById('section-intro-network-login').style.display = 'none';
+   
 });
