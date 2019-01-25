@@ -129,7 +129,7 @@ cursor: pointer;
         display:none;
     }
 
-
+/*  */
     
     #signup-btn {
         position: absolute;
@@ -145,7 +145,8 @@ cursor: pointer;
     }
     
     .section-intro-network-login{
-        display:none;
+        display:block;
     }
 
+    /* aqui none */
 }
