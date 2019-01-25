@@ -1,3 +1,4 @@
+
 h2, section {
     text-align: center;
 }
@@ -9,7 +10,7 @@ h2, section {
     margin-top: 10%;
     font-size: 0.8em;
 }
-#login-btn, #signup-btn {
+.login-btn, #signup-btn {
     width: 300px;
     /* min-width: 300px; */
     background: #fff;
@@ -85,70 +86,112 @@ h2, section {
     }
     
 
+    .cabecera,.cabecera-izq {
+        margin-left: 10%;
+        margin-right: 10%;
+        display: inline-table;
+        margin-bottom: 3em;
+    }
+    .text-register,.img,.form-register-user{
+        margin-bottom: 1em;
+        margin-left: 4.5em;
+    }
+    
+    .img{
+        width : 20%;
+        height : 10%;
+        border-radius: 200px;
+        margin-left: 5em;
+    }
+    
+    .text-register{
+     margin-left: 7em;
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.cabecera,.cabecera-izq {
-    margin-left: 10%;
-    margin-right: 10%;
-    display: inline-table;
-    margin-bottom: 3em;
+/*Ocultarb pantalla Login*/
+.section-intro-network-login { 
+     display: none;
 }
-.text-register,.img,.form-register-user{
-    margin-bottom: 1em;
-    margin-left: 4.5em;
+.section-register-user {
+    display: none;
 }
+/*Ocultar pantalla Login*/
 
-.img{
-    width : 20%;
-    height : 10%;
-    border-radius: 200px;
-    margin-left: 5em;
+/*Clase input login*/
+.input-login{
+width: 275px;
+background: #fff;
+margin: 10px auto 0px;
+padding: 10px;
+cursor: pointer;
 }
+/*Clase input login*/
 
-.text-register{
- margin-left: 7em;
+
+
+/*Clase span  o*/
+._43mg {
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    width: 90%;
+}
+._43mg {
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    width: 90%;
+}
+/*Clase span o*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

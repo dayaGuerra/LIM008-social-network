@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,31 +33,40 @@
       </table>
     </form>
   </header>
-  <section>
+  <section id="section-intro-network">
     <h4>La primera red social para emprendedores peruanos</h4>
     <p class="slider">ABC conecta a todos los emprendedores y personas interesadas a emprender. Comparte ideas, proyectos,
       encuentra colaboradores y más.</p>
     <p class="is-free">Comienza es gratis</p>
-    <form class="start-btn">
-      <button type="submit" id="login-btn">Iniciar sesión</button>
+    <div class="start-btn">
+      <button type="submit" id="login-btn-access" class="login-btn">Iniciar sesión</button>
       <button type="submit" id="signup-btn">Regístrate</button>
+    </div>
+  </section>
+  <section id="section-intro-network-login" class="section-intro-network-login">
+    <h4>Iniciar sesión con:</h4>
+    <img src="..\src\Imagenes\Iconos_redes_sociales\facebook.png" alt="img-facebook">
+    <img src="..\src\Imagenes\Iconos_redes_sociales\search.png" alt="img-google">
+    <div class="_43mg"><span class="_43mh">o</span></div>
+    <form class="start-btn">
+      <input  type="email" required id="name-login" class="input-login" placeholder="Correo electrónico">
+      <input type="password" id="password-login" class="input-login" minlength="6" placeholder="Contraseña">
+      <button type="submit" id="login-btn" class="login-btn">Regístrate</button>
     </form>
   </section>
-  <section class="section-register-user">
-    <div class = "cabecera"><h1>ABC</h1></div>
+  <section class="section-register-user" id = "section-register-user">
     <div class = "cabecera-izq"><label for="">Inicio Sesión</label></div>             
     <div class="text-register"><label for="">Registrate con</label></div>
+    <img src="..\src\Imagenes\Iconos_redes_sociales\facebook.png" alt="img-facebook">
+    <img src="..\src\Imagenes\Iconos_redes_sociales\search.png" alt="img-google">
+    <div class="_43mg"><span class="_43mh">o</span></div>
    </div>
     <form class = "form-register-user">
-        <label>Nombre:</label><br>
-        <input type="text" name="" id="" placeholder="Ingresa tu nombre"><br>
-        <label>Apellidos:</label><br>
-        <input type="text" name="" id="" placeholder="Ingresa tu nombre"><br>
-        <label>Email:</label><br>
-        <input type="text" name="" id="" placeholder="xxxx@gmail.com"><br>
-        <label>Contraseña:</label><br>
-        <input type="password" name="" id=""><br>
-        <button id="btn-singup"><label for="btn-singup">Sign Up</label></button>
+        <input type="text"  id="" placeholder="Ingresa tu nombre">
+        <input type="text"  id="" placeholder="Ingresa tu nombre">
+        <input type="text"  id="" placeholder="xxxx@gmail.com">
+        <input type="password"  id="">
+        <button id="btn-singup">Sign Up</label></button>
     </form>
 </section>
   <script type="module" src="main.js"></script>
