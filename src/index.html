@@ -43,32 +43,37 @@
       <button type="submit" id="signup-btn">Regístrate</button>
     </div>
   </section>
-  <section id="section-intro-network-login" class="section-intro-network-login">
+
+  <section id="section-intro-network-login" class="section-intro-network-login login-section">
     <h4>Iniciar sesión con:</h4>
     <img src="..\src\Imagenes\Iconos_redes_sociales\facebook.png" alt="img-facebook">
     <img src="..\src\Imagenes\Iconos_redes_sociales\search.png" alt="img-google">
     <div class="_43mg"><span class="_43mh">o</span></div>
-    <form class="start-btn">
+    <form id="form-login" class="start-btn">
       <input  type="email" required id="name-login" class="input-login" placeholder="Correo electrónico">
       <input type="password" id="password-login" class="input-login" minlength="6" placeholder="Contraseña">
-      <button type="submit" id="login-btn" class="login-btn">Regístrate</button>
+      <button type="submit" id="login-btn" class="login-btn">login</button>
     </form>
   </section>
-  <section class="section-register-user" id = "section-register-user">
-    <div class = "cabecera-izq"><label for="">Inicio Sesión</label></div>             
+
+  <section class="section-register-user" id="section-register-user">
     <div class="text-register"><label for="">Registrate con</label></div>
     <img src="..\src\Imagenes\Iconos_redes_sociales\facebook.png" alt="img-facebook">
     <img src="..\src\Imagenes\Iconos_redes_sociales\search.png" alt="img-google">
     <div class="_43mg"><span class="_43mh">o</span></div>
    </div>
     <form class = "form-register-user">
-        <input type="text"  id="" placeholder="Ingresa tu nombre">
-        <input type="text"  id="" placeholder="Ingresa tu nombre">
-        <input type="text"  id="" placeholder="xxxx@gmail.com">
-        <input type="password"  id="">
-        <button id="btn-singup">Sign Up</label></button>
-    </form>
-</section>
+        <input type="text" name="" id="" class="input-login" placeholder="Ingresa tu nombre">
+        <input type="text" name="" id="" class="input-login" placeholder="Ingresa tu nombre">
+        <input  type="email" required id="name-sign-up" class="input-login" placeholder="Correo electrónico">
+        <input type="password" id="password-sign-up" class="input-login" minlength="6" placeholder="Contraseña">
+        <button id="btn-singup" class="login-btn">Sign Up</button>
+      </form>
+ </section>
+
+
+
+
   <script type="module" src="main.js"></script>
 </body>
 
