@@ -27,17 +27,8 @@ h2, section {
     margin-top: 10px;
 } */
 
-.img{
-    width: 20px;
-    height: 20px;
-    margin-right: 20%;
-}
 /* Por encima de los 760px-tablets */
 @media screen and (min-width: 760px){
-    .form-register-user{
-        margin-right: 50%;
-        margin-left: 52%;
-        }
     h4 {
         margin-top: 10%;
     }
@@ -47,7 +38,10 @@ h2, section {
    #login-btn, #signup-btn {
         margin: 10px 50px;  
    }
-
+/*3 era pantalla*/
+.text-style {
+    display:inline-grid;
+}
 }
 
 
@@ -98,16 +92,20 @@ cursor: pointer;
     width: 90%;
 }
 /*Fin Clase span o*/
-
+/*-----------*/
+.img{
+    width: 20px;
+    height: 20px;
+    margin-right: 80%;
+}
+.text-up{
+    margin-left: 60%;
+    cursor:pointer;
+}
 
 /*--------------------------------------------------*/
 /* por encima de los 1024px */
 @media screen and (min-width: 1024px){
-    .form-register-user{
-    margin-right: 50em;
-    margin-left: 32em;
-    position: absolute;
-    }
     h2, h4, .slider {
         text-align: left;
         /* margin-left: 3%; */
@@ -142,9 +140,6 @@ cursor: pointer;
  #login-btn-access {
         display:none;
     }
-
-
-    
     #signup-btn {
         position: absolute;
         top: 85%;
@@ -162,4 +157,8 @@ cursor: pointer;
         display:none;
     }
 
+    /*3era pantalla*/
+    .text-style {
+        display:inline-grid;
+    }
 }
