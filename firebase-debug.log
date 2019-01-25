@@ -1,0 +1,25 @@
+[debug] [2019-01-25T14:33:39.371Z] ----------------------------------------------------------------------
+[debug] [2019-01-25T14:33:39.373Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\CINTHYA\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-01-25T14:33:39.374Z] CLI Version:   6.3.0
+[debug] [2019-01-25T14:33:39.374Z] Platform:      win32
+[debug] [2019-01-25T14:33:39.374Z] Node Version:  v10.13.0
+[debug] [2019-01-25T14:33:39.377Z] Time:          Fri Jan 25 2019 09:33:39 GMT-0500 (GMT-05:00)
+[debug] [2019-01-25T14:33:39.377Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-25T14:33:39.389Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-25T14:33:39.390Z] > authorizing via signed-in user
+[debug] [2019-01-25T14:33:39.390Z] [iam] checking project red-social-emprendimiento for permissions ["firebase.projects.get"]
+[debug] [2019-01-25T14:33:39.392Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/red-social-emprendimiento:testIamPermissions  
+
+[debug] [2019-01-25T14:33:40.609Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-25T14:33:40.612Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/red-social-emprendimiento  
+ 
+[debug] [2019-01-25T14:33:41.746Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\CINTHYA\Documents\red-social\LIM008-social-network'...
+[info] 
+[debug] [2019-01-25T14:33:41.759Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/110917534293/clients/_:getWebAppConfig  
+ 
+[debug] [2019-01-25T14:33:43.503Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000

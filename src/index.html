@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,8 +41,9 @@
       encuentra colaboradores y más.</p>
     <p class="is-free">Comienza es gratis</p>
     <div class="start-btn">
-      <button type="submit" id="login-btn-access" class="login-btn">Iniciar sesión</button>
-      <button type="submit" id="signup-btn">Regístrate</button>
+      <button id="login-btn-access" class="login-btn">Iniciar sesión</button>
+      <button id="signup-btn">Regístrate</button>
+      
     </div>
   </section>
 
@@ -53,8 +55,8 @@
     <form id="form-login" class="start-btn">
       <input  type="email" required id="name-login" class="input-login" placeholder="Correo electrónico">
       <input type="password" id="password-login" class="input-login" minlength="6" placeholder="Contraseña">
-      <button type="submit" id="login-btn" class="login-btn">login</button>
     </form>
+
   </section>
 
   <section class="section-register-user" id="section-register-user">
@@ -63,19 +65,25 @@
     <img src="..\src\Imagenes\Iconos_redes_sociales\search.png" alt="img-google">
     <div class="_43mg"><span class="_43mh">o</span></div>
    </div>
-    <form class = "form-register-user">
-        <input type="text" name="" id="" class="input-login" placeholder="Ingresa tu nombre">
-        <input type="text" name="" id="" class="input-login" placeholder="Ingresa tu nombre">
-        <input  type="email" required id="name-sign-up" class="input-login" placeholder="Correo electrónico">
+   
+    <!-- <form class = "form-register-user"> -->
+        <input type="text" name="" id="user-name" class="input-login" placeholder="Ingresa tu nombre">
+        <input type="text" name="" id="user-lastname" class="input-login" placeholder="Ingresa tu apeliido">
+        <!-- working with these -->
+        <input  type="email" required id="email-sign-up" class="input-login" placeholder="Correo electrónico">
         <input type="password" id="password-sign-up" class="input-login" minlength="6" placeholder="Contraseña">
-        <button id="btn-singup" class="login-btn">Sign Up</button>
-      </form>
+        <button id="btn-signup" class="login-btn">Sign Up</button>
+        <button  id="login-btn" class="login-btn">log In</button>
+        <button id="logout-btn" class="logout-btn">Cerrar sesión</button>
+
+      <!-- </form> -->
  </section>
 
-
-
-
+ <!-- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script> -->
+  <script type="module" src="data.js"></script>
   <script type="module" src="main.js"></script>
+
 </body>
 
 </html>

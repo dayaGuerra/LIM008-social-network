@@ -17,7 +17,7 @@ h2, section {
     padding: 10px;
     cursor: pointer;
 }
-#login-form {
+#login-form, .logout-btn {
     display: none;
 }
 /* #sign-up {
