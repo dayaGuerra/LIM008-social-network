@@ -1,98 +1,24 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  
+  <body>
+    <header class="header-social-media">
+     <h2>Social Media</h2> 
+    </header>
+<div><img class="background-social-media" src=".\Imagenes\Background\background-socialmedia.png
+" alt="socialmedia"></div>
+    <section class="container" id="container"></section>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-</head>
-<body>
-  <header>
-    <h2>ABC</h2>
-    <form action="" id="login-form">
-      <!-- desktop view -->
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <label for="email-input">Email</label>
-            </td>
-            <td>
-              <label for="password-input">Contraseña</label>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <input type="email" name="email-input" id="email-input">
-            </td>
-            <td>
-              <input type="password" name="password-input" id="password-input">
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
-  </header>
-  <section id="section-intro-network">
-    <h4>La primera red social para emprendedores peruanos</h4>
-    <p class="slider">ABC conecta a todos los emprendedores y personas interesadas a emprender. Comparte ideas, proyectos,
-      encuentra colaboradores y más.</p>
-    <p class="is-free">Comienza es gratis</p>
-    <div class="start-btn">
-      <button id="login-btn-access" class="login-btn">Iniciar sesión</button>
-      <button id="signup-btn">Regístrate</button>
-      
-    </div>
-  </section>  
-
-  <section id="section-intro-network-login" class="section-intro-network-login login-section">
-    <h4>Iniciar sesión con:</h4>
-    <img src="..\src\Imagenes\Iconos_redes_sociales\facebook.png" alt="img-facebook">
-    <img src="..\src\Imagenes\Iconos_redes_sociales\search.png" alt="img-google">
-    <div class="_43mg"><span class="_43mh">o</span></div>
-    <form id="form-login" class="start-btn">
-      <input  type="email" required id="name-login" class="input-login" placeholder="Correo electrónico">
-      <input type="password" id="password-login" class="input-login" minlength="6" placeholder="Contraseña">
-    </form>
-
-  </section>
-
-  <section class="section-register-user" id="section-register-user">
-    <div class="text-register"><label for="">Registrate con</label></div>
-    <img src="..\src\Imagenes\Iconos_redes_sociales\facebook.png" alt="img-facebook">
-    <img src="..\src\Imagenes\Iconos_redes_sociales\search.png" alt="img-google">
-    <button id="google-register-btn">Registrarse con google</button>
-    <button id="facebook-register-btn">Registrarse con facebook</button>
-    <div class="_43mg"><span class="_43mh">o</span></div>
-   </div>
-   
-    <!-- <form class = "form-register-user"> -->
-
-        <input type="text" name="" id="user-name" class="input-login" placeholder="Ingresa tu nombre">
-        <input type="text" name="" id="user-lastname" class="input-login" placeholder="Ingresa tu apeliido">
-        <!-- working with these -->
-        <input  type="email" required id="email-sign-up" class="input-login" placeholder="Correo electrónico">
-        <input type="password" id="password-sign-up" class="input-login" minlength="6" placeholder="Contraseña">
-        <div id="buttons">
-          <button id="btn-signup" class="login-btn">Sign Up</button>
-          <button  id="login-btn" class="login-btn">log In</button>
-        </div>
-        <button id="logout-btn" class="logout-btn">Cerrar sesión</button>
-        <p id="paragraph"></p>
-        <span id="display-name"></span>
-        <!-- <p id="your-name"></p> -->
-
-      <!-- </form> -->
- </section>
-
- <!-- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script> -->
-  <script type="module" src="data.js"></script>
+<!-- End News -->
   <script type="module" src="main.js"></script>
-
-</body>
+  </body>
 
 </html>

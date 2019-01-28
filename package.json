@@ -24,6 +24,11 @@
     "htmlhint": "^0.10.1",
     "jest": "^23.6.0",
     "regenerator-runtime": "^0.13.1"
+<<<<<<< HEAD
   },
   "dependencies": {}
 }
+=======
+  }
+}
+>>>>>>> c4d1e45c8b1030c54ac48ce59283885238f950ca
