@@ -2,7 +2,7 @@ import { objTempLogin } from './login.js'
 
 const changeTmp = (hash) => {
     if (hash === '#/' || hash === '' || hash === '#') {
-      return viewTmp('#/singIn');
+      return viewTmp('#/singin');
     } else if (hash === '#/singup') {
         return viewTmp(hash);
     }else {
@@ -18,5 +18,4 @@ const changeTmp = (hash) => {
   
   window.addEventListener('load', changeTmp(window.location.hash))
   if (("onhashchange" in window)) window.onhashchange = () => changeTmp(window.location.hash)
-  
   
