@@ -1,5 +1,5 @@
 const objTempLogin = {
-    singIn: `
+    singin: `
     <div id="singin"><div class="text-first text-login"><h4>La primera Red Social para emprendedores peruanos</h4></div>
     <div>
         <form action="">
@@ -18,7 +18,7 @@ const objTempLogin = {
         <input type="password" class="login-social-media" id="password-social-media" placeholder="Contraseña">
       </div>
       <form action=""></form>
-      <button class="login-social-media" id="btn-login">Ingresa</button>
+      <button class="login-social-media btn-login" id="btn-login">Ingresa</button>
       <p>Eres nuevo en Social Media? <a href="#/singup">Registrate</a></p>
       </div>
       </div>`,
