@@ -5,6 +5,11 @@ h2, section {
     margin-top: 15%;
     font-size: 0.7em;
 }
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
 .slider {
     margin-top: 10%;
     font-size: 0.8em;
@@ -17,7 +22,7 @@ h2, section {
     padding: 10px;
     cursor: pointer;
 }
-#login-form, .logout-btn {
+#login-form, #logout-btn {
     display: none;
 }
 /* #sign-up {
@@ -26,7 +31,9 @@ h2, section {
     color: #fff;
     margin-top: 10px;
 } */
-
+#paragraph {
+    color: red;
+}
 /* Por encima de los 760px-tablets */
 @media screen and (min-width: 760px){
     h4 {
