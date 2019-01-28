@@ -1,8 +1,8 @@
 // Este es el punto de entrada de tu aplicacion
 import { myFunction } from './lib/index.js';
-
+var firebase = require("firebase");
 myFunction();
-
+ 
 const loginBtn = document.getElementById('login-btn-access');
 
 loginBtn.addEventListener('click', () => {
