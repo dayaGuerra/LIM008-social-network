@@ -4,11 +4,11 @@ const objTempLogin = {
     <div>
         <form action="">
       <div class="col-form-login-account">
-            <p class="text-login">Iniciar Sesión</p>
-            <a href="#" class="fb btn-social-media">
+            <p class="text-login text-first-sesion">Iniciar Sesión</p>
+            <a href="#/facebook-login" class="fb btn-social-media">
             <i class="fa fa-facebook fa-fw space-media"></i> Facebook
             </a>   
-            <a href="#" class="google btn-social-media"><i class="fa fa-google fa-fw space-media">
+            <a href="#/google-login" class="google btn-social-media"><i class="fa fa-google fa-fw space-media">
             </i> Google+
             </a>
       </div>
@@ -26,11 +26,11 @@ const objTempLogin = {
     <div class="form-sign-up" id="singup">
       <form action="">
       <div class="col-form-create-account">
-        <p class="text-login">Crea una cuenta ¡Es gratis!</p>
-        <a href="#" class="fb btn-social-media">
+        <p class="text-login text-first"> <a href="#/" class="back fa fa-chevron-circle-left "></a> Crea una cuenta ¡Es gratis!</p>
+        <a href="#/facebook-create" class="fb btn-social-media">
         <i class="fa fa-facebook fa-fw space-media"></i> Facebook
         </a>   
-        <a href="#" class="google btn-social-media"><i class="fa fa-google fa-fw space-media">
+        <a href="#/google-create" class="google btn-social-media"><i class="fa fa-google fa-fw space-media">
         </i> Google+
         </a>
       </div>
@@ -46,7 +46,7 @@ const objTempLogin = {
         <input type="password" class="login-social-media" id="create-password" placeholder="Contraseña">
       </div>
       </form>
-      <button class="login-social-media" id="btn-registrer">Registrate</button>
+      <button class="login-social-media btn-login" id="btn-registrer">Registrate</button>
     </div>`,
 
      diferent:`

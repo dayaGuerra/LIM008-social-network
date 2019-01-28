@@ -9,10 +9,13 @@ font-family: Open Sans,sans-serif;
 display: block;
 position: relative;
 padding: 20px;
-background-color: #da3333;
-color: #f1f1f1;
+background-color: #f1f1f1;
+color: #323335;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 width: 100%;
+}
+.background-social-media{
+  display:none;
 }
 /* Login view */
 
@@ -21,9 +24,9 @@ width: 100%;
 display: block;
 position: absolute;
 left: 3%;
-border-radius: 5px;
 padding: 20px 0 30px 0;
 max-width: 300px;
+background-image: url()
 } 
 /*End style container*/
 
@@ -50,8 +53,9 @@ max-width: 300px;
 
 /* Style the buttons social media icons*/
 .back{
-color: white;
+color: #323335;
 text-decoration: none;
+margin-right: 20px;
 }
 .fb {
     background-color: #3B5998;
@@ -74,13 +78,23 @@ text-decoration: none;
 /* Text login */
 .space-form{
   text-align:center;
+  color:#323335;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 .text-first {
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 color:#323335;
 text-align: center;
 font-size: 25px;
-margin-bottom: 50px;
+margin-bottom: 35px;
+}
+.text-first-sesion{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+color:#323335;
+text-align: left;
+font-size: 20px;
+margin-bottom: 10px;
 }
 /* End text login */
 
@@ -95,3 +109,26 @@ margin-bottom: 50px;
 }
 /* End btns-log */
 /* ------------------------------------------------------------------- */
+@media screen and (min-width: 768px) {
+
+  .background-social-media{
+    display: block;
+    position: absolute;
+    width: 100%;
+    -webkit-filter: drop-shadow(8px 8px 10px #4c5a4c);
+    filter: drop-shadow(8px 8px 10px #294b29)
+    }
+    /* Login view */
+    
+    /* Style the container */
+    .container {
+    display: block;
+    position: absolute;
+    margin-top: 5%;
+    left: 3%;
+    padding: 12px ;
+    max-width: 320px;
+    background-color: #f1f1f1;
+    opacity:0.9;
+    }
+}
