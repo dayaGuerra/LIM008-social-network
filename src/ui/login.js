@@ -45,8 +45,10 @@ const objTempLogin = {
         <input type="email" class="login-social-media" id="create-email" placeholder="Correo electronico">
         <input type="password" class="login-social-media" id="create-password" placeholder="Contraseña">
       </div>
+      
       </form>
       <button class="login-social-media btn-login" id="btn-registrer">Registrate</button>
+      
     </div>`,
 
      diferent:`
