@@ -1,5 +1,19 @@
-import { objTempLogin } from '../ui/login.js'
+// import { objTempLogin } from '../ui/login.js'
 // import { objTempProfile } from '../ui/profile.js'
+
+
+// obtener elementos
+//   const fbBtn = document.getElementsByClassName('fb btn-social-media');
+//   const googleBtn = document.getElementsByClassName('google btn-social-media');
+// const objTemplate = objTempLogin;
+const logInBtn = document.getElementById('btn-login');
+const emailLoginInput = document.getElementById('email-social-media');
+const passwordLoginInput = document.getElementById('password-social-media');
+const userName = document.getElementById('name-social-media');
+const userLastname = document.getElementById('lastname-social-media');
+const emailSignup = document.getElementById('create-email');
+const passwordSignup = document.getElementById('create-password');
+const signUpBtn = document.querySelector('#btn-registrer');
 
 // Initialize Firebase
 var config = {
@@ -12,18 +26,7 @@ var config = {
   };
   firebase.initializeApp(config);
 
-// obtener elementos
-//   const fbBtn = document.getElementsByClassName('fb btn-social-media');
-//   const googleBtn = document.getElementsByClassName('google btn-social-media');
-const objTemplate = objTempLogin;
-  const logInBtn = document.getElementById('btn-login');
-  const emailLoginInput = document.getElementById('email-social-media');
-  const passwordLoginInput = document.getElementById('password-social-media');
-  const userName = document.getElementById('name-social-media');
-  const userLastname = document.getElementById('lastname-social-media');
-  const emailSignup = document.getElementById('create-email');
-  const passwordSignup = document.getElementById('create-password');
-  const signUpBtn = document.querySelector('#btn-registrer');
+
 
 // creacion de cuenta
 const createAccount = () => {
@@ -61,9 +64,9 @@ const logInUser = () => {
 logInBtn.addEventListener('click', logInUser);
 
 // cerrar sesion
-logOutBtn.addEventListener('click', e => {
-    firebase.auth().signOut();
-});
+// logOutBtn.addEventListener('click', e => {
+//     firebase.auth().signOut();
+// });
 // firebaseUser se ejecutara cada vez que haya un cambio en el estado del usuario
 const checksIfUserIsLogin = () => {
     firebase.auth().onAuthStateChanged(firebaseUser => {
