@@ -1,10 +1,16 @@
-*{
+* {
 box-sizing: border-box; 
 margin: 0;
 }
-body{
+body {
 font-family: Open Sans,sans-serif;
 }
+/* .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+} */
+
 .header-social-media{
 display: block;
 position: relative;
@@ -29,6 +35,11 @@ max-width: 300px;
 background-image: url()
 } 
 /*End style container*/
+
+/* ocultar sign-up form */
+.form-sign-up, .logout-btn {
+  display: none;
+}
 
 /* style inputs and link buttons */
 .btn-social-media {
