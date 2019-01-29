@@ -1,6 +1,6 @@
 const objTempLogin = {
-    singin: `
-    <div id="singin"><div class="text-first text-login"><h4>La primera Red Social para emprendedores peruanos</h4></div>
+    signin: `
+    <div id="signin"><div class="text-first text-login"><h4>La primera Red Social para emprendedores peruanos</h4></div>
     <div>
         <form action="">
       <div class="col-form-login-account">
@@ -19,11 +19,11 @@ const objTempLogin = {
       </div>
       <form action=""></form>
       <button class="login-social-media btn-login" id="btn-login">Ingresa</button>
-      <p>Eres nuevo en Social Media? <a href="#/singup">Registrate</a></p>
+      <p>Eres nuevo en Social Media? <a href="#/signup">Registrate</a></p>
       </div>
       </div>`,
-    singup: `
-    <div class="form-sign-up" id="singup">
+    signup: `
+    <div class="form-sign-up" id="signup">
       <form action="">
       <div class="col-form-create-account">
         <p class="text-login text-first"> <a href="#/" class="back fa fa-chevron-circle-left "></a> Crea una cuenta ¡Es gratis!</p>
@@ -45,8 +45,10 @@ const objTempLogin = {
         <input type="email" class="login-social-media" id="create-email" placeholder="Correo electronico">
         <input type="password" class="login-social-media" id="create-password" placeholder="Contraseña">
       </div>
+      
       </form>
       <button class="login-social-media btn-login" id="btn-registrer">Registrate</button>
+      
     </div>`,
 
      diferent:`
@@ -57,4 +59,4 @@ const objTempLogin = {
    </div>`
   }
   
-  export { objTempLogin }
+  export  { objTempLogin }
