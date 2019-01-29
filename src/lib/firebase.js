@@ -23,27 +23,28 @@ const objTemplate = objTempLogin;
   const userLastname = document.getElementById('lastname-social-media');
   const emailSignup = document.getElementById('create-email');
   const passwordSignup = document.getElementById('create-password');
-  const signUpBtn = document.querySelector('#btn-registrer');
+  const signUpBtn = document.getElementById('btn-registrer');
 
 // creacion de cuenta
-const createAccount = () => {
-    const name = userName.value;
-    const lastname = userLastName.value;
-    const email = emailSignup.value;
-    const pass = passwordSignup.value;
-    const auth = firebase.auth();
-    const promise = auth.createUserWithEmailAndPassword(email, pass);
-    promise.catch(error => {
-        console.log(error.code)
-        if(error.code === 'auth/email-already-in-use')
-        paragraph.innerHTML = `Otra cuenta usa ${email}.`
-    });
-};
-signUpBtn.addEventListener('click', createAccount);
+
+signUpBtn.addEventListener('click', () => {
+
+        // const name = userName.value;
+        // const lastname = userLastName.value;
+        const email = emailSignup.value;
+        const pass = passwordSignup.value;
+        const auth = firebase.auth();
+        const promise = auth.createUserWithEmailAndPassword(email, pass);
+        promise.catch(error => {
+            console.log(error.code)
+            if(error.code === 'auth/email-already-in-use')
+            paragraph.innerHTML = `Otra cuenta usa ${email}.`
+        });
+});
 
 
 // inicio de sesion 		
-const logInUser = () => {
+logInBtn.addEventListener('click', () => {
   const email = emailLoginInput.value;
   const pass = passwordLoginInput.value;
   const auth = firebase.auth();
@@ -57,8 +58,7 @@ const logInUser = () => {
     //   paragraph.innerHTML = 'El correo electronico que ingresaste no pertenece a ninguna cuenta.'
     // }
   });
-};
-logInBtn.addEventListener('click', logInUser);
+});
 
 // cerrar sesion
 logOutBtn.addEventListener('click', e => {
