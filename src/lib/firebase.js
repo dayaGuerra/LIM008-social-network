@@ -9,10 +9,6 @@ const googleBtn = document.getElementsByClassName('google btn-social-media');
 const logInBtn = document.getElementById('btn-login');
 const emailLoginInput = document.getElementById('email-social-media');
 const passwordLoginInput = document.getElementById('password-social-media');
-const userName = document.getElementById('name-social-media');
-const userLastname = document.getElementById('lastname-social-media');
-const emailSignup = document.getElementById('create-email');
-const passwordSignup = document.getElementById('create-password');
 const signUpBtn = document.getElementById('btn-registrer');
 const paragraph = document.getElementById('paragraph');
 const logOutBtn = document.getElementById('logout-btn')
@@ -35,8 +31,13 @@ var config = {
 });
 // creacion de cuenta
 signUpBtn.addEventListener('click', () => {
+    const userName = document.getElementById('name-social-media');
+    const userLastname = document.getElementById('lastname-social-media');
+    const emailSignup = document.getElementById('create-email');
+    const passwordSignup = document.getElementById('create-password');
+    
     const name = userName.value;
-    const lastname = userLastName.value;
+    const lastname = userLastname.value;
     const email = emailSignup.value;
     const pass = passwordSignup.value;
     const auth = firebase.auth();
