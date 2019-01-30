@@ -15,10 +15,22 @@ font-family: Open Sans,sans-serif;
 display: block;
 position: relative;
 padding: 20px;
+font-size: 14px;
+box-shadow: 20px -12px 20px 12px black;
 background-color: #f1f1f1;
 color: #323335;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 width: 100%;
+}
+.logo-hands{
+  width: 40px;
+ 
+}
+.web-title{
+  display:none;
+}
+.mobile-title{
+display:block;
 }
 .background-social-media{
   display:none;
@@ -125,13 +137,30 @@ margin-bottom: 10px;
 /* End btns-log */
 /* ------------------------------------------------------------------- */
 @media screen and (min-width: 768px) {
+  .header-social-media{
+    display: block;
+    position: relative;
+    top: 0;
+    padding: 20px;
+    font-size:20px;
+    box-shadow: 20px -12px 20px 12px black;
+    background-color: #f1f1f1;
+    color: #323335;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+    }
+.web-title{
+  display:block;
+}
+.mobile-title{
+  display:none;
+  }
 
   .background-social-media{
     display: block;
     position: absolute;
-    width: 100%;
-    -webkit-filter: drop-shadow(8px 8px 10px #4c5a4c);
-    filter: drop-shadow(8px 8px 10px #294b29)
+   max-height: 100%;
+   max-width: 100%;
     }
     /* Login view */
     

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!-- copia estos links en el head :D -->
+<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-firestore.js"></script>
+<script>
+
+</script>
+<!-- esto iría en estilos -->
+ <style>
+        .select{
+            padding-left: 20px;
+        }
+        .post{
+            border: 1px solid #FFF;
+            border-color: black;
+            height: 50%;
+           width: 50%;
+       }
+       .text-area-css{
+           height: 20%;
+           width: 20%;
+           margin-left: 1em;
+           margin-top: 1em;
+       }
+       .form-down{
+           margin-left: 70%;
+       }
+    </style>
+</head>
+<body>
+  <div class="post">
+        <div class="text-area-css">
+            <textarea  id="text-post" cols="75" rows="10" placeholder="¿Qué está pasando?" required ></textarea>
+        </div>
+        <div class="form-down">
+            <select id="select-type-publication" class="select">
+            <option value="Amigos">Amigos</option>
+            <option value="Publico">Public</option>
+            </select>
+            <button id="btn-post"type ="button">publicar</button>
+        </div>
+    </div>
+    <section id="section-post"></section>
+        
+      <script src="appPost.js"></script>
+</body>
+</html>

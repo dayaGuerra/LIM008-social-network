@@ -53,115 +53,120 @@ signUpBtn.addEventListener('click', () => {
     });
 });
 
-// inicio de sesion 		
-logInBtn.addEventListener('click', () => {
-  const email = emailLoginInput.value;
-  const pass = passwordLoginInput.value;
-  const auth = firebase.auth();
-  const promise = auth.signInWithEmailAndPassword(email, pass);
-  promise.catch(error => {
-    const errorCode = error.code;
-    console.log(errorCode)
-    if (errorCode === 'auth/wrong-password') {
-      paragraph.innerHTML = 'La contraseña no es correcta. Vuelve a intentarlo'
-    } else if (errorCode === 'auth/user-not-found') {
-      paragraph.innerHTML = 'El correo electronico que ingresaste no pertenece a ninguna cuenta.'
-    }
-  });
-});
+// // inicio de sesion 		
+// logInBtn.addEventListener('click', () => {
+//   const email = emailLoginInput.value;
+//   const pass = passwordLoginInput.value;
+//   const auth = firebase.auth();
+//   const promise = auth.signInWithEmailAndPassword(email, pass);
+//   promise.catch(error => {
+//     const errorCode = error.code;
+//     console.log(errorCode)
+//     if (errorCode === 'auth/wrong-password') {
+//       paragraph.innerHTML = 'La contraseña no es correcta. Vuelve a intentarlo'
+//     } else if (errorCode === 'auth/user-not-found') {
+//       paragraph.innerHTML = 'El correo electronico que ingresaste no pertenece a ninguna cuenta.'
+//     }
+//   });
+// });
 
-// cerrar sesion
-logOutBtn.addEventListener('click', e => {
-    firebase.auth().signOut();
-});
+// // cerrar sesion
+// logOutBtn.addEventListener('click', e => {
+//     firebase.auth().signOut();
+//     con
+// });
 
-// firebaseUser se ejecutara cada vez que haya un cambio en el estado del usuario
-const checksIfUserIsLogin = () => {
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-            console.log(firebaseUser)
-            console.log('estas logueado');
-            logOutBtn.style.display = 'block';
-            // document.getElementById('buttons').style.display = 'none';
-            const email = emailSignup.value;
-            paragraph.innerHTML = '';
-            // yourName.innerHTML = email;
-            document.getElementById('second-page').innerHTML = `
-            <h4>Bienvenido ${firebaseUser.displayName}</h4>
-            <img src=${firebaseUser.photoURL} class="profile-picture">
-            <p>${firebaseUser.email}</p>
-            <p>${firebaseUser.phoneNumber !== null ? `Número: ${firebaseUser.phoneNumber}` : ''}</p>
-            `
+// // firebaseUser se ejecutara cada vez que haya un cambio en el estado del usuario
+// const checksIfUserIsLogin = () => {
+//     firebase.auth().onAuthStateChanged(firebaseUser => {
+//         if (firebaseUser) {
+//             console.log(firebaseUser)
+//             console.log('estas logueado');
+//             logOutBtn.style.display = 'block';
+//             // document.getElementById('buttons').style.display = 'none';
+//             const email = emailSignup.value;
+//             paragraph.innerHTML = '';
+//             // yourName.innerHTML = email;
+//             document.getElementById('second-page').innerHTML = `
+//             <h4>Bienvenido ${firebaseUser.displayName}</h4>
+//             <img src=${firebaseUser.photoURL} class="profile-picture">
+//             <p>${firebaseUser.email}</p>
+//             <p>${firebaseUser.phoneNumber !== null ? `Número: ${firebaseUser.phoneNumber}` : ''}</p>
+//             `
 
-        } else {
-            console.log('no esta logueado');
-            // document.getElementById('buttons').style.display = 'block';
-            logOutBtn.style.display = 'none';
-        }
-    });
-}; 
-checksIfUserIsLogin();
+//         } else {
+//             console.log('no esta logueado');
+//             // document.getElementById('buttons').style.display = 'block';
+//             logOutBtn.style.display = 'none';
+//         }
+//     });
+// }; 
+// checksIfUserIsLogin();
 
-const googleRegistration = () => {
-    if(!firebase.auth().currentUer){
-        const provider = new firebase.auth.GoogleAuthProvider();
-        provider.addScope('https://www.googleapis.com/auth/plus.login');
-        // Para ofrecer acceso con una ventana emergente, invoca signInWithPopup:
-        firebase.auth().signInWithPopup(provider)
-        .then(result => {
-            const token = result.credential.accessToken;
-            const user = result.user;  
-        }).catch(error => {
-            const errorCode = error.code;
-            console.log(error.code);
-            const errorMessage = error.message;
-            const email = error.email;
-            const credential = error.credential;
-            if(errorCode === 'auth/account-exists-with-different-credential'){
-                alert('Es el mismo usuario')
-            } 
-        });
-    } else {
-        firebase.auth().signOut();
-    }
+// const googleRegistration = () => {
+//     if(!firebase.auth().currentUer){
+//         const provider = new firebase.auth.GoogleAuthProvider();
+//         provider.addScope('https://www.googleapis.com/auth/plus.login');
+//         // Para ofrecer acceso con una ventana emergente, invoca signInWithPopup:
+//         firebase.auth().signInWithPopup(provider)
+//         .then(result => {
+//             const token = result.credential.accessToken;
+//             const user = result.user;  
+//         }).catch(error => {
+//             const errorCode = error.code;
+//             console.log(error.code);
+//             const errorMessage = error.message;
+//             const email = error.email;
+//             const credential = error.credential;
+//             if(errorCode === 'auth/account-exists-with-different-credential'){
+//                 alert('Es el mismo usuario')
+//             } 
+//         });
+//     } else {
+//         firebase.auth().signOut();
+//     }
     
-};
-googleBtn[0].addEventListener('click', googleRegistration);
-googleBtn[1].addEventListener('click', googleRegistration);
+// };
+// googleBtn[1].addEventListener('click', googleRegistration);
 
 
-const facebookRegistration = () => {
-    if(!firebase.auth().currentUer){
-        const provider = new firebase.auth.FacebookAuthProvider();
-        provider.addScope('public_profile,email');
-        // Para ofrecer acceso con una ventana emergente, invoca signInWithPopup:
-        firebase.auth().signInWithPopup(provider)
-        .then(result => {
-            const token = result.credential.accessToken;
-            const user = result.user;
-            console.log(user)
-            // const name = result.user.displayName;
-            // document.getElementById('display-name').innerHTML = `
-            // <h4>Bienvenido ${name}</h4>
-            // <img src=${result.user.photoURL} class="profile-picture">
-            // `
-        }).catch(error => {
-            const errorCode = error.code;
-            console.log(error.code);
-            const errorMessage = error.message;
-            const email = error.email;
-            const credential = error.credential;
-            if(errorCode === 'auth/account-exists-with-different-credential'){
-                alert('Es el mismo usuario')
-            } 
-        });
-    } else {
-        firebase.auth().signOut();
-    }
+// const facebookRegistration = () => {
+//     if(!firebase.auth().currentUer){
+//         const provider = new firebase.auth.FacebookAuthProvider();
+//         provider.addScope('public_profile,email');
+//         // Para ofrecer acceso con una ventana emergente, invoca signInWithPopup:
+//         firebase.auth().signInWithPopup(provider)
+//         .then(result => {
+//             const token = result.credential.accessToken;
+//             const user = result.user;
+//             console.log(user)
+//             // const name = result.user.displayName;
+//             // document.getElementById('display-name').innerHTML = `
+//             // <h4>Bienvenido ${name}</h4>
+//             // <img src=${result.user.photoURL} class="profile-picture">
+//             // `
+//         }).catch(error => {
+//             const errorCode = error.code;
+//             console.log(error.code);
+//             const errorMessage = error.message;
+//             const email = error.email;
+//             const credential = error.credential;
+//             if(errorCode === 'auth/account-exists-with-different-credential'){
+//                 alert('Es el mismo usuario')
+//             } 
+//         });
+//     } else {
+//         firebase.auth().signOut();
+//     }
     
+<<<<<<< HEAD
 };
 fbBtn[0].addEventListener('click', facebookRegistration);
 fbBtn[1].addEventListener('click', facebookRegistration);
+=======
+// };
+// fbBtn[1].addEventListener('click', facebookRegistration);
+>>>>>>> ab799f2171259f09d4cbb4cad109af3abc2bdd32
 
 
 
