@@ -2,15 +2,7 @@
 // import { objTempProfile } from '../ui/profile.js'
 
 
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyCFIc9_Vwpj7_oVkfwCJ0jRww_66azD1hE",
-    authDomain: "red-social-emprendimiento.firebaseapp.com",
-    databaseURL: "https://red-social-emprendimiento.firebaseio.com",
-    projectId: "red-social-emprendimiento",
-    storageBucket: "red-social-emprendimiento.appspot.com",
-    messagingSenderId: "110917534293"
-  };
+
   firebase.initializeApp(config);
 
 // obtener elementos
@@ -159,14 +151,8 @@ signUpBtn.addEventListener('click', () => {
 //         firebase.auth().signOut();
 //     }
     
-<<<<<<< HEAD
-};
-fbBtn[0].addEventListener('click', facebookRegistration);
-fbBtn[1].addEventListener('click', facebookRegistration);
-=======
 // };
 // fbBtn[1].addEventListener('click', facebookRegistration);
->>>>>>> ab799f2171259f09d4cbb4cad109af3abc2bdd32
 
 
 
