@@ -37,8 +37,12 @@ background-image: url()
 /*End style container*/
 
 /* ocultar sign-up form */
-.form-sign-up, .logout-btn {
+/* .form-sign-up */
+.logout-btn {
   display: none;
+}
+.para { 
+  color: red;
 }
 
 /* style inputs and link buttons */

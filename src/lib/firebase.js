@@ -2,6 +2,17 @@
 // import { objTempProfile } from '../ui/profile.js'
 
 
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyCFIc9_Vwpj7_oVkfwCJ0jRww_66azD1hE",
+    authDomain: "red-social-emprendimiento.firebaseapp.com",
+    databaseURL: "https://red-social-emprendimiento.firebaseio.com",
+    projectId: "red-social-emprendimiento",
+    storageBucket: "red-social-emprendimiento.appspot.com",
+    messagingSenderId: "110917534293"
+  };
+  firebase.initializeApp(config);
+
 // obtener elementos
 const fbBtn = document.getElementsByClassName('fb btn-social-media');
 const googleBtn = document.getElementsByClassName('google btn-social-media');
@@ -14,32 +25,31 @@ const userLastname = document.getElementById('lastname-social-media');
 const emailSignup = document.getElementById('create-email');
 const passwordSignup = document.getElementById('create-password');
 const signUpBtn = document.querySelector('#btn-registrer');
+const errorSignup = document.getElementById('error-message-signup');
 const paragraph = document.getElementById('paragraph');
-const logOutBtn = document.getElementById('logout-btn')
-
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyCFIc9_Vwpj7_oVkfwCJ0jRww_66azD1hE",
-    authDomain: "red-social-emprendimiento.firebaseapp.com",
-    databaseURL: "https://red-social-emprendimiento.firebaseio.com",
-    projectId: "red-social-emprendimiento",
-    storageBucket: "red-social-emprendimiento.appspot.com",
-    messagingSenderId: "110917534293"
-  };
-  firebase.initializeApp(config);
+const logOutBtn = document.getElementById('logout-btn');
 
 // creacion de cuenta
 signUpBtn.addEventListener('click', () => {
-    const name = userName.value;
-    const lastname = userLastName.value;
-    const email = emailSignup.value;
-    const pass = passwordSignup.value;
-    const auth = firebase.auth();
-    const promise = auth.createUserWithEmailAndPassword(email, pass);
-    promise.catch(error => {
-        console.log(error.code)
-        if(error.code === 'auth/email-already-in-use')
-        paragraph.innerHTML = `Otra cuenta usa ${email}.`
+  const name = userName.value;
+  const lastname = userLastname.value;
+  const email = emailSignup.value;
+  const pass = passwordSignup.value;
+  firebase.auth().createUserWithEmailAndPassword(email, pass)
+  .then(result => {
+    const configuracion = {
+        url: 'http://localhost:5000/' // gh-pages link
+    }
+    result.user.sendEmailVerification(configuracion).catch(error  => {
+      console.log(error.code)
+      console.log('No se pudo enviar email')
+    });
+    firebase.auth().signOut()
+  }).catch(error => {
+      console.log(error.code);
+      if(error.code === 'auth/email-already-in-use') {
+        errorSignup.innerHTML = `Otra cuenta usa ${email}.`
+      }
     });
 });
 
@@ -116,6 +126,7 @@ const googleRegistration = () => {
     }
     
 };
+googleBtn[0].addEventListener('click', googleRegistration);
 googleBtn[1].addEventListener('click', googleRegistration);
 
 
@@ -149,6 +160,7 @@ const facebookRegistration = () => {
     }
     
 };
+fbBtn[0].addEventListener('click', facebookRegistration);
 fbBtn[1].addEventListener('click', facebookRegistration);
 
 
