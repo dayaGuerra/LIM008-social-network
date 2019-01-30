@@ -1,8 +1,9 @@
-export {objTempLogin} from './login.js';
-// import {signin} from './firebase.js';
-export default () => {
+
+import {createNewAccount} from '../lib/firebase.js';
+export const signInForm = () => {
   const form = document.createElement('form');
-  form.innerHTML = `<div id="signin"><div class="text-first text-login"><h4>La primera Red Social para emprendedores peruanos</h4></div>
+  form.innerHTML = `<div id="signin">
+  <div class="text-first text-login"><h4>La primera Red Social para emprendedores peruanos</h4></div>
     <div>
       <div class="col-form-login-account">
             <p class="text-login text-first-sesion">Iniciar Sesión</p>
@@ -24,6 +25,6 @@ export default () => {
       </div>
       `;
   const btnLogin = form.querySelector('#btn-login');
-  btnLogin.addEventListener('click', signin);
+  btnLogin.addEventListener('click', createNewAccount);
   return form;
 };

@@ -39,7 +39,8 @@ var config = {
 // });
 // // creacion de cuenta
 // signUpBtn.addEventListener('click', );
-const createNewAccount = () => {
+export const createNewAccount = (event) => {
+    event.preventDefault();
     console.log('entro a la funcion');
     // const name = userName.value;
     // const lastname = userLastname.value;
@@ -52,7 +53,7 @@ const createNewAccount = () => {
     //     if(error.code === 'auth/email-already-in-use')
     //     paragraph.innerHTML = `Otra cuenta usa ${email}.`
     // });
-}
+};
 
 
 // // inicio de sesion 		

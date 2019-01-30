@@ -1,6 +1,6 @@
-import { nombrelafuncion } from './ui/signInForm.js';
-const objTempLogin = {
-  signin: nombrelafuncion(),
+import  form  from './signInForm.js';
+export const objTempLogin = {
+  signin: form(),
 
   diferent: `
      <div id="message">
@@ -9,5 +9,3 @@ const objTempLogin = {
      <p>El archivo especificado no se encontró en este sitio web. Por favor, compruebe la URL para errores y vuelva a intentarlo.</p>
    </div>`
 };
-
-export { objTempLogin };
