@@ -9,7 +9,11 @@ const googleBtn = document.getElementsByClassName('google btn-social-media');
 const logInBtn = document.getElementById('btn-login');
 const emailLoginInput = document.getElementById('email-social-media');
 const passwordLoginInput = document.getElementById('password-social-media');
-const signUpBtn = document.getElementById('btn-registrer');
+const userName = document.getElementById('name-social-media');
+const userLastName = document.getElementById('lastname-social-media');
+const emailSignup = document.getElementById('create-email');
+const passwordSignup = document.getElementById('create-password');
+const signUpBtn = document.getElementById('btn-registry');
 const paragraph = document.getElementById('paragraph');
 const logOutBtn = document.getElementById('logout-btn')
 const formSignUp = document.getElementById('signup');
@@ -69,6 +73,7 @@ logInBtn.addEventListener('click', () => {
 // cerrar sesion
 logOutBtn.addEventListener('click', e => {
     firebase.auth().signOut();
+    con
 });
 
 // firebaseUser se ejecutara cada vez que haya un cambio en el estado del usuario
