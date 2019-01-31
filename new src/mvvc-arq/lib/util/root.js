@@ -1,4 +1,4 @@
-import { objTempLogin } from '../ui/login.js';
+import { objTempLogin } from '../../ui/logincreate.js';
 
 export const myFunction = () => {
   const changeTmp = (hash) => {

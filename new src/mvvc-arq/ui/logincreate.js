@@ -38,5 +38,3 @@ export const signInForm = () => {
   formElem.innerHTML = tempformLogin;
   return formElem;
 };
-
-
