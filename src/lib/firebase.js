@@ -29,21 +29,21 @@ firebase.initializeApp(config);
 // });
 // // creacion de cuenta
 // signUpBtn.addEventListener('click', );
-// export const createNewAccount = (event) => {
-//     event.preventDefault();
-//     console.log('entro a la funcion');
-//     const name = userName.value;
-//     const lastname = userLastname.value;
-//     const email = emailSignup.value;
-//     const pass = passwordSignup.value;
-//     const auth = firebase.auth();
-//     const promise = auth.createUserWithEmailAndPassword(email, pass);
-//     promise.catch(error => {
-//         console.log(error.code);
-//         if (error.code === 'auth/email-already-in-use')
-//             paragraph.innerHTML = `Otra cuenta usa ${email}.`;
-//     });
-// };
+export const createNewAccount = (event) => {
+    event.preventDefault();
+    console.log('entro a la funcion');
+    const name = userName.value;
+    const lastname = userLastname.value;
+    const email = emailSignup.value;
+    const pass = passwordSignup.value;
+    const auth = firebase.auth();
+    const promise = auth.createUserWithEmailAndPassword(email, pass);
+    promise.catch(error => {
+        console.log(error.code);
+        if (error.code === 'auth/email-already-in-use')
+            paragraph.innerHTML = `Otra cuenta usa ${email}.`;
+    });
+};
 
 
 // // inicio de sesion 		

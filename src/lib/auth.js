@@ -55,6 +55,10 @@ window.authentication = {
         console.log(error.code);
       });
   },
-  
-
+  signOut: () => {
+    firebase.auth().signOut()
+      .then(() => {
+        //  que queremos que ocurra cuando se cierra sesion
+      }).catch(error => console.log(error.code))
+  }
 };
