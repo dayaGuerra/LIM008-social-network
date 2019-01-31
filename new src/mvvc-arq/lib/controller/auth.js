@@ -13,7 +13,7 @@ window.authentication = {
       }).catch(error => {
         console.log(error.code);
         if (error.code === 'auth/email-already-in-use') {
-        //   errorSignup.innerHTML = `Otra cuenta usa ${email}.`;
+          //   errorSignup.innerHTML = `Otra cuenta usa ${email}.`;
         }
       });
   },  
@@ -55,10 +55,6 @@ window.authentication = {
         console.log(error.code);
       });
   },
-  signOut: () => {
-    firebase.auth().signOut()
-      .then(() => {
-        //  que queremos que ocurra cuando se cierra sesion
-      }).catch(error => console.log(error.code))
-  }
+    
+  
 };
