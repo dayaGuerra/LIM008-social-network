@@ -13,25 +13,15 @@ const googleBtn = document.getElementsByClassName('google btn-social-media');
 // const logInBtn = document.getElementById('btn-login');
 // const emailLoginInput = document.getElementById('email-social-media');
 // const passwordLoginInput = document.getElementById('password-social-media');
-// const userName = document.getElementById('name-social-media');
-// const userLastName = document.getElementById('lastname-social-media');
-// const emailSignup = document.getElementById('create-email');
-// const passwordSignup = document.getElementById('create-password');
+//
 // const signUpBtn = document.getElementById('btn-registry');
 // const paragraph = document.getElementById('paragraph');
 // const logOutBtn = document.getElementById('logout-btn')
 // const formSignUp = document.getElementById('signup');
 // const aRegistrar = document.getElementById('a-registrar');
 // Initialize Firebase
-var config = {
-    apiKey: "AIzaSyCFIc9_Vwpj7_oVkfwCJ0jRww_66azD1hE",
-    authDomain: "red-social-emprendimiento.firebaseapp.com",
-    databaseURL: "https://red-social-emprendimiento.firebaseio.com",
-    projectId: "red-social-emprendimiento",
-    storageBucket: "red-social-emprendimiento.appspot.com",
-    messagingSenderId: "110917534293"
-  };
-  firebase.initializeApp(config);
+
+firebase.initializeApp(config);
 
 //   aRegistrar.addEventListener('click',() => {
 //     formSignUp.style.display='block';
@@ -39,21 +29,21 @@ var config = {
 // });
 // // creacion de cuenta
 // signUpBtn.addEventListener('click', );
-export const createNewAccount = (event) => {
-    event.preventDefault();
-    console.log('entro a la funcion');
-    // const name = userName.value;
-    // const lastname = userLastname.value;
-    // const email = emailSignup.value;
-    // const pass = passwordSignup.value;
-    // const auth = firebase.auth();
-    // const promise = auth.createUserWithEmailAndPassword(email, pass);
-    // promise.catch(error => {
-    //     console.log(error.code)
-    //     if(error.code === 'auth/email-already-in-use')
-    //     paragraph.innerHTML = `Otra cuenta usa ${email}.`
-    // });
-};
+// export const createNewAccount = (event) => {
+//     event.preventDefault();
+//     console.log('entro a la funcion');
+//     const name = userName.value;
+//     const lastname = userLastname.value;
+//     const email = emailSignup.value;
+//     const pass = passwordSignup.value;
+//     const auth = firebase.auth();
+//     const promise = auth.createUserWithEmailAndPassword(email, pass);
+//     promise.catch(error => {
+//         console.log(error.code);
+//         if (error.code === 'auth/email-already-in-use')
+//             paragraph.innerHTML = `Otra cuenta usa ${email}.`;
+//     });
+// };
 
 
 // // inicio de sesion 		
@@ -128,7 +118,7 @@ export const createNewAccount = (event) => {
 //     } else {
 //         firebase.auth().signOut();
 //     }
-    
+
 // };
 // googleBtn[1].addEventListener('click', googleRegistration);
 
@@ -161,7 +151,7 @@ export const createNewAccount = (event) => {
 //     } else {
 //         firebase.auth().signOut();
 //     }
-    
+
 // };
 // fbBtn[1].addEventListener('click', facebookRegistration);
 
