@@ -1,5 +1,5 @@
 // Importas el archivo que contiene el elemento padre
-import {signUpOnSubmit, logInOnSubmit} from '../lib/view-controller/view-controller-auth.js';
+import { signUpOnSubmit, logInOnSubmit, googleOnSubmit, facebookOnSubmit } from '../lib/view-controller/view-controller-auth.js';
 
 export const signInForm = () => {
   const formElem = document.createElement('form');
@@ -12,10 +12,10 @@ export const signInForm = () => {
     <div>
       <div class="col-form-login-account">
         <p class="text-login text-first-sesion">Iniciar Sesión</p>
-        <a href="#/facebook-login" class="fb btn-social-media">
+        <a href="#/facebook-login" class="fb btn-social-media" id="facebook-login">
           <i class="fa fa-facebook fa-fw space-media"></i> Facebook
         </a>   
-        <a href="#/google-login" class="google btn-social-media">
+        <a href="#/google-login" class="google btn-social-media" id="google-login">
           <i class="fa fa-google fa-fw space-media"></i> Google+
         </a>
       </div>
@@ -25,6 +25,7 @@ export const signInForm = () => {
       <input type="password" class="login-social-media" id="password-social-media" placeholder="Contraseña">
       <p id="error-message"></p>
     </div>
+    <p id="error-message-login"></p>
     <button class="login-social-media btn-login" id="btn-login">Ingresa</button>
     <p>Eres nuevo en Social Media? <a href="#/signup">Registrate</a></p>
    </div>
@@ -33,6 +34,10 @@ export const signInForm = () => {
   formElem.innerHTML = tempformLogin;
   const logInBtn = formElem.querySelector('#btn-login');
   logInBtn.addEventListener('click', logInOnSubmit);
+  const googleBtn = formElem.querySelector('#google-login');
+  googleBtn.addEventListener('click', googleOnSubmit);
+  const facebookBtn = formElem.querySelector('#facebook-login');
+  facebookBtn.addEventListener('click', facebookOnSubmit);
   return formElem;
 };
 
@@ -45,10 +50,10 @@ export const signUpForm = () => {
         <p class="text-login text-first">
           <a href="#/" class="back fa fa-chevron-circle-left "></a> Crea una cuenta ¡Es gratis!
         </p>
-        <a href="#/facebook-create" class="fb btn-social-media">
+        <a href="#/facebook-create" class="fb btn-social-media" id="facebook-create-btn">
           <i class="fa fa-facebook fa-fw space-media"></i> Facebook
         </a>   
-        <a href="#/google-create" class="google btn-social-media">
+        <a href="#/google-create" class="google btn-social-media" id="google-create-btn">
           <i class="fa fa-google fa-fw space-media"></i> Google+
         </a>
       </div>
@@ -63,12 +68,16 @@ export const signUpForm = () => {
         <input type="email" class="login-social-media" id="create-email" placeholder="Correo electronico">
         <input type="password" class="login-social-media" id="create-password" placeholder="Contraseña">
       </div>
+      <p id="error-message-signup"></p>
       <button class="login-social-media btn-login" id="btn-register">Registrate</button> 
     </div>`;
   
   formElem.innerHTML = tempFormSignUp;
   const SignUpBtn = formElem.querySelector('#btn-register');
   SignUpBtn.addEventListener('click', signUpOnSubmit);
-  console.log(formElem)
+  const googleBtn = formElem.querySelector('#google-create-btn');
+  googleBtn.addEventListener('click', googleOnSubmit);
+  const facebookBtn = formElem.querySelector('#facebook-create-btn');
+  facebookBtn.addEventListener('click', facebookOnSubmit);
   return formElem;
 };
