@@ -69,5 +69,6 @@ export const signUpForm = () => {
   formElem.innerHTML = tempFormSignUp;
   const SignUpBtn = formElem.querySelector('#btn-register');
   SignUpBtn.addEventListener('click', signUpOnSubmit);
+  console.log(formElem)
   return formElem;
 };

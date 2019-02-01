@@ -36,9 +36,9 @@ max-width: 300px;
 /*End style container*/
 
 /* ocultar sign-up form */
-.form-sign-up, .logout-btn {
+/* .form-sign-up, .logout-btn {
   display: none;
-}
+} */
 
 /* style inputs and link buttons */
 .btn-social-media {

@@ -16,4 +16,4 @@ const init = () => {
   initRoutersSocialMedia();
 };
 
-window.onload = init();
+window.onload = init;

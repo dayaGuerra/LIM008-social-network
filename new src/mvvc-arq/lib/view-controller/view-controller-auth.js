@@ -15,7 +15,8 @@ export const logInOnSubmit = (event) => {
     }).catch(() => {})
 }
 
-export const signUpOnSubmit = () => {
+export const signUpOnSubmit = (event) => {
+  event.preventDefault();
   // const email = document.querySelector('#email').value;
   // const password = document.querySelector('#password').value;
   // signUp(email, password)
