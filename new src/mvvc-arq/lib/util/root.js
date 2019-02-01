@@ -1,5 +1,5 @@
-import { signInForm, signUpForm } from '../../ui/logincreate.js';
-import { profileContainer } from '../../ui/profile.js';
+import { signInForm, signUpForm, profileContainer } from '../../ui/logincreate.js';
+// import { profileContainer } from '../../ui/profile.js';
 
 const changeTmp = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {

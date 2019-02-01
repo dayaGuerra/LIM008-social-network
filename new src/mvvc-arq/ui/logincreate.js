@@ -1,5 +1,5 @@
 // Importas el archivo que contiene el elemento padre
-import { signUpOnSubmit, logInOnSubmit, googleOnSubmit, facebookOnSubmit } from '../lib/view-controller/view-controller-auth.js';
+import { signUpOnSubmit, logInOnSubmit, googleOnSubmit, facebookOnSubmit, logOutOnSubmit  } from '../lib/view-controller/view-controller-auth.js';
 
 export const signInForm = () => {
   const formElem = document.createElement('form');
@@ -80,4 +80,20 @@ export const signUpForm = () => {
   const facebookBtn = formElem.querySelector('#facebook-create-btn');
   facebookBtn.addEventListener('click', facebookOnSubmit);
   return formElem;
+};
+
+
+export const profileContainer = () => {
+  const formElemt = document.createElement('section');
+  formElemt.setAttribute('id', 'logout');
+  const tempLogout = `
+    <div class="form-sign-up" id="logout">
+        <button class="btn-logout" id="btn-logout">Cerrar sesión</button> 
+    </div>`;
+    
+  formElemt.innerHTML = tempLogout;
+  const logoutBtn = formElemt.querySelector('#btn-logout');
+  logoutBtn.addEventListener('click', logOutOnSubmit);
+  console.log(formElemt);
+  return formElemt;
 };

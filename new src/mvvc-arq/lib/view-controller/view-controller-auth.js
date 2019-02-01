@@ -1,4 +1,4 @@
-import { signUp, logIn, googleAuth, facebookAuth } from '../controller/controller-auth.js';
+import { signUp, logIn, googleAuth, facebookAuth, logOut } from '../controller/controller-auth.js';
 
 
 const changeHash = (hash) => {
@@ -12,11 +12,11 @@ export const logInOnSubmit = (event) => {
   const errorMessage = document.querySelector('#error-message-login');
   logIn(email, pass)
     .then(result => {  
-      //if (result.user.sendEmailVerified) {
-        // agregar lo que se debe mostrar
-        console.log('estas logueado');
-        // changeHash('/home');  
-      //} 
+      // if (result.user.sendEmailVerified) {
+      // agregar lo que se debe mostrar
+      console.log('estas logueado');
+      changeHash('/home');  
+      // } 
       // else {
       //   firebase.auth().signOut();  
       // }
@@ -72,4 +72,11 @@ export const facebookOnSubmit = () => {
     }).catch(error => {
       console.log(error.code);
     });
+};
+export const logOutOnSubmit = () => {
+  logOut()
+    .then(() => {
+      changeHash('/signin'); 
+    // que quiero que ocurra cuando el usuario ya no este logueado
+    }).catch(error => console.log(error.code));
 };
