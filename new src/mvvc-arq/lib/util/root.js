@@ -3,7 +3,7 @@ import { signInForm, signUpForm } from '../../ui/logincreate.js';
 export const changeTmp = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
     return viewTmp('#/signin');
-  } else if (hash === '#/signup' || hash === '#/home') {
+  } else if (hash === '#/signin') {
     return viewTmp(hash);
   } else {
     return viewTmp('#/signin');
@@ -20,8 +20,11 @@ const viewTmp = (routers) => {
   case 'signin':
     root.appendChild(signInForm());
     break;
-  default:
+  case 'signup':
     root.appendChild(signUpForm());
+    break;
+  default:
+    root.appendChild(signInForm());
     break;
   }
 };

@@ -3,7 +3,7 @@ import {signUpOnSubmit, logInOnSubmit} from '../lib/view-controller/view-control
 
 export const signInForm = () => {
   const formElem = document.createElement('form');
-  formElem.setAttribute('id', 'form-login');
+  formElem.setAttribute('id', 'signin');
   const tempformLogin = `
   <div id="sign-in">
     <div class="text-first text-login">
@@ -38,7 +38,7 @@ export const signInForm = () => {
 
 export const signUpForm = () => {
   const formElem = document.createElement('form');
-  formElem.setAttribute('id', 'form-signup');
+  formElem.setAttribute('id', 'signup');
   const tempFormSignUp = `
     <div class="form-sign-up" id="signup">
       <div class="col-form-create-account">
