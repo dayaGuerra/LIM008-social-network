@@ -1,4 +1,4 @@
-import { initRoutersSocialMedia } from './mvvc-arq/lib/view-controller/logincreate-controller.js';
+import { initRoutersSocialMedia } from './mvvc-arq/lib/util/root.js';
 // Función anterior initRouter en archivo de Dani
 
 const init = () => {

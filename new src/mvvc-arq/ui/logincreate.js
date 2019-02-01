@@ -1,3 +1,5 @@
+
+
 // Importas el archivo que contiene el elemento padre
 // import {crearFormularioLogin} from '../lib/view-controller/logincreate-controller.js';
 export const signInForm = () => {
@@ -65,6 +67,6 @@ export const signUpForm = () => {
   </div>`;
   const formElem = document.createElement('form');
   formElem.setAttribute('id', 'form-signup');
-  formElem.innerHTML = tempformSignUp;
+  formElem.innerHTML = tempFormSignUp;
   return formElem;
 };
