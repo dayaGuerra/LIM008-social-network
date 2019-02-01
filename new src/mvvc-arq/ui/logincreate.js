@@ -1,11 +1,9 @@
-
-
 // Importas el archivo que contiene el elemento padre
-// import {crearFormularioLogin} from '../lib/view-controller/logincreate-controller.js';
+import {signUpOnSubmit, logInOnSubmit} from '../lib/view-controller/view-controller-auth.js'
 export const signInForm = () => {
-  const tempformLogin = 
-  // Segundo, creas el nodo hijo o template que va a ir en ese elemento
-  `
+  const formElem = document.createElement('form');
+  formElem.setAttribute('id', 'form-login');
+  const tempformLogin = `
   <div id="sign-in">
   <div class="text-first text-login">
     <h4>La primera Red Social para emprendedores peruanos</h4>
@@ -31,16 +29,15 @@ export const signInForm = () => {
   </div>
 </div>
   `;
-// const btnLogin = form.querySelector('#btn-login');
-// btnLogin.addEventListener('click', createNewAccount);
-// return form;
-  const formElem = document.createElement('form');
-  formElem.setAttribute('id', 'form-login');
   formElem.innerHTML = tempformLogin;
+  const logInBtn = formElem.querySelector('#btn-login');
+  logInBtn.addEventListener('click', logInOnSubmit);
   return formElem;
 };
 export const signUpForm = () => {
-  const tempFormSignUp =  `
+  const formElem = document.createElement('form');
+  formElem.setAttribute('id', 'form-signup');
+  const tempFormSignUp = `
   <div class="form-sign-up" id="signup">
     <div class="col-form-create-account">
       <p class="text-login text-first"> <a href="#/" class="back fa fa-chevron-circle-left "></a> Crea una cuenta ¡Es gratis!</p>
@@ -62,11 +59,12 @@ export const signUpForm = () => {
       <input type="email" class="login-social-media" id="create-email" placeholder="Correo electronico">
       <input type="password" class="login-social-media" id="create-password" placeholder="Contraseña">
     </div>
-    <button class="login-social-media btn-login" id="btn-registrer">Registrate</button>
+    <button class="login-social-media btn-login" id="btn-register">Registrate</button>
     
   </div>`;
-  const formElem = document.createElement('form');
-  formElem.setAttribute('id', 'form-signup');
+  
   formElem.innerHTML = tempFormSignUp;
+  const SignUpBtn = formElem.querySelector('#btn-register');
+  SignUpBtn.addEventListener('click', signUpOnSubmit);
   return formElem;
 };
