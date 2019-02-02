@@ -7,7 +7,7 @@ export const addNewPost = textNewNote =>
       state: false
     });
     
-export const deletePost = textNewNote =>
+export const deletePost = (idNote) =>
   firebase
     .firestore()
     .collection('post')

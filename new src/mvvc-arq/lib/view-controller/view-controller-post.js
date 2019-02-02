@@ -24,28 +24,5 @@ export const createNewPost = (event) => {
     });
 };
 
-// esto es para mostrar los  Post
-export const showPost = (notes) => {
-  containerNotesList.innerHTML = '';
-  notes.forEach((objNote) => {
-    const divElement = document.createElement('div');
-    divElement.classList.add('mdl-list__item');
-    divElement.innerHTML = `
-            <span class="mdl-list__item-primary-content">
-              <span>${objNote.title}</span>
-            </span>
-            <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}" href="#">
-              <i class="material-icons">delete</i>
-            </a>
-          `;
-    containerNotesList.appendChild(divElement);
-  
-    // agregando evento de click al btn eliminar una nota
-    document.querySelector(`#btn-deleted-${objNote.id}`)
-      .addEventListener('click', () => {
-        deletePost(objNote.id);
-      });
-  });
-};
-    
-  
+export const deleteNoteOnClick = (objNote) =>
+  deletePost(objNote.id);

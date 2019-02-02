@@ -1,4 +1,4 @@
-import { createNewPost, showPost } from '../lib/view-controller/view-controller-post.js';
+import { createNewPost, deleteNoteOnClick } from '../lib/view-controller/view-controller-post.js';
 import {addNewPost} from '../lib/controller/controller-post.js';
 const addItemPost = (objNote) => {
   const liElement = document.createElement('li');
@@ -8,12 +8,12 @@ const addItemPost = (objNote) => {
         <span>${objNote.title}</span>
       </span>
       <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}">
-        <i class="material-icons">delete</i>
+        <button type = "button" class="material-icons">delete</button>
       </a>
     `;
   // agregando evento de click al btn eliminar una nota
   liElement.querySelector(`#btn-deleted-${objNote.id}`)
-    .addEventListener('click', () => deletePost(objNote));
+    .addEventListener('click', () => deleteNoteOnClick(objNote));
   return liElement;
 };
   
