@@ -1,6 +1,6 @@
 // Importas el archivo que contiene el elemento padre
-import { signUpOnSubmit, logInOnSubmit, googleOnSubmit, facebookOnSubmit, logOutOnSubmit  } from '../lib/view-controller/view-controller-auth.js';
-
+import { signUpOnSubmit, logInOnSubmit, googleOnSubmit, facebookOnSubmit, logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
+import {createNewPost, showPost } from '../lib/view-controller/view-controller-post.js';
 export const signInForm = () => {
   const formElem = document.createElement('form');
   formElem.setAttribute('id', 'signin');
@@ -83,17 +83,26 @@ export const signUpForm = () => {
 };
 
 
-export const profileContainer = () => {
-  const formElemt = document.createElement('section');
-  formElemt.setAttribute('id', 'logout');
-  const tempLogout = `
-    <div class="form-sign-up" id="logout">
-        <button class="btn-logout" id="btn-logout">Cerrar sesión</button> 
-    </div>`;
-    
-  formElemt.innerHTML = tempLogout;
-  const logoutBtn = formElemt.querySelector('#btn-logout');
-  logoutBtn.addEventListener('click', logOutOnSubmit);
-  console.log(formElemt);
-  return formElemt;
-};
+// export const profileContainer = () => {
+//   const formElemt = document.createElement('section');
+//   formElemt.setAttribute('id', 'logout');
+//   const tempLogout = `
+//     <div id="logout">
+//       <label>template del Post</label>
+//       <div class ="template-for-post">
+//       <textarea id ="text-message" row ="70" cols ="30"></textarea>
+//       <button id = "btn-post" type="button">Publicar</button>
+//       </div> 
+//     <button class="btn-logout" id="btn-logout">Cerrar sesión</button> 
+//     </div>
+//     `;
+  
+  
+//   formElemt.innerHTML = tempLogout;
+//   const logoutBtn = formElemt.querySelector('#btn-logout');
+//   logoutBtn.addEventListener('click', logOutOnSubmit);
+//   const postBtn = formElemt.querySelector('#btn-post');
+//   postBtn.addEventListener('click', createNewPost);
+//   console.log(formElemt);
+//   return formElemt;
+// };

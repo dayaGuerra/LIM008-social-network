@@ -1,5 +1,6 @@
-import { signInForm, signUpForm, profileContainer } from '../../ui/logincreate.js';
-// import { profileContainer } from '../../ui/profile.js';
+import { signInForm, signUpForm } from '../../ui/logincreate.js';
+import { createPost} from '../../ui/newswall.js';
+import { getAllPost, deletePost } from '../controller/controller-post.js';
 
 const changeTmp = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
@@ -17,14 +18,17 @@ const viewTmp = (routers) => {
   const root = document.getElementById('root');
   root.innerHTML = '';
   switch (router) {
+  case 'home': 
+    getAllPost((notes) => {
+      root.innerHTML = '';
+      root.appendChild(createPost(notes));
+    });
+    break;
   case 'signin':
     root.appendChild(signInForm());
     break;
   case 'signup':
     root.appendChild(signUpForm());
-    break;
-  case 'home':     
-    root.appendChild(profileContainer());
     break;
   default:
     root.appendChild(signInForm());
