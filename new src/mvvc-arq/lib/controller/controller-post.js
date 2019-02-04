@@ -1,6 +1,6 @@
 import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
 
-export const addNewPost = textNewNote =>
+export const addNewPost = (textNewNote, userUid) =>
   firebase
     .firestore()
     .collection('post')
@@ -9,7 +9,8 @@ export const addNewPost = textNewNote =>
       title: textNewNote,
       profilePicUrl: getProfilePicUrl(),
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      state: false
+      state: false,
+      uid: userUid
     }).catch((error) => {
       console.error(error);
     });

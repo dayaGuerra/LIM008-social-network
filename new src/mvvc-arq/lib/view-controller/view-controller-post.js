@@ -1,4 +1,5 @@
 import {addNewPost, deletePost, getAllPost} from '../controller/controller-post.js';
+import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 
 export const createNewPost = (event) => {
   event.preventDefault();
@@ -11,8 +12,9 @@ export const createNewPost = (event) => {
     timeout: 2000,
     actionText: 'Undo'
   };
-
-  addNewPost(textMessage.value)
+  const uidUser = isUserSignedIn();
+  // console.log(uidUser)
+  addNewPost(textMessage.value, uidUser)
     .then(() => {
       textMessage.value = '';
       data.message = 'Nota agregada';

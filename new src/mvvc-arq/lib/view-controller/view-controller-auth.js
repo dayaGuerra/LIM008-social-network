@@ -97,8 +97,8 @@ export function getUserName() {
 }
 
 // Returns true if a user is signed-in.
-function isUserSignedIn() {
-  return !!firebase.auth().currentUser;
+export function isUserSignedIn() {
+  return firebase.auth().currentUser.uid;
 }
 
 export function authStateObserver(user) {
@@ -109,7 +109,7 @@ export function authStateObserver(user) {
     changeHash('/home');
     // const signoutBtn = document.querySelector('#sign-out-btn');
     // signoutBtn.removeAttribute('hidden');
-    console.log(user)
+    // console.log(user)
   }
 }
 

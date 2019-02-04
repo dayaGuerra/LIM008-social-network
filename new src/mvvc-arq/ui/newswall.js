@@ -1,7 +1,7 @@
 import { createNewPost, deleteNoteOnClick } from '../lib/view-controller/view-controller-post.js';
 // import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth,js';
 import {addNewPost} from '../lib/controller/controller-post.js';
-const addItemPost = (objNote) => {
+const addItemPost = (objNote, uid) => {
   const liElement = document.createElement('li');
   liElement.classList.add('mdl-list__item');
   liElement.innerHTML = `
@@ -9,7 +9,8 @@ const addItemPost = (objNote) => {
         <span>${objNote.title}</span>
       </span>
       <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}">
-        <button type = "button" class="material-icons">delete</button>
+      ${ uid !== objNote.uid ? 
+    '<button type = "button" class="material-icons">delete</button>' : ''}
       </a>
     `;
   // agregando evento de click al btn eliminar una nota
