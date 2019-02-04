@@ -5,7 +5,7 @@ import { getAllPost, deletePost } from '../controller/controller-post.js';
 const changeTmp = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
     return viewTmp('#/signin');
-  } else if (hash === '#/signup' || hash === '#/signin' || hash === '#/home') {
+  } else if (hash === '#/signup' || hash === '#/home') {
     return viewTmp(hash);
   } else {
     return viewTmp('#/signin');

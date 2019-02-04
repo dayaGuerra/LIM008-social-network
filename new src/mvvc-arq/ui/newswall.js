@@ -1,4 +1,5 @@
 import { createNewPost, deleteNoteOnClick } from '../lib/view-controller/view-controller-post.js';
+// import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth,js';
 import {addNewPost} from '../lib/controller/controller-post.js';
 const addItemPost = (objNote) => {
   const liElement = document.createElement('li');
@@ -43,6 +44,9 @@ export const createPost = (notes) => {
       <div id="demo-snackbar" class="mdl-js-snackbar mdl-snackbar">
         <div class="mdl-snackbar__text"></div>
         <button class="mdl-snackbar__action" type="button"></button>
+        <div hidden id="user-pic"></div>
+        <div hidden id="user-name"></div>
+        <button hidden id="sign-out-btn">Cerrar sesión</button>
       </div>
     `;
   divContainer.innerHTML = homeContent;
@@ -52,5 +56,7 @@ export const createPost = (notes) => {
     ul.appendChild(addItemPost(note));
   });
   buttonAddNote.addEventListener('click', createNewPost);
+  // const signoutBtn = document.querySelector('#sign-out-btn');
+  // signoutBtn.addEventListener('click', logOutOnSubmit);
   return divContainer;
 };

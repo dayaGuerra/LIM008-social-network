@@ -1,4 +1,5 @@
 import { initRoutersSocialMedia } from './mvvc-arq/lib/util/root.js';
+import { initFirebaseAuth } from './mvvc-arq/lib/view-controller/view-controller-auth.js';
 // Función anterior initRouter en archivo de Dani
 
 const init = () => {
@@ -14,6 +15,7 @@ const init = () => {
   firebase.initializeApp(config);
 
   initRoutersSocialMedia();
+  initFirebaseAuth();
 };
 
 window.onload = init;

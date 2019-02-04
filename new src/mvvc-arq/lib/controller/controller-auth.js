@@ -1,3 +1,5 @@
+// import { authStateObserver } from '../view-controller/view-controller-auth.js';
+
 export const signUp = (email, pass) => 
   firebase.auth().createUserWithEmailAndPassword(email, pass);   
 
