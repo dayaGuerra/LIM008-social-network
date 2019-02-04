@@ -23,7 +23,7 @@ export const deletePost = (idNote) =>
     .doc(idNote)
     .delete();
 
-export const getAllPost = callback =>
+export const getAllPost = (callback) =>
   firebase
     .firestore()
     .collection('post')

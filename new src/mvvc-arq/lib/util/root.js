@@ -1,6 +1,7 @@
 import { signInForm, signUpForm } from '../../ui/logincreate.js';
 import { createPost} from '../../ui/newswall.js';
 import { getAllPost, deletePost } from '../controller/controller-post.js';
+import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 
 const changeTmp = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
@@ -11,17 +12,19 @@ const changeTmp = (hash) => {
     return viewTmp('#/signin');
   }
 };
- /* */
+// ;
+
 const viewTmp = (routers) => {
+  
   const router = routers.substr(2, routers.length - 2);
-  // console.log(router);
   const root = document.getElementById('root');
   root.innerHTML = '';
   switch (router) {
   case 'home': 
-    getAllPost((notes) => {
+    getAllPost(notes => {
       root.innerHTML = '';
-      root.appendChild(createPost(notes));
+      const uid = isUserSignedIn();
+      root.appendChild(createPost(notes, uid));
     });
     break;
   case 'signin':

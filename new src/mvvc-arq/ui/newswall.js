@@ -9,7 +9,7 @@ const addItemPost = (objNote, uid) => {
         <span>${objNote.title}</span>
       </span>
       <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}">
-      ${ uid !== objNote.uid ? 
+      ${ objNote.uid === uid ? 
     '<button type = "button" class="material-icons">delete</button>' : ''}
       </a>
     `;
@@ -19,7 +19,7 @@ const addItemPost = (objNote, uid) => {
   return liElement;
 };
   
-export const createPost = (notes) => {
+export const createPost = (notes, uid) => {
   const divContainer = document.createElement('div');
   const homeContent = `
       <!-- form add note -->
@@ -53,10 +53,12 @@ export const createPost = (notes) => {
   divContainer.innerHTML = homeContent;
   const buttonAddNote = divContainer.querySelector('#btn-add-note');
   const ul = divContainer.querySelector('#notes-list');
-  notes.forEach(note => {
-    ul.appendChild(addItemPost(note));
+  notes.forEach((note) => {
+    // console.log(note, uid);
+    ul.appendChild(addItemPost(note, uid));
   });
   buttonAddNote.addEventListener('click', createNewPost);
+ 
   // const signoutBtn = document.querySelector('#sign-out-btn');
   // signoutBtn.addEventListener('click', logOutOnSubmit);
   return divContainer;

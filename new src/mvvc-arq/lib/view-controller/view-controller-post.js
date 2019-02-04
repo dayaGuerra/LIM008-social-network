@@ -4,15 +4,16 @@ import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 export const createNewPost = (event) => {
   event.preventDefault();
   // data que muestra el snackbar
-  console.log('eventoingresoclick');
+  // console.log('eventoingresoclick');
   const textMessage = document.querySelector('#input-new-note');
-  console.log(textMessage);
+  const uidUser = isUserSignedIn();
+  // console.log(textMessage);
   const data = {
     message: '',
     timeout: 2000,
     actionText: 'Undo'
   };
-  const uidUser = isUserSignedIn();
+
   // console.log(uidUser)
   addNewPost(textMessage.value, uidUser)
     .then(() => {

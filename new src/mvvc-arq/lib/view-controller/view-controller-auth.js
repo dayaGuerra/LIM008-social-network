@@ -96,9 +96,11 @@ export function getUserName() {
   return firebase.auth().currentUser.displayName;
 }
 
-// Returns true if a user is signed-in.
+// Returns the uid  of the current user.
 export function isUserSignedIn() {
+  console.log(firebase.auth().currentUser.uid)
   return firebase.auth().currentUser.uid;
+  // console.log(uid)
 }
 
 export function authStateObserver(user) {
