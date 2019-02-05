@@ -19,6 +19,22 @@ const addItemPost = (objNote, uid) => {
   return liElement;
 };
   
+export const profileContainer = () => {
+  const sectionElement = document.createElement('section');
+  sectionElement.setAttribute('id', 'user-container');
+  const profileTemplate = `
+    <div  id="user-pic">
+    
+    <button  id="sign-out-btn">Cerrar sesión</button>
+    </div>
+  `;
+  sectionElement.innerHTML = profileTemplate;
+  //   const logoutBtn = formElem.querySelector('#btn-register');
+  //   logoutBtn.addEventListener('click', /* funcion cerrar sesion */);
+  //   console.log(formElemt);
+  return sectionElement;
+};
+
 export const createPost = (notes, uid) => {
   const divContainer = document.createElement('div');
   const homeContent = `
