@@ -21,8 +21,8 @@ export const signInForm = () => {
       </div>
       <div class="space-form"><span>o</span></div>
       <div class="register-inputs-field col-form-create-account">
-      <input type="email" class="login-social-media" id="email-social-media" placeholder="Correo electronico">
-      <input type="password" class="login-social-media" id="password-social-media" placeholder="Contraseña">
+      <input type="email" class="login-social-media" id="email-social-media" placeholder="Correo electronico" required>
+      <input type="password" class="login-social-media" id="password-social-media" placeholder="Contraseña" required>
       <p id="error-message"></p>
     </div>
     <p id="error-message-login"></p>

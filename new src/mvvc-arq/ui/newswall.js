@@ -1,5 +1,5 @@
 import { createNewPost, deleteNoteOnClick } from '../lib/view-controller/view-controller-post.js';
-// import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth,js';
+import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
 import {addNewPost} from '../lib/controller/controller-post.js';
 const addItemPost = (objNote, uid) => {
   const liElement = document.createElement('li');
@@ -24,14 +24,13 @@ export const profileContainer = () => {
   sectionElement.setAttribute('id', 'user-container');
   const profileTemplate = `
     <div  id="user-pic">
-    
     <button  id="sign-out-btn">Cerrar sesión</button>
     </div>
   `;
   sectionElement.innerHTML = profileTemplate;
-  //   const logoutBtn = formElem.querySelector('#btn-register');
-  //   logoutBtn.addEventListener('click', /* funcion cerrar sesion */);
-  //   console.log(formElemt);
+  const logoutBtn = sectionElement.querySelector('#sign-out-btn');
+  logoutBtn.addEventListener('click', logOutOnSubmit);
+
   return sectionElement;
 };
 
