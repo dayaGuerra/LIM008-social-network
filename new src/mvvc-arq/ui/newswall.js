@@ -10,7 +10,7 @@ const addItemPost = (objNote, uid) => {
       <div class = "container-data-post">
         <img class = "img-post" src="${objNote.profilePicUrl}"/>
         <span class="user-display-name">${objNote.name}</span>
-        <span class = "user-display-time">${objNote.timestamp}</span>
+        <span class = "user-display-time">${objNote.date}</span>
       </div>
       <div class = "txt-post">
       <span>${objNote.title}</span>

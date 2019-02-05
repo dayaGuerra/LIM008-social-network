@@ -78,7 +78,7 @@ export const googleOnSubmit = () => {
 export const facebookOnSubmit = () => {
   facebookAuth()
     .then(result => {
-      // changeHash('/home'); 
+      changeHash('/home'); 
       // const user = result.user;
       console.log('facebook logueado');
     // que queremos hacer cuando se inicie sesion con google
