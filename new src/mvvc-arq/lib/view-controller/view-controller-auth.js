@@ -42,7 +42,7 @@ export const signUpOnSubmit = (event) => {
   const lastName = document.querySelector('#lastname-social-media').value;
 
   const errorMessage = document.querySelector('#error-message-signup');
-  if (validation(password) === true && validation(password) === true && validation(name)===true && validation(lastname)===true) {
+  if (validation(email) === true && validation(password) === true && validation(name)===true && validation(lastname)===true) {
     signUp(email, password)
       .then(result => {
         // changeHash('/home')  
@@ -99,64 +99,25 @@ export function initFirebaseAuth() {
   firebase.auth().onAuthStateChanged(authStateObserver);
 }
 // Returns the signed-in user's profile Pic URL.
-export function getProfilePicUrl() {
-  return firebase.auth().currentUser.photoURL;
-}
-// Returns the signed-in user's display name.
-export function getUserName() {
-  return firebase.auth().currentUser.displayName;
-}
+export const getProfilePicUrl = () => 
+  firebase.auth().currentUser.photoURL;
+export const getUserName = () => 
+  firebase.auth().currentUser.displayName;
 
 // Returns the uid  of the current user.
-export function isUserSignedIn() {
-  console.log(firebase.auth().currentUser.uid);
-  return firebase.auth().currentUser.uid;
-  // console.log(uid)
-}
+export const isUserSignedIn = () => 
+  firebase.auth().currentUser.uid;
 
+
+// REVISAR ----
 export function authStateObserver(user) {
-  if (user) { // User is signed in!
-    // Get the signed-in user's profile pic and name.
+  if (user && user.emailVerified) { 
     const profilePicUrl = getProfilePicUrl();
     const userName = getUserName();
     changeHash('/home');
-    // const signoutBtn = document.querySelector('#sign-out-btn');
-    // signoutBtn.removeAttribute('hidden');
-    // console.log(user)
+    // logout btn 
+  } else {
+    // alert('Verifica tu correo electronico para continuar');
+    changeHash('/signin');
   }
 }
-
-
-/* export const getProfilePicUrl = () => {
-  return firebase.auth().currentUser.photoURL;
-  // || '/images/profile_placeholder.png';
-}
-// Returns the signed-in user's display name.
-export const getUserName = () => {
-  return firebase.auth().currentUser.displayName;
-}
-const isUserSignedIn = () => {
-  return !!firebase.auth().currentUser;
-}
-
-
-export const authStateObserver = (user) => {
-  if (user) {
-    console.log(user)
-      // const profilePicUrl = getProfilePicUrl();
-      // const userName = getUserName();
-      // changeHash('/home');
-      // console.log(userName);
-      // const divElement = document.createElement('div');
-      // divElement.innerHTML = `
-      //   <p></p>
-      // `
-    }
-    return user;
-  };
-  // authStateObserver();
-
-
-  export const authState = () => 
-  firebase.auth().onAuthStateChanged(authStateObserver);
-  // console.log(authStateObserver) */
