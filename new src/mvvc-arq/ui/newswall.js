@@ -2,19 +2,26 @@ import { createNewPost, deleteNoteOnClick } from '../lib/view-controller/view-co
 import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
 import {addNewPost} from '../lib/controller/controller-post.js';
 const addItemPost = (objNote, uid) => {
-  const liElement = document.createElement('li');
-  liElement.classList.add('mdl-list__item');
+ 
+  const liElement = document.createElement('div');
+  liElement.classList.add('list-post');
   liElement.innerHTML = `
-      <span class="mdl-list__item-primary-content">
-      <span class="user-display-name">${objNote.name}</span>
-        <span>${objNote.timestamp}</span>
-        <img src="${objNote.profilePicUrl}" class="user-profile-picture"/>
-        <span>${objNote.title}</span>
-      </span>
+      <div class="post-total">
+      <div class = "container-data-post">
+        <img class = "img-post" src="${objNote.profilePicUrl}"/>
+        <span class="user-display-name">${objNote.name}</span>
+        <span class = "user-display-time">${objNote.timestamp}</span>
+      </div>
+      <div class = "txt-post">
+      <span>${objNote.title}</span>
+  
+
       <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}">
       ${ objNote.uid === uid ? 
     '<button type = "button" class="material-icons">delete</button>' : ''}
       </a>
+      </div>
+      <div class = "border-separation-post"></div>
     `;
   // agregando evento de click al btn eliminar una nota
   liElement.querySelector(`#btn-deleted-${objNote.id}`)
@@ -42,27 +49,26 @@ export const createPost = (notes, uid) => {
   const homeContent = `
       <!-- form add note -->
       <form class="d-flex justify-content-center">
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="text" id="input-new-note" required >
-          <label class="mdl-textfield__label" for="input-new-note" >Agrega una nota...</label>
+        <div class="container-textarea">
+
+          <textarea class="textarea-post" type="text" id="input-new-note" placeholder = "Agrega un post" required></textarea>
+          <button class="btn-add-post" id="btn-add-note">
+          <i class="material-icons">Compartir</i>
+          </button>
         </div>
-        <button class="mx-1 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="btn-add-note">
-          <i class="material-icons">add</i>
-        </button>
+    
+     
+
+        <div class = "border-separation-post"></div>
         <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
-          <div class="mdl-snackbar__text"></div>
-          <button class="mdl-snackbar__action" type="button"></button>
-        </div>
+         
       </form>
       <!-- notes -->
-      <section class="w-60 d-flex justify-content-center m-auto">
-        <ul class="w-100 demo-list-control mdl-list" id="notes-list">
-        </ul>
-      </section>
-      <!-- snackbar -->
-      <div id="demo-snackbar" class="mdl-js-snackbar mdl-snackbar">
-        <div class="mdl-snackbar__text"></div>
-        <button class="mdl-snackbar__action" type="button"></button>
+        <section id="notes-list">
+        </section>
+        
+    
+      
         <div hidden id="user-pic"></div>
         <div hidden id="user-name"></div>
         <button hidden id="sign-out-btn">Cerrar sesión</button>
