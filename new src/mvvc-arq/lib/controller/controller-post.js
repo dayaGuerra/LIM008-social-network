@@ -40,6 +40,7 @@ export const getAllPost = (callback) =>
           name: doc.data().name,
           profilePicUrl: doc.data().profilePicUrl,
           date: postDate(doc.data().date.toDate()),
+          uid: doc.data().uid,
           // ...doc.data(),
          
         });
