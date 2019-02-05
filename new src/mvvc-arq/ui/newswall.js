@@ -43,8 +43,8 @@ export const createPost = (notes, uid) => {
       <!-- form add note -->
       <form class="d-flex justify-content-center">
         <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="text" id="input-new-note">
-          <label class="mdl-textfield__label" for="input-new-note">Agrega una nota...</label>
+          <input class="mdl-textfield__input" type="text" id="input-new-note" required >
+          <label class="mdl-textfield__label" for="input-new-note" >Agrega una nota...</label>
         </div>
         <button class="mx-1 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="btn-add-note">
           <i class="material-icons">add</i>

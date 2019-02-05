@@ -1,5 +1,5 @@
 import { signUp, logIn, googleAuth, facebookAuth, logOut } from '../controller/controller-auth.js';
-
+import {validation, isValidEmail} from '../controller/validacion.js';
 
 const changeHash = (hash) => {
   location.hash = hash;
@@ -10,48 +10,59 @@ export const logInOnSubmit = (event) => {
   const email = document.querySelector('#email-social-media').value;
   const pass = document.querySelector('#password-social-media').value;
   const errorMessage = document.querySelector('#error-message-login');
-  logIn(email, pass)
-    .then(result => {  
-      // if (result.user.sendEmailVerified) {
-      // agregar lo que se debe mostrar
-      console.log('estas logueado');
-      // changeHash('/home');  
-      // } 
-      // else {
-      //   firebase.auth().signOut();  
-      // }
-    }).catch(error => {
-      console.log(error.code);
-      if (error.code === 'auth/wrong-password') {
-        errorMessage.innerHTML = 'La contraseña no es correcta. Vuelve a intentarlo';
-      } else if (error.code === 'auth/user-not-found') {
-        errorMessage.innerHTML = 'El correo electronico que ingresaste no pertenece a ninguna cuenta.';
-      }
-    });
+  if (isValidEmail(email) === true && validation(pass) === true) {
+    logIn(email, pass)
+      .then(result => {  
+        // if (result.user.sendEmailVerified) {
+        // agregar lo que se debe mostrar
+        console.log('estas logueado');
+        // changeHash('/home');  
+        // } 
+        // else {
+        //   firebase.auth().signOut();  
+        // }
+      }).catch(error => {
+        console.log(error.code);
+        if (error.code === 'auth/wrong-password') {
+          errorMessage.innerHTML = 'La contraseña no es correcta. Vuelve a intentarlo';
+        } else if (error.code === 'auth/user-not-found') {
+          errorMessage.innerHTML = 'correo inválido.';
+        }
+      });
+  } else {
+    errorMessage.innerHTML = 'datos incorrectos';
+  }
 };
 
 export const signUpOnSubmit = (event) => {
   event.preventDefault();
   const email = document.querySelector('#create-email').value;
   const password = document.querySelector('#create-password').value;
+  const name = document.querySelector('#name-social-media').value;
+  const lastName = document.querySelector('#lastname-social-media').value;
+
   const errorMessage = document.querySelector('#error-message-signup');
-  signUp(email, password)
-    .then(result => {
-      // changeHash('/home')  
-      const configuration = {
-        url: 'http://localhost:5000/' // gh-pages link
-      };
-      result.user.sendEmailVerification(configuration).catch(error => {
+  if (validation(password) === true && validation(password) === true && validation(name)===true && validation(lastname)===true) {
+    signUp(email, password)
+      .then(result => {
+        // changeHash('/home')  
+        const configuration = {
+          url: 'http://localhost:5000/' // gh-pages link
+        };
+        result.user.sendEmailVerification(configuration).catch(error => {
+          console.log(error.code);
+          console.log('No se pudo enviar email');
+        });
+        firebase.auth().signOut();
+      }).catch(error => {
         console.log(error.code);
-        console.log('No se pudo enviar email');
+        if (error.code === 'auth/email-already-in-use') {
+          errorMessage.innerHTML = `Otra cuenta usa ${email}.`;
+        }
       });
-      firebase.auth().signOut();
-    }).catch(error => {
-      console.log(error.code);
-      if (error.code === 'auth/email-already-in-use') {
-        errorMessage.innerHTML = `Otra cuenta usa ${email}.`;
-      }
-    });
+  } else {
+    errorMessage.innerHTML = 'complete sus datos';
+  }
 };
 export const googleOnSubmit = () => {
   googleAuth()
@@ -98,7 +109,7 @@ export function getUserName() {
 
 // Returns the uid  of the current user.
 export function isUserSignedIn() {
-  console.log(firebase.auth().currentUser.uid)
+  console.log(firebase.auth().currentUser.uid);
   return firebase.auth().currentUser.uid;
   // console.log(uid)
 }
