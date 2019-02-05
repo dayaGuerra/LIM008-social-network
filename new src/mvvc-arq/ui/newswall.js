@@ -1,8 +1,7 @@
 import { createNewPost, deleteNoteOnClick } from '../lib/view-controller/view-controller-post.js';
 import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
-import {addNewPost} from '../lib/controller/controller-post.js';
+
 const addItemPost = (objNote, uid) => {
- 
   const liElement = document.createElement('div');
   liElement.classList.add('list-post');
   liElement.innerHTML = `
@@ -29,7 +28,7 @@ const addItemPost = (objNote, uid) => {
   return liElement;
 };
   
-export const profileContainer = () => {
+export const logOut = () => {
   const sectionElement = document.createElement('section');
   sectionElement.setAttribute('id', 'user-container');
   const profileTemplate = `
@@ -44,39 +43,34 @@ export const profileContainer = () => {
   return sectionElement;
 };
 
-export const createPost = (notes, uid) => {
-  const divContainer = document.createElement('div');
-  const homeContent = `
-      <!-- form add note -->
-      <form class="d-flex justify-content-center">
-        <div class="container-textarea">
+/* Publicacion */
+export const textareapublication = () => {
+  const createDivForPublication = document.createElement('div');
+  const contentDivForPublication = `
+    <div class="container-textarea">
+    <textarea class="textarea-post" type="text" id="input-new-note" placeholder = "Agrega un post" required></textarea>
+    <button class="btn-add-post" id="btn-add-post">
+      <i class="material-icons">Compartir</i>
+    </button>
+    </div>
+  `;
+  createDivForPublication.innerHTML = contentDivForPublication;
+  const btnAddPost = createDivForPublication.querySelector('#btn-add-post');
+  btnAddPost.addEventListener('click', createNewPost);
+  return createDivForPublication;
+};
 
-          <textarea class="textarea-post" type="text" id="input-new-note" placeholder = "Agrega un post" required></textarea>
-          <button class="btn-add-post" id="btn-add-note">
-          <i class="material-icons">Compartir</i>
-          </button>
-        </div>
-    
-     
+/* Post */
+export const tmpPostInSection = (notes, uid) => {
+  const createPostInWall = document.createElement('section');
+  const contentPostInWall = ` 
+    <div id="post-list"></div>
+  `;
+  createPostInWall.innerHTML = contentPostInWall;
 
-        <div class = "border-separation-post"></div>
-       
-         
-      </form>
-      <!-- notes -->
-        <section id="notes-list">
-        </section>
-    `;
-  divContainer.innerHTML = homeContent;
-  const buttonAddNote = divContainer.querySelector('#btn-add-note');
-  const ul = divContainer.querySelector('#notes-list');
+  const postList = createPostInWall.querySelector('#post-list');
   notes.forEach((note) => {
-    // console.log(note, uid);
-    ul.appendChild(addItemPost(note, uid));
+    postList.appendChild(addItemPost(note, uid));
   });
-  buttonAddNote.addEventListener('click', createNewPost);
- 
-  // const signoutBtn = document.querySelector('#sign-out-btn');
-  // signoutBtn.addEventListener('click', logOutOnSubmit);
-  return divContainer;
+  return createPostInWall;
 };
