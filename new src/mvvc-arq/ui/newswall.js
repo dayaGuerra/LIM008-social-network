@@ -60,19 +60,12 @@ export const createPost = (notes, uid) => {
      
 
         <div class = "border-separation-post"></div>
-        <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+       
          
       </form>
       <!-- notes -->
         <section id="notes-list">
         </section>
-        
-    
-      
-        <div hidden id="user-pic"></div>
-        <div hidden id="user-name"></div>
-        <button hidden id="sign-out-btn">Cerrar sesión</button>
-      </div>
     `;
   divContainer.innerHTML = homeContent;
   const buttonAddNote = divContainer.querySelector('#btn-add-note');
