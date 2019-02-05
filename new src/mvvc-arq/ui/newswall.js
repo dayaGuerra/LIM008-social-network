@@ -6,6 +6,9 @@ const addItemPost = (objNote, uid) => {
   liElement.classList.add('mdl-list__item');
   liElement.innerHTML = `
       <span class="mdl-list__item-primary-content">
+      <span class="user-display-name">${objNote.name}</span>
+        <span>${objNote.timestamp}</span>
+        <img src="${objNote.profilePicUrl}" class="user-profile-picture"/>
         <span>${objNote.title}</span>
       </span>
       <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}">
