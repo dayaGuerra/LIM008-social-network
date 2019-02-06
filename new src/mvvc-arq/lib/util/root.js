@@ -15,7 +15,6 @@ const changeTmp = (hash) => {
 // ;
 
 const viewTmp = (routers) => {
-  
   const router = routers.substr(2, routers.length - 2);
   const root = document.getElementById('root');
   const navBar = document.getElementById('nav');
@@ -23,6 +22,7 @@ const viewTmp = (routers) => {
   navBar.innerHTML = '';
   switch (router) {
   case 'home': 
+  
     navBar.appendChild(profileContainer());
     getAllPost(notes => {
       root.innerHTML = '';
@@ -44,5 +44,6 @@ const viewTmp = (routers) => {
 
 export const initRoutersSocialMedia = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
+  console.log(window.location);
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };

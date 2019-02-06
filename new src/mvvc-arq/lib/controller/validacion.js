@@ -11,13 +11,14 @@ export const validationForInput = (arrInput) => {
   }
 };
 export const validation = (input) => {
-  if (input.length > 0) {
+  if (input.trim().length > 0) {
     return true;
   } else {
     return false;
   }
 };
 
+// expresión regular 
 export const isValidEmail = (mail) => { 
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(mail); 
 };
