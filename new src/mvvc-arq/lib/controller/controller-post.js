@@ -27,11 +27,9 @@ export const deletePost = (idNote) =>
     .doc(idNote)
     .delete();
 
-export const getAllPost = (callback) =>
-  firebase
-    .firestore()
-    .collection('post')
-    .onSnapshot(querySnapshot => {
+export const getAllPost = (callback) => {
+  const query = firebase.firestore().collection('post').orderBy('date', 'desc');
+    query.onSnapshot(querySnapshot => {
       const data = [];
       querySnapshot.forEach(doc => {
         data.push({ 
@@ -47,7 +45,7 @@ export const getAllPost = (callback) =>
       });
       callback(data);
     });
-
+  }
 
 
  // ...postDate(doc.data().date.toDate()),
