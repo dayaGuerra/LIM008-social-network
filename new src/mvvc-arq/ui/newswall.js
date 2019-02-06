@@ -32,24 +32,29 @@ const addItemPost = (objNote, uid) => {
         '<button type = "button" class="material-icons">Editar</button>' : ''}
       </a>
 
-      <a class="mdl-list__item-secondary-action" id="btn-save-${objNote.id}"> 
+      <a class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
       ${ objNote.uid === uid ? 
-     '<button type = "button" class="material-icons" hidden>Guardar</button>' : ''}
-   </a>
+     '<button type = "button" class="material-icons" >Guardar</button>' : ''}
+      </a>
+     
+
     </div>
     </div>
       <div class = "txt-post">
       <span >${textareaEdit(objNote)}</span>
-      <div class = "border-separation-post-button"></div>
-
-    
-
       <div class = "border-separation-post"></div>
 
     
     `;
   // agregando evento de click al btn eliminar una nota
-  liElement.querySelector(`#btn-edit-${objNote.id}`).addEventListener('click', () => deleteNoteOnClick(objNote));
+  liElement.querySelector(`#btn-edit-${objNote.id}`).addEventListener('click', () => {
+  const textareaPost = document.querySelector(`#textarea-post-${objNote.id}`);
+  textareaPost.disabled = false
+const btnEditNone = document.querySelector(`#btn-edit-${objNote.id}`);
+btnEditNone.style.display = 'none';
+const btnSaveBlock = document.querySelector(`#btn-save-${objNote.id}`);
+btnSaveBlock.style.display = 'block';
+});
   liElement.querySelector(`#btn-deleted-${objNote.id}`).addEventListener('click', () => deleteNoteOnClick(objNote));
   return liElement;
 };

@@ -165,8 +165,8 @@ margin-bottom: 10px;
   width: 100%;
   }
   
-  .textarea-ocult{
-    display:block;
+  .btn-save-edit-post{
+    display:none;
   }
 /* end list post */
 /* btn-post */

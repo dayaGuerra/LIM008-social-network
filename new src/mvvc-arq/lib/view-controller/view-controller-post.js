@@ -32,4 +32,11 @@ export const createNewPost = (event) => {
 };
 
 export const deleteNoteOnClick = (objNote) =>
-  deletePost(objNote.id);
+  deletePost(objNote.id)
+
+
+// export const editAndSavePost = () => {
+//   const textareaPost = document.querySelector(`#textarea-post-${objNote.id}`);
+//   textareaPost.enabled
+
+// }
