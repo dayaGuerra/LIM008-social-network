@@ -164,8 +164,22 @@ margin-bottom: 10px;
   border-bottom: 10px solid #f1f1f1;
   width: 100%;
   }
+  
+  .textarea-ocult{
+    display:block;
+  }
 /* end list post */
+/* btn-post */
+button{
+  cursor: pointer;
+}
+.option-post{
+border:none;
+background: white;
+font-weight: 900;
 
+}
+/* end btn post */
 /* ------------------------------------------------------------------- */
 @media screen and (min-width: 768px) {
 

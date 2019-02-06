@@ -13,21 +13,44 @@ const addItemPost = (objNote, uid) => {
       </div>
       <div class = "txt-post">
       <span>${objNote.title}</span>
-  
+      <div class = "border-separation-post-button"></div>
 
-      <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}">
-      ${ objNote.uid === uid ? 
-    '<button type = "button" class="material-icons">delete</button>' : ''}
-      </a>
+      <div>
+        <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}"> 
+          ${ objNote.uid === uid ? 
+          '<button type = "button" class="material-icons">Eliminar</button>' : ''}
+        </a>
+
+        <a class="mdl-list__item-secondary-action" id="btn-edit-${objNote.id}"> 
+           ${ objNote.uid === uid ? 
+          '<button type = "button" class="material-icons">Editar</button>' : ''}
+        </a>
       </div>
       <div class = "border-separation-post"></div>
+
+      <div>
+ ${ objNote.uid === uid ? 
+  textareaEdit(objNote) : ''}
+      </div>
     `;
   // agregando evento de click al btn eliminar una nota
   liElement.querySelector(`#btn-deleted-${objNote.id}`)
     .addEventListener('click', () => deleteNoteOnClick(objNote));
   return liElement;
 };
-  
+
+const textareaEdit = (objNote) => {
+  const createTextAreaEdit = document.createElement('div');
+  createTextAreaEdit.setAttribute('id','edit-textarea');
+  const tempEditTextarea = `
+  <textarea  class = "textarea-post textarea-ocult" >${objNote.title}</textarea>
+  <button>Guardar</button>
+  `;
+  return tempEditTextarea;
+}
+
+
+
 export const logOut = () => {
   const sectionElement = document.createElement('section');
   sectionElement.setAttribute('id', 'user-container');
