@@ -17,7 +17,6 @@ const init = () => {
 
   initRoutersSocialMedia();
   initFirebaseAuth();
-
 };
 
 window.onload = init;

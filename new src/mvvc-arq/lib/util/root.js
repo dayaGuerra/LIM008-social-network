@@ -1,5 +1,5 @@
 import { signInForm, signUpForm } from '../../ui/logincreate.js';
-import { createPost, profileContainer} from '../../ui/newswall.js';
+import { tmpPostInSection, textareapublication, logOut} from '../../ui/newswall.js';
 import { getAllPost, deletePost } from '../controller/controller-post.js';
 import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 
@@ -16,18 +16,26 @@ const changeTmp = (hash) => {
 
 const viewTmp = (routers) => {
   const router = routers.substr(2, routers.length - 2);
+  const main = document.getElementById('main');
   const root = document.getElementById('root');
   const navBar = document.getElementById('nav');
+
+     
+  // const viewPost = (notes, uid) => {
+  // return {...createPost(notes, uid)} ;
+  // }
   root.innerHTML = '';
   navBar.innerHTML = '';
+  main.innerHTML = '';
   switch (router) {
   case 'home': 
-  
-    navBar.appendChild(profileContainer());
+    navBar.appendChild(logOut());
+    main.appendChild(textareapublication());
     getAllPost(notes => {
       root.innerHTML = '';
       const uid = isUserSignedIn();
-      root.appendChild(createPost(notes, uid));
+      // root.appendChild(createPost(notes, uid));
+      root.appendChild(Object.assign(tmpPostInSection(notes, uid)));
     });
     break;
   case 'signin':

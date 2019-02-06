@@ -26,13 +26,7 @@ width: 100%;
 /* Login view */
 
 /* Style the container */
-.container {
-display: block;
-position: absolute;
-left: 3%;
-padding: 20px 0 30px 0;
-max-width: 300px;
-} 
+
 /*End style container*/
 
 /* ocultar sign-up form */
@@ -118,6 +112,60 @@ margin-bottom: 10px;
   margin-bottom: 20px;
 }
 /* End btns-log */
+
+
+/* list post */
+.container-textarea{
+  padding: 5px;
+}
+.textarea-post{
+  display : block;
+  padding : 10px;
+  margin-bottom:10px;
+  width   : 100%;
+  height  : 80px;
+  resize  : none;
+  overflow: auto; 
+}
+.btn-add-post{
+  margin-bottom: 10px;
+}
+.list-post{
+  margin-top: 10px;
+  /* border: 1px solid #bcbcbc; */
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+
+.img-post{
+  width: 40px;
+  border-radius: 20px;
+}
+.user-display-name{
+  font-size: 20px;
+  font-weight: bold;
+}
+.user-display-time{
+  font-size: 11px;
+}
+.container-data-post{
+  padding: 10px;
+}
+.txt-post{
+  font-family: monospace;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  
+}
+.border-separation-post{
+  border-bottom: 10px solid #f1f1f1;
+  width: 100%;
+  }
+/* end list post */
+
 /* ------------------------------------------------------------------- */
 @media screen and (min-width: 768px) {
 
@@ -131,14 +179,4 @@ margin-bottom: 10px;
     /* Login view */
     
     /* Style the container */
-    .container {
-    display: block;
-    position: absolute;
-    margin-top: 5%;
-    left: 3%;
-    padding: 12px ;
-    max-width: 320px;
-    background-color: #f1f1f1;
-    opacity:0.9;
-    }
 }
