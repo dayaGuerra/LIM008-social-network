@@ -1,4 +1,4 @@
-import {addNewPost, deletePost, getAllPost} from '../controller/controller-post.js';
+import {addNewPost, deletePost, updateTitlle} from '../controller/controller-post.js';
 import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 import {validation} from '../controller/validacion.js';
 // --importando todas las funciones que necesitamos ---!//
@@ -33,3 +33,14 @@ export const createNewPost = (event) => {
 
 export const deleteNoteOnClick = (objNote) =>
   deletePost(objNote.id);
+
+export const updateNoteOnClick = (objNote, title) => {
+  return updateTitlle(objNote.id, title);
+};
+
+
+// export const editAndSavePost = () => {
+//   const textareaPost = document.querySelector(`#textarea-post-${objNote.id}`);
+//   textareaPost.enabled
+
+// }

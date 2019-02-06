@@ -47,5 +47,10 @@ export const getAllPost = (callback) => {
   });
 };
 
-
-// ...postDate(doc.data().date.toDate()),
+export const updateTitlle = (id, title) => {
+  let refDoc = firebase.firestore().collection('post').doc(id);
+  refDoc.update({
+    title: title
+  });
+};
+  
