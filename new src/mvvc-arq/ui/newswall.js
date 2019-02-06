@@ -1,14 +1,14 @@
-import { createNewPost, deleteNoteOnClick } from '../lib/view-controller/view-controller-post.js';
+import { createNewPost, deleteNoteOnClick, updateNoteOnClick } from '../lib/view-controller/view-controller-post.js';
 import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
 
 const textareaEdit = (objNote) => {
   const createTextAreaEdit = document.createElement('div');
-  createTextAreaEdit.setAttribute('id','edit-textarea');
+  createTextAreaEdit.setAttribute('id', 'edit-textarea');
   const tempEditTextarea = `
   <textarea id = "textarea-post-${objNote.id}" class = "textarea-post textarea-ocult" disabled >${objNote.title}</textarea>
   `;
   return tempEditTextarea;
-}
+};
 
 
 const addItemPost = (objNote, uid) => {
@@ -24,17 +24,17 @@ const addItemPost = (objNote, uid) => {
       <div>
       <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}"> 
         ${ objNote.uid === uid ? 
-        '<button type = "button" class="material-icons">Eliminar</button>' : ''}
+    '<button type = "button" class="material-icons">Eliminar</button>' : ''}
       </a>
 
       <a class="mdl-list__item-secondary-action" id="btn-edit-${objNote.id}"> 
          ${ objNote.uid === uid ? 
-        '<button type = "button" class="material-icons">Editar</button>' : ''}
+    '<button type = "button" class="material-icons">Editar</button>' : ''}
       </a>
 
       <a class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
       ${ objNote.uid === uid ? 
-     '<button type = "button" class="material-icons" >Guardar</button>' : ''}
+    '<button type = "button" class="material-icons" >Guardar</button>' : ''}
       </a>
      
 
@@ -48,17 +48,23 @@ const addItemPost = (objNote, uid) => {
     `;
   // agregando evento de click al btn eliminar una nota
   liElement.querySelector(`#btn-edit-${objNote.id}`).addEventListener('click', () => {
-  const textareaPost = document.querySelector(`#textarea-post-${objNote.id}`);
-  textareaPost.disabled = false
-const btnEditNone = document.querySelector(`#btn-edit-${objNote.id}`);
-btnEditNone.style.display = 'none';
-const btnSaveBlock = document.querySelector(`#btn-save-${objNote.id}`);
-btnSaveBlock.style.display = 'block';
-});
+    const textareaPost = document.querySelector(`#textarea-post-${objNote.id}`);
+    textareaPost.disabled = false;
+    const btnEditNone = document.querySelector(`#btn-edit-${objNote.id}`);
+    btnEditNone.style.display = 'none';
+    const btnSaveBlock = document.querySelector(`#btn-save-${objNote.id}`);
+    btnSaveBlock.style.display = 'block';
+    
+  });
+  
+  liElement.querySelector(`#btn-save-${objNote.id}`).addEventListener('click', () => {
+    const textareaPos = document.querySelector(`#textarea-post-${objNote.id}`);
+    updateNoteOnClick(objNote, textareaPos.value);
+  });
+ 
   liElement.querySelector(`#btn-deleted-${objNote.id}`).addEventListener('click', () => deleteNoteOnClick(objNote));
   return liElement;
 };
-
 
 
 export const logOut = () => {
