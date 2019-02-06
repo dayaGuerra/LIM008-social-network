@@ -1,6 +1,16 @@
 import { createNewPost, deleteNoteOnClick } from '../lib/view-controller/view-controller-post.js';
 import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
 
+const textareaEdit = (objNote) => {
+  const createTextAreaEdit = document.createElement('div');
+  createTextAreaEdit.setAttribute('id','edit-textarea');
+  const tempEditTextarea = `
+  <textarea id = "textarea-post-${objNote.id}" class = "textarea-post textarea-ocult" disabled >${objNote.title}</textarea>
+  `;
+  return tempEditTextarea;
+}
+
+
 const addItemPost = (objNote, uid) => {
   const liElement = document.createElement('div');
   liElement.classList.add('list-post');
@@ -10,44 +20,39 @@ const addItemPost = (objNote, uid) => {
         <img class = "img-post" src="${objNote.profilePicUrl}"/>
         <span class="user-display-name">${objNote.name}</span>
         <span class = "user-display-time">${objNote.date}</span>
-      </div>
+      
+      <div>
+      <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}"> 
+        ${ objNote.uid === uid ? 
+        '<button type = "button" class="material-icons">Eliminar</button>' : ''}
+      </a>
+
+      <a class="mdl-list__item-secondary-action" id="btn-edit-${objNote.id}"> 
+         ${ objNote.uid === uid ? 
+        '<button type = "button" class="material-icons">Editar</button>' : ''}
+      </a>
+
+      <a class="mdl-list__item-secondary-action" id="btn-save-${objNote.id}"> 
+      ${ objNote.uid === uid ? 
+     '<button type = "button" class="material-icons" hidden>Guardar</button>' : ''}
+   </a>
+    </div>
+    </div>
       <div class = "txt-post">
-      <span>${objNote.title}</span>
+      <span >${textareaEdit(objNote)}</span>
       <div class = "border-separation-post-button"></div>
 
-      <div>
-        <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}"> 
-          ${ objNote.uid === uid ? 
-          '<button type = "button" class="material-icons">Eliminar</button>' : ''}
-        </a>
+    
 
-        <a class="mdl-list__item-secondary-action" id="btn-edit-${objNote.id}"> 
-           ${ objNote.uid === uid ? 
-          '<button type = "button" class="material-icons">Editar</button>' : ''}
-        </a>
-      </div>
       <div class = "border-separation-post"></div>
 
-      <div>
- ${ objNote.uid === uid ? 
-  textareaEdit(objNote) : ''}
-      </div>
+    
     `;
   // agregando evento de click al btn eliminar una nota
-  liElement.querySelector(`#btn-deleted-${objNote.id}`)
-    .addEventListener('click', () => deleteNoteOnClick(objNote));
+  liElement.querySelector(`#btn-edit-${objNote.id}`).addEventListener('click', () => deleteNoteOnClick(objNote));
+  liElement.querySelector(`#btn-deleted-${objNote.id}`).addEventListener('click', () => deleteNoteOnClick(objNote));
   return liElement;
 };
-
-const textareaEdit = (objNote) => {
-  const createTextAreaEdit = document.createElement('div');
-  createTextAreaEdit.setAttribute('id','edit-textarea');
-  const tempEditTextarea = `
-  <textarea  class = "textarea-post textarea-ocult" >${objNote.title}</textarea>
-  <button>Guardar</button>
-  `;
-  return tempEditTextarea;
-}
 
 
 
@@ -56,7 +61,7 @@ export const logOut = () => {
   sectionElement.setAttribute('id', 'user-container');
   const profileTemplate = `
     <div  id="user-pic">
-    <button  id="sign-out-btn">Cerrar sesión</button>
+    <a  id="sign-out-btn"><i class="fa fa-sign-out fa-3x" ></i></a>
     </div>
   `;
   sectionElement.innerHTML = profileTemplate;
