@@ -15,34 +15,28 @@ const addItemPost = (objNote, uid) => {
   const liElement = document.createElement('div');
   liElement.classList.add('list-post');
   liElement.innerHTML = `
-      <div class="post-total">
+    <div class="post-total">
       <div class = "container-data-post">
-        <img class = "img-post" src="${objNote.profilePicUrl}"/>
+        <img class = "img-post" src="${objNote.profilePicUrl}" alt="imagen del usuario"/>
         <span class="user-display-name">${objNote.name}</span>
         <span class = "user-display-time">${objNote.date}</span>
-      
-      <div>
-      <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}"> 
-        ${ objNote.uid === uid ? 
-    '<button type = "button" class="material-icons">Eliminar</button>' : ''}
-      </a>
-
-      <a class="mdl-list__item-secondary-action" id="btn-edit-${objNote.id}"> 
-         ${ objNote.uid === uid ? 
-    '<button type = "button" class="material-icons">Editar</button>' : ''}
-      </a>
-
-      <a class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
-      ${ objNote.uid === uid ? 
-    '<button type = "button" class="material-icons" >Guardar</button>' : ''}
-      </a>
-     
-
-    </div>
-    </div>
+        <div>
+          <a id="btn-deleted-${objNote.id}"> 
+            ${ objNote.uid === uid ? '<button type = "button" class="material-icons">Eliminar</button>' : ''}
+          </a>
+          <a id="btn-edit-${objNote.id}"> 
+            ${ objNote.uid === uid ? '<button type = "button" class="material-icons">Editar</button>' : ''}
+          </a>
+          <a class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
+            ${ objNote.uid === uid ? '<button type = "button" class="material-icons" >Guardar</button>' : ''}
+          </a>
+        </div>
+      </div>
       <div class = "txt-post">
-      <span >${textareaEdit(objNote)}</span>
+        <span>${textareaEdit(objNote)}</span>
+      </div>
       <div class = "border-separation-post"></div>
+    </div>
 
     
     `;
@@ -54,31 +48,27 @@ const addItemPost = (objNote, uid) => {
     btnEditNone.style.display = 'none';
     const btnSaveBlock = document.querySelector(`#btn-save-${objNote.id}`);
     btnSaveBlock.style.display = 'block';
-    
   });
   
   liElement.querySelector(`#btn-save-${objNote.id}`).addEventListener('click', () => {
     const textareaPos = document.querySelector(`#textarea-post-${objNote.id}`);
     updateNoteOnClick(objNote, textareaPos.value);
   });
- 
   liElement.querySelector(`#btn-deleted-${objNote.id}`).addEventListener('click', () => deleteNoteOnClick(objNote));
   return liElement;
 };
-
 
 export const logOut = () => {
   const sectionElement = document.createElement('section');
   sectionElement.setAttribute('id', 'user-container');
   const profileTemplate = `
-    <div  id="user-pic">
-    <a  id="sign-out-btn"><i class="fa fa-sign-out fa-3x" ></i></a>
+    <div>
+      <a id="sign-out-btn"><i class="fa fa-sign-out fa-3x"></i></a>
     </div>
   `;
   sectionElement.innerHTML = profileTemplate;
   const logoutBtn = sectionElement.querySelector('#sign-out-btn');
   logoutBtn.addEventListener('click', logOutOnSubmit);
-
   return sectionElement;
 };
 
@@ -87,10 +77,8 @@ export const textareapublication = () => {
   const createDivForPublication = document.createElement('div');
   const contentDivForPublication = `
     <div class="container-textarea">
-    <textarea class="textarea-post" type="text" id="input-new-note" placeholder = "Agrega un post" required></textarea>
-    <button class="btn-add-post" id="btn-add-post">
-      <i class="material-icons">Compartir</i>
-    </button>
+      <textarea class="textarea-post" type="text" id="input-new-note" placeholder = "Agrega un post" required></textarea>
+      <button class="btn-add-post" id="btn-add-post"><i class="material-icons">Compartir</i></button>
     </div>
   `;
   createDivForPublication.innerHTML = contentDivForPublication;

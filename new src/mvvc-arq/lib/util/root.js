@@ -12,7 +12,6 @@ const changeTmp = (hash) => {
     return viewTmp('#/signin');
   }
 };
-// ;
 
 const viewTmp = (routers) => {
   const router = routers.substr(2, routers.length - 2);
@@ -34,8 +33,7 @@ const viewTmp = (routers) => {
     getAllPost(notes => {
       root.innerHTML = '';
       const uid = isUserSignedIn();
-      // root.appendChild(createPost(notes, uid));
-      root.appendChild(Object.assign(tmpPostInSection(notes, uid)));
+      root.appendChild(tmpPostInSection(notes, uid));
     });
     break;
   case 'signin':

@@ -42,7 +42,7 @@ export const signUpOnSubmit = (event) => {
   const lastName = document.querySelector('#lastname-social-media').value;
 
   const errorMessage = document.querySelector('#error-message-signup');
-  if (validation(email) === true && validation(password) === true && validation(name)===true && validation(lastname)===true) {
+  if (validation(email) === true && validation(password) === true && validation(name) === true && validation(lastname) === true) {
     signUp(email, password)
       .then(result => {
         // changeHash('/home')  
@@ -94,10 +94,6 @@ export const logOutOnSubmit = () => {
     }).catch(error => console.log(error.code));
 };
 
-export function initFirebaseAuth() {
-  // Listen to auth state changes.
-  firebase.auth().onAuthStateChanged(authStateObserver);
-}
 // Returns the signed-in user's profile Pic URL.
 export const getProfilePicUrl = () => 
   firebase.auth().currentUser.photoURL;
@@ -108,16 +104,18 @@ export const getUserName = () =>
 export const isUserSignedIn = () => 
   firebase.auth().currentUser.uid;
 
-
-// REVISAR ----
-export function authStateObserver(user) {
+export const authStateObserver = (user) => {
   if (user && user.emailVerified) { 
     const profilePicUrl = getProfilePicUrl();
     const userName = getUserName();
     changeHash('/home');
-    // logout btn 
   } else {
     // alert('Verifica tu correo electronico para continuar');
     changeHash('/signin');
   }
-}
+};
+
+export const initFirebaseAuth = () => {
+  // Listen to auth state changes.
+  firebase.auth().onAuthStateChanged(authStateObserver);
+};

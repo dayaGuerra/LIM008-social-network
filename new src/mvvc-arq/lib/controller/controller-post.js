@@ -11,12 +11,10 @@ export const addNewPost = (textNewNote, userUid) =>
       profilePicUrl: getProfilePicUrl(),
       // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       date: new Date(),
-      // firebase.database.ServerValue.TIMESTAMP,
-      // firebase.firestore.FieldValue.serverTimestamp(),
       state: false,
       uid: userUid
     }).catch((error) => {
-      console.error(error);
+      console.log(error);
     });
 
     

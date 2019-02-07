@@ -32,15 +32,8 @@ export const createNewPost = (event) => {
 };
 
 export const deleteNoteOnClick = (objNote) =>
-  deletePost(objNote.id)
+  deletePost(objNote.id);
 
-  export const updateNoteOnClick = (objNote, title) => {
-   return updateTitlle(objNote.id, title)
-  };
-
-
-// export const editAndSavePost = () => {
-//   const textareaPost = document.querySelector(`#textarea-post-${objNote.id}`);
-//   textareaPost.enabled
-
-// }
+export const updateNoteOnClick = (objNote, title) => {
+  return updateTitlle(objNote.id, title);
+};
