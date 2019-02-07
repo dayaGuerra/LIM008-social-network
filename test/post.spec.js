@@ -14,6 +14,7 @@ const fixtureData = {
           profilePicUrl: 'foto de janet comiendo hamburguesonas.jpg',
           date: new Date('February 6, 2019 at 5:48:04 PM UTC-5'),
           userUid: 'ad123',
+          
         },
         abc125: {
           name: 'D,yanara',
