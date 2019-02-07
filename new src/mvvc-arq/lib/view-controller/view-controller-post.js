@@ -37,3 +37,4 @@ export const deleteNoteOnClick = (objNote) =>
 export const updateNoteOnClick = (objNote, title) => {
   return updateTitlle(objNote.id, title);
 };
+
