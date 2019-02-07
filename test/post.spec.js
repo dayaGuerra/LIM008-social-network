@@ -14,7 +14,7 @@ const fixtureData = {
           profilePicUrl: 'foto de janet comiendo hamburguesonas.jpg',
           date: new Date('February 6, 2019 at 5:48:04 PM UTC-5'),
           userUid: 'ad123',
-          
+
         },
         abc125: {
           name: 'D,yanara',
@@ -26,12 +26,12 @@ const fixtureData = {
       }
     }
   }
-}
+};
 
 
 global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled: true});
 
-import {addNewPost, getAllPost} from '../new src/mvvc-arq/lib/controller/controller-post.js';
+import {addNewPost, getAllPost, deletePost} from '../new src/mvvc-arq/lib/controller/controller-post.js';
 
 
 describe('addNewPost', () => {
@@ -41,8 +41,24 @@ describe('addNewPost', () => {
         done()
         };
         // función de callback recibe la data
-        getAllPost(callback)
-        // recibe como argumento una función
+      getAllPost(callback);
+      // recibe como argumento una función
     });
+  });
+});
+
+describe('deletePost', () => {
+  it('debería de poder eliminar una nota', () => {
+    return deletePost('abc123')
+      .then(() => {
+        const callback = (post) => {
+          const result = notes.find((elemento) => {
+            return elemento.id === 'abc123';
+          });
+          expect(result).toBe(undefined);
+          done();
+        };
+        getAllPost(callback);
+      });
   });
 });
