@@ -1,18 +1,16 @@
-import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
 import { postDate } from '../util/app.js';
 
-export const addNewPost = (textNewNote) =>
+export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl) =>
   firebase
     .firestore()
     .collection('post')
     .add({
-      // name: getUserName(),
+      name: getUserName,
       title: textNewNote,
-      // profilePicUrl: getProfilePicUrl(),
-      // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      // date: new Date(),
+      profilePicUrl: getProfilePicUrl,
+      date: new Date(),
       state: false,
-      // uid: userUid
+      uid: userUid
     }).catch((error) => {
       console.log(error);
     });
@@ -30,6 +28,7 @@ export const getAllPost = (callback) => {
   query.onSnapshot(querySnapshot => {
     const data = [];
     querySnapshot.forEach(doc => {
+      console.log(typeof(postDate(doc.data().date.toDate())) + postDate(doc.data().date.toDate()))
       data.push({ 
         id: doc.id,
         title: doc.data().title,
@@ -37,9 +36,11 @@ export const getAllPost = (callback) => {
         profilePicUrl: doc.data().profilePicUrl,
         date: postDate(doc.data().date.toDate()),
         uid: doc.data().uid,
-        // ...doc.data(),
-         
+        // ...doc.data(), 
+  
       });
+    
+
     });
     callback(data);
   });

@@ -1,6 +1,8 @@
 import {addNewPost, deletePost, updateTitlle} from '../controller/controller-post.js';
 import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 import {validation} from '../controller/validacion.js';
+import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
+
 // --importando todas las funciones que necesitamos ---!//
 
 export const createNewPost = (event) => {
@@ -10,13 +12,12 @@ export const createNewPost = (event) => {
   if (validation(valueTextMessage) === true) {
     // validando si esta vacio//
     const uidUser = isUserSignedIn();
-    // console.log(textMessage);
     const data = {
       message: '',
       timeout: 2000,
       actionText: 'Undo'
     };
-    addNewPost(textMessage.value, uidUser)
+    addNewPost(textMessage.value, uidUser, getUserName(), getProfilePicUrl())
       .then(() => {
         textMessage.value = '';
         data.message = 'Nota agregada';
