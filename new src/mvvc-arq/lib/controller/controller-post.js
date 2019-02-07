@@ -1,18 +1,18 @@
 import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
 import { postDate } from '../util/app.js';
 
-export const addNewPost = (textNewNote, userUid) =>
+export const addNewPost = (textNewNote) =>
   firebase
     .firestore()
     .collection('post')
     .add({
-      name: getUserName(),
+      // name: getUserName(),
       title: textNewNote,
-      profilePicUrl: getProfilePicUrl(),
+      // profilePicUrl: getProfilePicUrl(),
       // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      date: new Date(),
+      // date: new Date(),
       state: false,
-      uid: userUid
+      // uid: userUid
     }).catch((error) => {
       console.log(error);
     });

@@ -97,8 +97,12 @@ export const logOutOnSubmit = () => {
 // Returns the signed-in user's profile Pic URL.
 export const getProfilePicUrl = () => 
   firebase.auth().currentUser.photoURL;
-export const getUserName = () => 
-  firebase.auth().currentUser.displayName;
+
+  export const getUserName = () => 
+  firebase
+  .auth()
+  .currentUser
+  .displayName;
 
 // Returns the uid  of the current user.
 export const isUserSignedIn = () => 

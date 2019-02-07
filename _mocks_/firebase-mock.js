@@ -1,18 +1,21 @@
-const firestore = () => {
-  return {
-    collection: (nameCollection) => {
-      return {
-        add: (objData) => {
-          return new Promise((resolve) => {
-            resolve('la nota fue agregada ');
-          });
-        }
-      };
-    }
-  };
-};
+// const firestore = () => {
+//   return {
+//     collection: (nameCollection) => {
+//       return {
+//         add: (objData) => {
+//           return new Promise((resolve) => {
+//             resolve('la nota fue agregada ');
+//           });
+//         }
+//       };
+//     }
+//   };
+// };
 
 
-export const firebase = {
-  firestore: firestore
-}; 
+
+
+// export const firebase = {
+//   firestore: firestore
+// }; 
+
