@@ -9,8 +9,10 @@ const fixtureData = {
     post: {
       __doc__: {
         abc123: {
+          name: 'Janet',
           title: 'terminar la pildora',
-          userUid: 'jha213',
+          profilePicUrl:'imagendejanet.jpg',
+          userUid: 'abc123',
           date: {
               toDate() {
                   return new Date();
@@ -18,7 +20,9 @@ const fixtureData = {
           }
         },
         abc125: {
+          name: 'Cinthya',
           title: 'comprar trufas',
+          profilePicUrl:'imagendecinthya.jpg',
           userUid: 'jhf214',
           date: {
             toDate() {
@@ -34,7 +38,7 @@ const fixtureData = {
 
 global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled : true});
 
-import {addNewPost, getAllPost} from '../new src/mvvc-arq/lib/controller/controller-post.js';
+import {addNewPost, getAllPost, deletePost, updateTitlle} from '../new src/mvvc-arq/lib/controller/controller-post.js';
 
 describe('addNewPost', () => {
   it('debería de poder agregar una nota', (done) => {
@@ -48,6 +52,22 @@ describe('addNewPost', () => {
     };
     // función de callback recibe la data
     getAllPost(callback)
-    addNewPost('adventure of the lifetime beibis','ghf215')
+    addNewPost('adventure of the lifetime beibis','ghf215','getUserName','getProfilePicUrl');
   });
 });
+
+describe('deletePost', () => {
+    it('debería de poder eliminar una nota', () => {
+      return deletePost('abc123')
+        .then(() => {
+          const callback = (post) => {
+            const result = notes.find((elemento) => {
+              return elemento.id === 'abc123';
+            });
+            expect(result).toBe(undefined);
+            done();
+          };
+          getAllPost(callback);
+        });
+    });
+  });

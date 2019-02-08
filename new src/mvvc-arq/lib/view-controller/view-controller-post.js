@@ -17,7 +17,9 @@ export const createNewPost = (event) => {
       timeout: 2000,
       actionText: 'Undo'
     };
-    addNewPost(textMessage.value, uidUser, getUserName(), getProfilePicUrl())
+    const name = getUserName();
+    const image = getProfilePicUrl();
+    addNewPost(textMessage.value, uidUser, name, image)
       .then(() => {
         textMessage.value = '';
         data.message = 'Nota agregada';
