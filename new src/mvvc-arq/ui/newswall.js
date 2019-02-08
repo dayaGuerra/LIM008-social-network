@@ -44,10 +44,8 @@ const addItemPost = (objNote, uid) => {
     
   // agregando evento de click al btn eliminar una nota
   liElement.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
-    let countLike = 0;
-    countLike += 1;
-    console.log('tiene like :' + countLike);
-    updateLikeOnClick(objNote, countLike);
+    // console.log('tiene like :' + countLike);
+    updateLikeOnClick(objNote, objNote.likes += 1);
   });
 
 
