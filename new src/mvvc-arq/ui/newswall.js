@@ -102,10 +102,13 @@ export const tmpPostInSection = (notes, uid) => {
   const postList = createPostInWall.querySelector('#post-list');
   notes.forEach((objnote) => {
     console.log(typeof(objnote.state));
-    if (objnote.state === 'privado' && uid === objnote) {
-    }
-      else {
-        postList.appendChild(addItemPost(objnote, uid));}
-    });
+    if (objnote.state === 'privado') {
+      if (objnote.uid === uid) {
+        postList.appendChild(addItemPost(objnote, uid));
+      } else if (objnote.state === 'publico') {
+        postList.appendChild(addItemPost(objnote, uid));
+      }
+    };
+  });
   return createPostInWall;
 };
