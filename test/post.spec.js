@@ -9,56 +9,45 @@ const fixtureData = {
     post: {
       __doc__: {
         abc123: {
-          name: 'Janet',
           title: 'terminar la pildora',
-          profilePicUrl: 'foto de janet comiendo hamburguesonas.jpg',
-          date: new Date('February 6, 2019 at 5:48:04 PM UTC-5'),
-          userUid: 'ad123',
-
+          userUid: 'jha213',
+          date: {
+              toDate() {
+                  return new Date();
+              }
+          }
         },
         abc125: {
-          name: 'D,yanara',
           title: 'comprar trufas',
-          profilePicUrl: 'foto de daya en la playa.jpg',
-          date: new Date('February 6, 2019 at 5:48:04 PM UTC-5'),
-          userUid: 'ad134',
+          userUid: 'jhf214',
+          date: {
+            toDate() {
+                return new Date();
+            }
+          }
         },
       }
     }
   }
-};
+}
 
 
-global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled: true});
+global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled : true});
 
-import {addNewPost, getAllPost, deletePost} from '../new src/mvvc-arq/lib/controller/controller-post.js';
-
+import {addNewPost, getAllPost} from '../new src/mvvc-arq/lib/controller/controller-post.js';
 
 describe('addNewPost', () => {
   it('debería de poder agregar una nota', (done) => {
-    return addNewPost('adventure of the lifetime beibis', 'ad152').then((data) => {
-        const callback = (post) => {
+    const callback = (post) => {
+        const result = post.find((chochito) => {
+            return chochito.title === 'adventure of the lifetime beibis';
+        });
+        expect(result.title).toBe('adventure of the lifetime beibis')
+        console.log(post)
         done()
-        };
-        // función de callback recibe la data
-      getAllPost(callback);
-      // recibe como argumento una función
-    });
-  });
-});
-
-describe('deletePost', () => {
-  it('debería de poder eliminar una nota', () => {
-    return deletePost('abc123')
-      .then(() => {
-        const callback = (post) => {
-          const result = notes.find((elemento) => {
-            return elemento.id === 'abc123';
-          });
-          expect(result).toBe(undefined);
-          done();
-        };
-        getAllPost(callback);
-      });
+    };
+    // función de callback recibe la data
+    getAllPost(callback)
+    addNewPost('adventure of the lifetime beibis','ghf215')
   });
 });
