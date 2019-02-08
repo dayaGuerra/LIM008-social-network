@@ -1,7 +1,7 @@
 import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
 import { postDate } from '../util/app.js';
 
-export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl) =>
+export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl, type) =>
   firebase
     .firestore()
     .collection('post')
@@ -10,8 +10,7 @@ export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl) 
       title: textNewNote,
       profilePicUrl: getProfilePicUrl,
       date: firebase.firestore.FieldValue.serverTimestamp(),
-     
-      state: false,
+      state: type,
       uid: userUid
     }).catch((error) => {
       console.log(error);
@@ -30,7 +29,6 @@ export const getAllPost = (callback) => {
   query.onSnapshot(querySnapshot => {
     const data = [];
     querySnapshot.forEach(doc => {
-      console.log(doc.data())
       data.push({ 
         id: doc.id,
         title: doc.data().title,

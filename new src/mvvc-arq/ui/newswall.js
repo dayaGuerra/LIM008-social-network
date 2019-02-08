@@ -79,9 +79,9 @@ export const textareapublication = () => {
     <div class="container-textarea">
       <textarea class="textarea-post" type="text" id="input-new-note" placeholder = "Agrega un post" required></textarea>
       <button class="btn-add-post" id="btn-add-post"><i class="material-icons">Compartir</i></button>
-    <select>
-    <option value = "Publico">Amigos</option>
-    <option value  = "Privado">Privado</option>
+    <select id ="state-post">
+    <option value = "publico">Amigos</option>
+    <option value  = "privado">Privado</option>
     </select>
       </div>
   `;
