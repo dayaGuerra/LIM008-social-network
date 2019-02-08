@@ -60,17 +60,20 @@ describe('addNewPost', () => {
 
   describe('updateTitlle', () => {
     it('debería de poder editar una nota', (done) => {
-      const callback = (post) => {
-          const resultEdit = post.find((chochitoLoco) => {
-              return chochitoLoco.title === 'me gusta el chochito loco';
-          });
-          expect(resultEdit.title).toBe('me gusta el chochito loco')
-          console.log(post)
-          done()
-      };
-      // función de callback recibe la data
-      getAllPost(callback)
-      updateTitlle('abc125','me gusta el chochito loco');
+     
+      updateTitlle('abc125','Data a cambiar').then(()=>{
+
+        const callback = (post) => {
+            const resultEdit = post.find((chochitoLoco) => {
+                return chochitoLoco.id === 'abc125';
+            });
+            expect(resultEdit.title).toBe('Data a cambiar')
+            console.log(post)
+            done()
+        };
+        // función de callback recibe la data
+        getAllPost(callback)
+      });
     });
   });
   

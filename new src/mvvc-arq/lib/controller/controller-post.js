@@ -48,7 +48,7 @@ export const getAllPost = (callback) => {
 
 export const updateTitlle = (id, title) => {
   let refDoc = firebase.firestore().collection('post').doc(id);
-  refDoc.update({
+  return refDoc.update({
     title: title
   });
 };
