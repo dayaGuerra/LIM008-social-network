@@ -19,22 +19,26 @@ const addItemPost = (objNote, uid) => {
       <div class = "container-data-post">
         <img class = "img-post" src="${objNote.profilePicUrl}" alt="imagen del usuario"/>
         <span class="user-display-name">${objNote.name}</span>
+            ${ objNote.state === 'publico' ? '<i class="fa fa-globe" aria-hidden="true"></i>' : ' <i class="fa fa-lock" aria-hidden="true"></i>'}
+         
         <span class = "user-display-time">${objNote.date}</span>
         <div>
           <a id="btn-deleted-${objNote.id}"> 
-            ${ objNote.uid === uid ? '<button type = "button" class="material-icons">Eliminar</button>' : ''}
+            ${ objNote.uid === uid ? '<button type = "button" class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
           </a>
           <a id="btn-edit-${objNote.id}"> 
-            ${ objNote.uid === uid ? '<button type = "button" class="material-icons">Editar</button>' : ''}
+            ${ objNote.uid === uid ? '<button type = "button" class="material-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>' : ''}
           </a>
           <a class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
-            ${ objNote.uid === uid ? '<button type = "button" class="material-icons" >Guardar</button>' : ''}
+            ${ objNote.uid === uid ? '<button type = "button" class="material-icons" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>' : ''}
           </a>
         </div>
       </div>
       <div class = "txt-post">
         <span>${textareaEdit(objNote)}</span>
+        <div><button id = "btn-likes-post"><i class="fa fa-heart-o" aria-hidden="true"></i><span id = "number-likes-post"> 0</span></button></div>
       </div>
+      
       <div class = "border-separation-post"></div>
     </div>
 
