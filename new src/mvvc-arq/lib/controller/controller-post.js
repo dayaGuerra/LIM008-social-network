@@ -1,7 +1,7 @@
 import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
 import { postDate } from '../util/app.js';
 
-export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl, type) =>
+export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl, type, like) =>
   firebase
     .firestore()
     .collection('post')
@@ -11,6 +11,7 @@ export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl, 
       profilePicUrl: getProfilePicUrl,
       date: firebase.firestore.FieldValue.serverTimestamp(),
       state: type,
+      likes: like,
       uid: userUid
     }).catch((error) => {
       console.log(error);
@@ -36,6 +37,7 @@ export const getAllPost = (callback) => {
         profilePicUrl: doc.data().profilePicUrl,
         date: postDate(doc.data().date.toDate()),
         state: doc.data().state,
+        likes: doc.data().likes,
         uid: doc.data().uid,
         // ...doc.data(),
          
@@ -51,4 +53,10 @@ export const updateTitlle = (id, title) => {
     title: title
   });
 };
-  
+export const updateLikePost = (id, mylikes) => {
+  console.log(`del post =>${id} se agrega un atributo likes.megusta:'0'`);
+  let refLikes = firebase.firestore().collection('post').doc(id);
+  return refLikes.update({
+    likes: mylikes
+  });
+};

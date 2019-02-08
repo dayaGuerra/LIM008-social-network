@@ -1,4 +1,4 @@
-import {addNewPost, deletePost, updateTitlle} from '../controller/controller-post.js';
+import {addNewPost, deletePost, updateTitlle, updateLikePost} from '../controller/controller-post.js';
 import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 import {validation} from '../controller/validacion.js';
 import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
@@ -10,6 +10,7 @@ export const createNewPost = (event) => {
   const statePost = document.querySelector('#state-post');
   const textMessage = document.querySelector('#input-new-note');
   const valueTextMessage = document.querySelector('#input-new-note').value;
+  let countLike = 0;
   console.log(typeof(statePost.toString()));
   if (validation(valueTextMessage) === true) {
     const uidUser = isUserSignedIn();
@@ -20,7 +21,7 @@ export const createNewPost = (event) => {
     };
     const name = getUserName();
     const image = getProfilePicUrl();
-    addNewPost(textMessage.value, uidUser, name, image, statePost.value)
+    addNewPost(textMessage.value, uidUser, name, image, statePost.value, countLike)
       .then(() => {
         textMessage.value = '';
         data.message = 'Nota agregada';
@@ -40,5 +41,9 @@ export const deleteNoteOnClick = (objNote) =>
 
 export const updateNoteOnClick = (objNote, title) => {
   return updateTitlle(objNote.id, title);
+};
+
+export const updateLikeOnClick = (objNote, like) => {
+  return updateLikePost(objNote.id, like);
 };
 

@@ -1,4 +1,4 @@
-import { createNewPost, deleteNoteOnClick, updateNoteOnClick } from '../lib/view-controller/view-controller-post.js';
+import { createNewPost, deleteNoteOnClick, updateNoteOnClick, updateLikeOnClick} from '../lib/view-controller/view-controller-post.js';
 import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
 
 const textareaEdit = (objNote) => {
@@ -36,15 +36,21 @@ const addItemPost = (objNote, uid) => {
       </div>
       <div class = "txt-post">
         <span>${textareaEdit(objNote)}</span>
-        <div><button id = "btn-likes-post"><i class="fa fa-heart-o" aria-hidden="true"></i><span id = "number-likes-post"> 0</span></button></div>
+        <div><button id = "btn-likes-post-${objNote.id}"><i class="fa fa-heart-o" aria-hidden="true"></i><span id = "number-likes-post">${objNote.likes}</span></button></div>
       </div>
-      
       <div class = "border-separation-post"></div>
     </div>
-
-    
     `;
+    
   // agregando evento de click al btn eliminar una nota
+  liElement.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
+    let countLike = 0;
+    countLike += 1;
+    console.log('tiene like :' + countLike);
+    updateLikeOnClick(objNote, countLike);
+  });
+
+
   liElement.querySelector(`#btn-edit-${objNote.id}`).addEventListener('click', () => {
     const textareaPost = document.querySelector(`#textarea-post-${objNote.id}`);
     textareaPost.disabled = false;
@@ -105,12 +111,11 @@ export const tmpPostInSection = (notes, uid) => {
 
   const postList = createPostInWall.querySelector('#post-list');
   notes.forEach((objnote) => {
-    console.log(typeof(objnote.state));
     if (objnote.state === 'privado' && objnote.uid === uid) {
-        postList.appendChild(addItemPost(objnote, uid));
-      } else if (objnote.state === 'publico') {
-    postList.appendChild(addItemPost(objnote, uid));
-      }
+      postList.appendChild(addItemPost(objnote, uid));
+    } else if (objnote.state === 'publico') {
+      postList.appendChild(addItemPost(objnote, uid));
+    }
   });
   return createPostInWall;
 };
