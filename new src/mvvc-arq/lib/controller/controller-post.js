@@ -35,6 +35,7 @@ export const getAllPost = (callback) => {
         name: doc.data().name,
         profilePicUrl: doc.data().profilePicUrl,
         date: postDate(doc.data().date.toDate()),
+        state: doc.data().state,
         uid: doc.data().uid,
         // ...doc.data(),
          

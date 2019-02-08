@@ -100,8 +100,13 @@ export const tmpPostInSection = (notes, uid) => {
   createPostInWall.innerHTML = contentPostInWall;
 
   const postList = createPostInWall.querySelector('#post-list');
-  notes.forEach((note) => {
-    postList.appendChild(addItemPost(note, uid));
+  notes.forEach((objnote) => {
+    console.log(typeof(objnote.state));
+    if (objnote.state === 'privado') {
+      if (uid === objnote.uid) {
+        postList.appendChild(addItemPost(objnote, uid));
+      }
+    }
   });
   return createPostInWall;
 };

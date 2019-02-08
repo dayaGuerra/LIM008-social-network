@@ -61,7 +61,7 @@ describe('addNewPost', () => {
   describe('updateTitlle', () => {
     it('debería de poder editar una nota', (done) => {
      
-      updateTitlle('abc125','Data a cambiar').then(()=>{
+      updateTitlle('abc125','Data a cambiar').then(() => {
 
         const callback = (post) => {
             const resultEdit = post.find((chochitoLoco) => {
