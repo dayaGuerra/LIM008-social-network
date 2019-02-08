@@ -56,6 +56,25 @@ describe('addNewPost', () => {
   });
 });
 
+
+
+  describe('updateTitlle', () => {
+    it('debería de poder editar una nota', (done) => {
+      const callback = (post) => {
+          const resultEdit = post.find((chochitoLoco) => {
+              return chochitoLoco.title === 'me gusta el chochito loco';
+          });
+          expect(resultEdit.title).toBe('me gusta el chochito loco')
+          console.log(post)
+          done()
+      };
+      // función de callback recibe la data
+      getAllPost(callback)
+      updateTitlle('abc125','me gusta el chochito loco');
+    });
+  });
+  
+  
 describe('deletePost', () => {
     it('debería de poder eliminar una nota', () => {
       return deletePost('abc123')
