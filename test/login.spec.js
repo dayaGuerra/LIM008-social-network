@@ -17,9 +17,9 @@ global.firebase = firebasemock.MockFirebaseSdk(
 import { signUp, logIn, googleAuth, facebookAuth, logOut } from '../new src/mvvc-arq/lib/controller/controller-auth.js';
 describe('lista de notas', () => {
   it('Debería poder iniciar sesion', () => {
-    return logIn('front@end.la', '123456')
+    return logIn('janetgutmont@gmail.com', '123456')
       .then((user) => {
-        expect(user.email).toBe('front@end.la');
+        expect(user.email).toBe('janetgutmont@gmail.com');
       });
   });
 });

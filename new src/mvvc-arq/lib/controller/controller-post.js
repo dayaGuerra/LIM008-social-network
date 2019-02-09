@@ -46,17 +46,17 @@ export const getAllPost = (callback) => {
   });
 };
 
-export const updateTitlle = (id, title) => {
+export const updateTitle = (id, title) => {
   let refDoc = firebase.firestore().collection('post').doc(id);
   return refDoc.update({
     title: title
   });
 };
 
-export const updateLikePost = (id, mylikes) => {
+export const updateLikePost = (id, myLikes) => {
   console.log(`del post =>${id} se agrega un atributo likes.megusta:'0'`);
   let refLikes = firebase.firestore().collection('post').doc(id);
   return refLikes.update({
-    likes: mylikes
+    likes: myLikes
   });
 };

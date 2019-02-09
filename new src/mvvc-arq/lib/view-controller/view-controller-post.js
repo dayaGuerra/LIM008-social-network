@@ -1,4 +1,4 @@
-import {addNewPost, deletePost, updateTitlle, updateLikePost} from '../controller/controller-post.js';
+import {addNewPost, deletePost, updateTitle, updateLikePost} from '../controller/controller-post.js';
 import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 import {validation} from '../controller/validacion.js';
 import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
@@ -40,7 +40,7 @@ export const deleteNoteOnClick = (objNote) =>
   deletePost(objNote.id);
 
 export const updateNoteOnClick = (objNote, title) => {
-  return updateTitlle(objNote.id, title);
+  return updateTitle(objNote.id, title);
 };
 
 export const updateLikeOnClick = (objNote, like) => {
