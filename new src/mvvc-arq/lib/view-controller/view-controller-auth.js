@@ -1,5 +1,5 @@
 import { signUp, logIn, googleAuth, facebookAuth, logOut } from '../controller/controller-auth.js';
-import {validation, isValidEmail} from '../controller/validacion.js';
+import { validation } from '../controller/validacion.js';
 
 const changeHash = (hash) => {
   location.hash = hash;
@@ -10,7 +10,7 @@ export const logInOnSubmit = (event) => {
   const email = document.querySelector('#email-social-media').value;
   const pass = document.querySelector('#password-social-media').value;
   const errorMessage = document.querySelector('#error-message-login');
-  if (isValidEmail(email) === true && validation(pass) === true) {
+  if (validation(pass) === true) {
     logIn(email, pass)
       .then(result => {  
         // if (result.user.sendEmailVerified) {
