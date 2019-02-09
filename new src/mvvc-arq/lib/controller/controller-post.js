@@ -35,12 +35,11 @@ export const getAllPost = (callback) => {
         title: doc.data().title,
         name: doc.data().name,
         profilePicUrl: doc.data().profilePicUrl,
-        date: postDate(doc.data().date.toDate()),
+        date: doc.data().date,
         state: doc.data().state,
         likes: doc.data().likes,
         uid: doc.data().uid,
-        // ...doc.data(),
-         
+        // ...doc.data(), 
       });
     });
     callback(data);
@@ -53,6 +52,7 @@ export const updateTitlle = (id, title) => {
     title: title
   });
 };
+
 export const updateLikePost = (id, mylikes) => {
   console.log(`del post =>${id} se agrega un atributo likes.megusta:'0'`);
   let refLikes = firebase.firestore().collection('post').doc(id);

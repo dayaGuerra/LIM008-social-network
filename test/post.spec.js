@@ -11,85 +11,102 @@ const fixtureData = {
         abc123: {
           name: 'Janet',
           title: 'terminar la pildora',
-          profilePicUrl:'imagendejanet.jpg',
+          profilePicUrl: 'imagendejanet.jpg',
           userUid: 'abc123',
+          like: 1,
+          state: 'privado',
           date: {
-              toDate() {
-                  return new Date();
-              }
+            toDate() {
+              return new Date();
+            }
           }
         },
         abc125: {
           name: 'Cinthya',
           title: 'comprar trufas',
-          profilePicUrl:'imagendecinthya.jpg',
+          profilePicUrl: 'imagendecinthya.jpg',
           userUid: 'jhf214',
+          like: 1,
+          state: 'publico',
           date: {
             toDate() {
-                return new Date();
+              return new Date();
             }
           }
         },
       }
     }
   }
-}
+};
 
 
-global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled : true});
+global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled: true});
 
 import {addNewPost, getAllPost, deletePost, updateTitlle} from '../new src/mvvc-arq/lib/controller/controller-post.js';
 
 describe('addNewPost', () => {
   it('debería de poder agregar una nota', (done) => {
     const callback = (post) => {
-        const result = post.find((chochito) => {
-            return chochito.title === 'adventure of the lifetime beibis';
-        });
-        expect(result.title).toBe('adventure of the lifetime beibis')
-        console.log(post)
-        done()
+      const result = post.find((chochito) => {
+        return chochito.title === 'adventure of the lifetime beibis';
+      });
+      expect(result.title).toBe('adventure of the lifetime beibis');
+      console.log(post);
+      done();
     };
     // función de callback recibe la data
-    getAllPost(callback)
-    addNewPost('adventure of the lifetime beibis','ghf215','getUserName','getProfilePicUrl');
+    getAllPost(callback);
+    addNewPost('adventure of the lifetime beibis', 'ghf215','getUserName', 'getProfilePicUrl', 'type', 1);
   });
 });
 
+// describe('addNewPost', () => {
+//   it('debería de poder agregar una nota', (done) => {
+//     addNewPost('adventure of the lifetime beibis', 'ghf215', 'getUserName', 'getProfilePicUrl', 'type', 1).then(() => {
+//       const callback = (post) => {
+//         const resultEdit = post.find((chochitoLoco) => {
+//           return chochitoLoco.id === 'abc125';
+//         });
+//         expect(resultEdit.title).toBe('Data a cambiar');
+//         console.log(post);
+//         done();
+//       };
+//         // función de callback recibe la data
+//       getAllPost(callback);
+//     });
+//   });
+// });
 
-
-  describe('updateTitlle', () => {
-    it('debería de poder editar una nota', (done) => {
-     
-      updateTitlle('abc125','Data a cambiar').then(() => {
-
-        const callback = (post) => {
-            const resultEdit = post.find((chochitoLoco) => {
-                return chochitoLoco.id === 'abc125';
-            });
-            expect(resultEdit.title).toBe('Data a cambiar')
-            console.log(post)
-            done()
-        };
+describe('updateTitlle', () => {
+  it('debería de poder editar una nota', (done) => {
+    updateTitlle('abc125', 'Data a cambiar').then(() => {
+      const callback = (post) => {
+        const resultEdit = post.find((chochitoLoco) => {
+          return chochitoLoco.id === 'abc125';
+        });
+        expect(resultEdit.title).toBe('Data a cambiar');
+        console.log(post);
+        done();
+      };
         // función de callback recibe la data
-        getAllPost(callback)
-      });
+      getAllPost(callback);
     });
   });
+});
   
   
 describe('deletePost', () => {
-    it('debería de poder eliminar una nota', () => {
-      return deletePost('abc123')
-        .then(() => {
-          const callback = (post) => {
-            const result = notes.find((elemento) => {
-              return elemento.id === 'abc123';
-            });
-            expect(result).toBe(undefined);
-            done();
-          };
-          getAllPost(callback);
-        });
-    });
+  it('debería de poder eliminar una nota', () => {
+    return deletePost('abc123')
+      .then(() => {
+        const callback = (post) => {
+          const result = notes.find((elemento) => {
+            return elemento.id === 'abc123';
+          });
+          expect(result).toBe(undefined);
+          done();
+        };
+        getAllPost(callback);
+      });
   });
+});
