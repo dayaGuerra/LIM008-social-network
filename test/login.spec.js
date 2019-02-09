@@ -23,3 +23,12 @@ describe('lista de notas', () => {
       });
   });
 });
+
+describe('crea cuenta', () => {
+  it('Debería poder crear una cuenta', () => {
+    return signUp('daya@example.com', 'mandalaman')
+    .then((user) => {
+      expect(user.email).toBe('daya@example.com');
+    })
+  });
+});
