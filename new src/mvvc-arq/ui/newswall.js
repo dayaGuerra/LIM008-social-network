@@ -70,7 +70,7 @@ export const logOut = () => {
   const sectionElement = document.createElement('section');
   sectionElement.setAttribute('id', 'user-container');
   const profileTemplate = `
-    <div>
+    <div class = "container-nav">
       <a id="sign-out-btn"><i class="fa fa-sign-out fa-3x"></i></a>
     </div>
   `;
@@ -84,13 +84,15 @@ export const logOut = () => {
 export const textareapublication = () => {
   const createDivForPublication = document.createElement('div');
   const contentDivForPublication = `
-    <div class="container-textarea">
+    <div class = "container-textarea">
       <textarea class="textarea-post" type="text" id="input-new-note" placeholder = "Agrega un post" required></textarea>
+      <div class = "btns-add-post-and-state">
       <button class="btn-add-post" id="btn-add-post"><i class="material-icons">Compartir</i></button>
-    <select id ="state-post">
+    <select class = "add-state-post" id ="state-post">
     <option value = "publico">Amigos</option>
     <option value  = "privado">Privado</option>
     </select>
+    </div>
       </div>
   `;
   createDivForPublication.innerHTML = contentDivForPublication;

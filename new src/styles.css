@@ -24,7 +24,13 @@ width: 100%;
   display:none;
 }
 /* Login view */
-
+.signin-container{
+  margin-top: 12px; 
+  padding: 10px; 
+  max-width: 350px;
+  background-color: #f1f1f1;
+  ;
+}
 /* Style the container */
 
 /*End style container*/
@@ -112,6 +118,33 @@ margin-bottom: 10px;
   margin-bottom: 20px;
 }
 /* End btns-log */
+/* nav post */
+.container-nav{
+  background-color: #4c5a4c;
+}
+/* end Nav post */
+
+/* Btn post */
+.btns-add-post-and-state{
+  background-color: #294b29;
+  display:flex;
+  justify-content: flex-end ;
+padding: 12px;
+}
+.btn-add-post{
+margin-right: 3px;
+width: 6em;
+height: 2em;
+
+}
+
+.add-state-post{
+  width: 6em;
+}
+
+
+/* btn post */
+
 
 
 /* list post */
