@@ -64,10 +64,12 @@ const addItemPost = (objNote, uid) => {
     const textareaPos = document.querySelector(`#textarea-post-${objNote.id}`);
     updateNoteOnClick(objNote, textareaPos.value);
   });
-  liElement.querySelector(`#btn-deleted-${objNote.id}`).addEventListener('click', () => {
-    const modalConfirm = `<div></div>`;
-    modalConfirm.innerHTML
-  });
+  liElement.querySelector(`#btn-deleted-${objNote.id}`).addEventListener('click', () => 
+    deleteNoteOnClick(objNote)
+    // const modalConfirm = `<div></div>`;
+  
+    // modalConfirm.innerHTML
+  );
   return liElement;
 };
 
