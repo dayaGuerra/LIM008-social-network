@@ -1,5 +1,6 @@
 import { createNewPost, deleteNoteOnClick, updateNoteOnClick, updateLikeOnClick} from '../lib/view-controller/view-controller-post.js';
 import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
+import {postDate} from '../lib/util/app.js';
 
 const textareaEdit = (objNote) => {
   const createTextAreaEdit = document.createElement('div');
@@ -12,6 +13,7 @@ const textareaEdit = (objNote) => {
 
 
 const addItemPost = (objNote, uid) => {
+  const datePost = postDate(objNote.date.toDate());
   const liElement = document.createElement('div');
   liElement.classList.add('list-post');
   liElement.innerHTML = `
@@ -21,7 +23,7 @@ const addItemPost = (objNote, uid) => {
         <span class="user-display-name">${objNote.name}</span>
             ${ objNote.state === 'publico' ? '<i class="fa fa-globe" aria-hidden="true"></i>' : ' <i class="fa fa-lock" aria-hidden="true"></i>'}
          
-        <span class = "user-display-time">${objNote.date}</span>
+        <span class = "user-display-time">${datePost}</span>
         <div>
           <a id="btn-deleted-${objNote.id}"> 
             ${ objNote.uid === uid ? '<button type = "button" class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
