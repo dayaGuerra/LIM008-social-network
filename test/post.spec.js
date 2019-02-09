@@ -51,7 +51,6 @@ describe('addNewPost', () => {
         return chochito.title === 'adventure of the lifetime beibis';
       });
       expect(result.title).toBe('adventure of the lifetime beibis');
-      console.log(post);
       done();
     };
     // función de callback recibe la data

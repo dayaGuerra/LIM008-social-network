@@ -27,8 +27,17 @@ describe('lista de notas', () => {
 describe('crea cuenta', () => {
   it('Debería poder crear una cuenta', () => {
     return signUp('daya@example.com', 'mandalaman')
-    .then((user) => {
-      expect(user.email).toBe('daya@example.com');
-    })
+      .then((user) => {
+        expect(user.email).toBe('daya@example.com');
+      });
+  });
+});
+
+describe('cerrar sesion', () => {
+  it('Debería poder cerrar sesión', () => {
+    return logOut()
+      .then((user) => {
+        expect(user).toBe(undefined);
+      });
   });
 });

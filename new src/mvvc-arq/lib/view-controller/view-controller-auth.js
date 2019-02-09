@@ -87,6 +87,8 @@ export const facebookOnSubmit = () => {
     });
 };
 export const logOutOnSubmit = () => {
+  
+  console.log(typeof logOut());
   logOut()
     .then(() => {
       changeHash('/signin'); 
