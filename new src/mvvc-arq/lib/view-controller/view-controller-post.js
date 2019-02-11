@@ -1,4 +1,4 @@
-import {addNewPost, deletePost, updateTitle, updateLikePost} from '../controller/controller-post.js';
+import {addNewPost, deletePost, updateTitle, updateLikePost, privatePost} from '../controller/controller-post.js';
 import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 import {validation} from '../controller/validacion.js';
 import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
@@ -46,3 +46,14 @@ export const updateLikeOnClick = (objNote, like) => {
   return updateLikePost(objNote.id, like);
 };
 
+export const showPrivatePostOnClick = (objNote, select) => {
+  if (select.value === 'privado') {
+    privatePost(posts => {
+      console.log(posts);
+    }, isUserSignedIn(), 'privado');
+  } else if (select.value === 'publico') {
+    privatePost(posts => {
+      console.log(posts);
+    }, isUserSignedIn(), 'publico');
+  }
+};

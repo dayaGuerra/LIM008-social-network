@@ -1,4 +1,4 @@
-import { createNewPost, deleteNoteOnClick, updateNoteOnClick, updateLikeOnClick} from '../lib/view-controller/view-controller-post.js';
+import { createNewPost, deleteNoteOnClick, updateNoteOnClick, updateLikeOnClick, showPrivatePostOnClick} from '../lib/view-controller/view-controller-post.js';
 import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
 import {postDate} from '../lib/util/app.js';
 
@@ -108,10 +108,6 @@ export const textarePublication = () => {
           <option value="publico">Amigos</option>
           <option value="privado">Privado</option>
         </select>
-        <select class="add-state-post" id ="state-post">
-        <option value = "Todos" >Todos</option>
-        <option value = "privado">Privado</option>
-      </select>
       </div>
     </div>
   `;
@@ -119,6 +115,21 @@ export const textarePublication = () => {
   publicationSection.querySelector('#btn-add-post').addEventListener('click', createNewPost);
   return publicationSection;
 };
+
+export const filterSelect = () => {
+  const createDivSelect = document.createElement('div');
+  const templateSelect = `
+  <select class="add-state-post" id ="filter-type-post">
+    <option value = "publico" >Todos</option>
+    <option value = "privado">Privado</option>
+  </select>
+  `;
+  createDivSelect.innerHTML = templateSelect;
+  const select = createDivSelect.querySelector('#filter-type-post');
+  
+  return createDivSelect;
+
+}
 
 /* Post */
 export const postListSection = (notes, uid) => {
@@ -137,3 +148,4 @@ export const postListSection = (notes, uid) => {
   });
   return createPostInWall;
 };
+

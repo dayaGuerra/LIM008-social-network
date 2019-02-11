@@ -12,9 +12,9 @@ export const signInForm = () => {
     <div>
       <div class="col-form-login-account">
         <p class="text-login text-first-sesion">Iniciar Sesión</p>
-        <a href="#/facebook-login" class="fb btn-social-media" id="facebook-login">
+        <button class="fb btn-social-media" id="facebook-login">
           <i class="fa fa-facebook fa-fw space-media"></i> Facebook
-        </a>   
+        </button>   
         <a href="#/google-login" class="google btn-social-media" id="google-login">
           <i class="fa fa-google fa-fw space-media"></i> Google+
         </a>
@@ -77,4 +77,6 @@ export const signUpForm = () => {
   facebookBtn.addEventListener('click', facebookOnSubmit);
   return formElem;
 };
+
+
 

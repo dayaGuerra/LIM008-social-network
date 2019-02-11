@@ -1,12 +1,13 @@
 import { signInForm, signUpForm } from '../../ui/logincreate.js';
-import { postListSection, textarePublication, logOut} from '../../ui/newswall.js';
-import { getAllPost } from '../controller/controller-post.js';
+import { postListSection, textarePublication, logOut, filterSelect} from '../../ui/newswall.js';
+import { getAllPost, privatePost } from '../controller/controller-post.js';
 import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
+import { showPrivatePostOnClick } from '../view-controller/view-controller-post.js';
 
 const changeTmp = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
     return viewTmp('#/signin');
-  } else if (hash === '#/signup' || hash === '#/home') {
+  } else if (hash === '#/signup' || hash === '#/home' || hash === '#/privatePost') {
     return viewTmp(hash);
   } else {
     return viewTmp('#/signin');
@@ -39,6 +40,9 @@ const viewTmp = (routers) => {
     break;
   case 'signup':
     root.appendChild(signUpForm());
+    break;
+  case 'privatePost':
+    root.appendChild(filterSelect());
     break;
   default:
     root.appendChild(signInForm());

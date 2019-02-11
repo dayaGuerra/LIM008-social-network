@@ -78,6 +78,8 @@ export const googleOnSubmit = () => {
 export const facebookOnSubmit = () => {
   facebookAuth()
     .then(result => {
+      window.location.hash = '';
+      
       changeHash('/home'); 
       // const user = result.user;
       console.log('facebook logueado');
@@ -87,8 +89,6 @@ export const facebookOnSubmit = () => {
     });
 };
 export const logOutOnSubmit = () => {
-  
-  console.log(typeof logOut());
   logOut()
     .then(() => {
       changeHash('/signin'); 

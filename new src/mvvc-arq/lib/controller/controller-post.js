@@ -44,13 +44,6 @@ export const getAllPost = (callback) => {
     querySnapshot.forEach(doc => {
       data.push({ 
         id: doc.id,
-        // title: doc.data().title,
-        // name: doc.data().name,
-        // profilePicUrl: doc.data().profilePicUrl,
-        // date: doc.data().date,
-        // state: doc.data().state,
-        // likes: doc.data().likes,
-        // uid: doc.data().uid,
         ...doc.data(), 
       });
     });
@@ -58,4 +51,25 @@ export const getAllPost = (callback) => {
   });
 };
 
+export const privatePost = (callback, userId, condition) => {
+  let refPrivatePost = firebase.firestore().collection('post');
+  const query = refPrivatePost
+  .where('uid', '==', userId)
+  .where('state', '==', condition)
+  query.onSnapshot(querySnapshot => {
+    const dataPrivatePost = [];
+    querySnapshot.forEach(doc => {
+      dataPrivatePost.push({ 
+        id: doc.id,
+        ...doc.data(), 
+      });
+    });
+    callback(dataPrivatePost);
+  }); 
 
+};
+
+
+// export const datita = () => {
+//   console.log()
+// } 
