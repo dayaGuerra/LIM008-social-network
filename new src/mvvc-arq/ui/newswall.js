@@ -108,6 +108,10 @@ export const textarePublication = () => {
           <option value="publico">Amigos</option>
           <option value="privado">Privado</option>
         </select>
+        <select class="add-state-post" id ="state-post">
+        <option value = "Todos" >Todos</option>
+        <option value = "privado">Privado</option>
+      </select>
       </div>
     </div>
   `;
