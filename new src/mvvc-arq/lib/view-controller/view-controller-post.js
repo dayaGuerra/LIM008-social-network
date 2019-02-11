@@ -9,9 +9,8 @@ export const createNewPost = (event) => {
   event.preventDefault();
   const statePost = document.querySelector('#state-post');
   const textMessage = document.querySelector('#input-new-note');
-  const valueTextMessage = document.querySelector('#input-new-note').value;
+  const valueTextMessage = textMessage.value;
   let countLike = 0;
-  console.log(typeof(statePost.toString()));
   if (validation(valueTextMessage) === true) {
     const uidUser = isUserSignedIn();
     const data = {
@@ -32,7 +31,7 @@ export const createNewPost = (event) => {
         console.log('nota no agregada');
       });
   } else {
-    alert('no puedes publicar si esta vacío el post xD');
+    alert('no puedes publicar si esta vacío el post');
   }
 };
 

@@ -6,7 +6,7 @@ const textareaEdit = (objNote) => {
   const createTextAreaEdit = document.createElement('div');
   createTextAreaEdit.setAttribute('id', 'edit-textarea');
   const tempEditTextarea = `
-  <textarea id = "textarea-post-${objNote.id}" class = "textarea-post textarea-ocult" disabled >${objNote.title}</textarea>
+    <textarea id="textarea-post-${objNote.id}" class="textare-post-hidden" disabled>${objNote.title}</textarea>
   `;
   return tempEditTextarea;
 };
@@ -14,44 +14,43 @@ const textareaEdit = (objNote) => {
 
 const addItemPost = (objNote, uid) => {
   const datePost = postDate(objNote.date.toDate());
-  const liElement = document.createElement('div');
-  liElement.classList.add('list-post');
-  liElement.innerHTML = `
+  const postDataSection = document.createElement('section');
+  postDataSection.classList.add('list-post');
+  postDataSection.innerHTML = `
     <div class="post-total">
-      <div class = "container-data-post">
-        <img class = "img-post" src="${objNote.profilePicUrl}" alt="imagen del usuario"/>
+      <div class="container-data-post">
+        <img class="img-post" src="${objNote.profilePicUrl}" alt="imagen del usuario"/>
         <span class="user-display-name">${objNote.name}</span>
-            ${ objNote.state === 'publico' ? '<i class="fa fa-globe" aria-hidden="true"></i>' : ' <i class="fa fa-lock" aria-hidden="true"></i>'}
-         
+            ${objNote.state === 'publico' ? '<i class="fa fa-globe" aria-hidden="true"></i>' : ' <i class="fa fa-lock" aria-hidden="true"></i>'} 
         <span class = "user-display-time">${datePost}</span>
         <div>
-          <a id="btn-deleted-${objNote.id}"> 
-            ${ objNote.uid === uid ? '<button type = "button" class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
-          </a>
-          <a id="btn-edit-${objNote.id}"> 
-            ${ objNote.uid === uid ? '<button type = "button" class="material-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>' : ''}
-          </a>
-          <a class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
-            ${ objNote.uid === uid ? '<button type = "button" class="material-icons" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>' : ''}
-          </a>
+          <div id="btn-deleted-${objNote.id}"> 
+            ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
+          </div>
+          <div id="btn-edit-${objNote.id}"> 
+            ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>' : ''}
+          </div>
+          <div class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
+            ${objNote.uid === uid ? '<button class="material-icons" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>' : ''}
+          </div>
         </div>
       </div>
-      <div class = "txt-post">
+      <div class="txt-post">
         <span>${textareaEdit(objNote)}</span>
-        <div><button id = "btn-likes-post-${objNote.id}"><i class="fa fa-heart-o" aria-hidden="true"></i><span id = "number-likes-post">${objNote.likes}</span></button></div>
+        <div><button id="btn-likes-post-${objNote.id}"><i class="fa fa-heart-o" aria-hidden="true"></i> <span id="number-likes-post">${objNote.likes}</span></button></div>
       </div>
-      <div class = "border-separation-post"></div>
+      <div class="border-separation-post"></div>
     </div>
-    `;
+  `;
     
   // agregando evento de click al btn eliminar una nota
-  liElement.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
+  postDataSection.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
     // console.log('tiene like :' + countLike);
     updateLikeOnClick(objNote, objNote.likes += 1);
   });
 
 
-  liElement.querySelector(`#btn-edit-${objNote.id}`).addEventListener('click', () => {
+  postDataSection.querySelector(`#btn-edit-${objNote.id}`).addEventListener('click', () => {
     const textareaPost = document.querySelector(`#textarea-post-${objNote.id}`);
     textareaPost.disabled = false;
     const btnEditNone = document.querySelector(`#btn-edit-${objNote.id}`);
@@ -60,17 +59,17 @@ const addItemPost = (objNote, uid) => {
     btnSaveBlock.style.display = 'block';
   });
   
-  liElement.querySelector(`#btn-save-${objNote.id}`).addEventListener('click', () => {
+  postDataSection.querySelector(`#btn-save-${objNote.id}`).addEventListener('click', () => {
     const textareaPos = document.querySelector(`#textarea-post-${objNote.id}`);
     updateNoteOnClick(objNote, textareaPos.value);
   });
-  liElement.querySelector(`#btn-deleted-${objNote.id}`).addEventListener('click', () => 
+  postDataSection.querySelector(`#btn-deleted-${objNote.id}`).addEventListener('click', () => 
     deleteNoteOnClick(objNote)
     // const modalConfirm = `<div></div>`;
   
     // modalConfirm.innerHTML
   );
-  return liElement;
+  return postDataSection;
 };
 
 export const logOut = () => {
@@ -88,34 +87,32 @@ export const logOut = () => {
 };
 
 /* Publicacion */
-export const textareapublication = () => {
-  const createDivForPublication = document.createElement('div');
+export const textarePublication = () => {
+  const publicationSection = document.createElement('section');
   const contentDivForPublication = `
-    <div class = "container-textarea">
-      <textarea class="textarea-post" type="text" id="input-new-note" placeholder = "Agrega un post" required></textarea>
-      <div class = "btns-add-post-and-state">
-      <button class="btn-add-post" id="btn-add-post"><i class="material-icons">Compartir</i></button>
-    <select class = "add-state-post" id ="state-post">
-    <option value = "publico">Amigos</option>
-    <option value  = "privado">Privado</option>
-    </select>
+    <div class="container-textarea">
+      <textarea class="textarea-post" type="text" id="input-new-note" placeholder="Agrega un post" required></textarea>
+      <div class="btns-add-post-and-state">
+        <button class="btn-add-post" id="btn-add-post"><i class="material-icons">Compartir</i></button>
+        <select class="add-state-post" id ="state-post">
+          <option value="publico">Amigos</option>
+          <option value="privado">Privado</option>
+        </select>
+        </div>
     </div>
-      </div>
   `;
-  createDivForPublication.innerHTML = contentDivForPublication;
-  const btnAddPost = createDivForPublication.querySelector('#btn-add-post');
-  btnAddPost.addEventListener('click', createNewPost);
-  return createDivForPublication;
+  publicationSection.innerHTML = contentDivForPublication;
+  publicationSection.querySelector('#btn-add-post').addEventListener('click', createNewPost);
+  return publicationSection;
 };
 
 /* Post */
-export const tmpPostInSection = (notes, uid) => {
+export const postListSection = (notes, uid) => {
   const createPostInWall = document.createElement('section');
   const contentPostInWall = ` 
     <div id="post-list"></div>
   `;
   createPostInWall.innerHTML = contentPostInWall;
-
   const postList = createPostInWall.querySelector('#post-list');
   notes.forEach((objnote) => {
     if (objnote.state === 'privado' && objnote.uid === uid) {

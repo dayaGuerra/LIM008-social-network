@@ -1,6 +1,4 @@
-import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
-import { postDate } from '../util/app.js';
-
+// hacemos una funcion pura pasandole parametros 
 export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl, type, like) =>
   firebase
     .firestore()
@@ -18,12 +16,26 @@ export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl, 
     });
 
     
-export const deletePost = (idNote) =>
+export const deletePost = (noteId) =>
   firebase
     .firestore()
     .collection('post')
-    .doc(idNote)
+    .doc(noteId)
     .delete();
+
+export const updateTitle = (id, title) => {
+  let refDoc = firebase.firestore().collection('post').doc(id);
+  return refDoc.update({
+    title: title
+  });
+};
+    
+export const updateLikePost = (id, myLikes) => {
+  let refLikes = firebase.firestore().collection('post').doc(id);
+  return refLikes.update({
+    likes: myLikes
+  });
+};
 
 export const getAllPost = (callback) => {
   const query = firebase.firestore().collection('post').orderBy('date', 'desc');
@@ -32,31 +44,18 @@ export const getAllPost = (callback) => {
     querySnapshot.forEach(doc => {
       data.push({ 
         id: doc.id,
-        title: doc.data().title,
-        name: doc.data().name,
-        profilePicUrl: doc.data().profilePicUrl,
-        date: doc.data().date,
-        state: doc.data().state,
-        likes: doc.data().likes,
-        uid: doc.data().uid,
-        // ...doc.data(), 
+        // title: doc.data().title,
+        // name: doc.data().name,
+        // profilePicUrl: doc.data().profilePicUrl,
+        // date: doc.data().date,
+        // state: doc.data().state,
+        // likes: doc.data().likes,
+        // uid: doc.data().uid,
+        ...doc.data(), 
       });
     });
     callback(data);
   });
 };
 
-export const updateTitle = (id, title) => {
-  let refDoc = firebase.firestore().collection('post').doc(id);
-  return refDoc.update({
-    title: title
-  });
-};
 
-export const updateLikePost = (id, myLikes) => {
-  console.log(`del post =>${id} se agrega un atributo likes.megusta:'0'`);
-  let refLikes = firebase.firestore().collection('post').doc(id);
-  return refLikes.update({
-    likes: myLikes
-  });
-};

@@ -1,6 +1,6 @@
 import { signInForm, signUpForm } from '../../ui/logincreate.js';
-import { tmpPostInSection, textareapublication, logOut} from '../../ui/newswall.js';
-import { getAllPost, deletePost } from '../controller/controller-post.js';
+import { postListSection, textarePublication, logOut} from '../../ui/newswall.js';
+import { getAllPost } from '../controller/controller-post.js';
 import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 
 const changeTmp = (hash) => {
@@ -20,20 +20,18 @@ const viewTmp = (routers) => {
   const navBar = document.getElementById('nav');
 
      
-  // const viewPost = (notes, uid) => {
-  // return {...createPost(notes, uid)} ;
-  // }
   root.innerHTML = '';
   navBar.innerHTML = '';
   main.innerHTML = '';
   switch (router) {
   case 'home': 
     navBar.appendChild(logOut());
-    main.appendChild(textareapublication());
+    main.appendChild(textarePublication());
+    // llamo a getallpost y le paso la funcion anonima con parametro notes
     getAllPost(notes => {
       root.innerHTML = '';
       const uid = isUserSignedIn();
-      root.appendChild(tmpPostInSection(notes, uid));
+      root.appendChild(postListSection(notes, uid));
     });
     break;
   case 'signin':
@@ -50,6 +48,5 @@ const viewTmp = (routers) => {
 
 export const initRoutersSocialMedia = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
-  console.log(window.location);
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };

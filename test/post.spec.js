@@ -42,7 +42,7 @@ const fixtureData = {
 
 global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled: true});
 
-import {addNewPost, getAllPost, deletePost, updateTitle} from '../new src/mvvc-arq/lib/controller/controller-post.js';
+import {addNewPost, getAllPost, deletePost, updateTitle, updateLikePost} from '../new src/mvvc-arq/lib/controller/controller-post.js';
 
 describe('addNewPost', () => {
   it('debería de poder agregar una nota', (done) => {
@@ -78,6 +78,23 @@ describe('updateTitle', () => {
 });
   
   
+describe('updateLikePost', () => {
+  it('debería de poder agregar likes a la publicacion', (done) => {
+    updateLikePost('abc123', 2).then(() => {
+      const callback = (posts) => {
+        const resultEdit = posts.find((post) => {
+          return post.id === 'abc123';
+        });
+        expect(resultEdit.likes).toBe(2);
+        console.log(posts);
+        done();
+      };
+        // función de callback recibe la data
+      getAllPost(callback);
+    });
+  });
+});
+
 describe('deletePost', () => {
   it('debería de poder eliminar una nota', () => {
     return deletePost('abc123')
