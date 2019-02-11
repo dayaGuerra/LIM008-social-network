@@ -160,6 +160,16 @@ height: 2em;
   resize  : none;
   overflow: auto; 
 }
+
+.textarea-post-wall{
+  display : block;
+  padding : 10px;
+  margin-bottom:10px;
+  width   : 100%;
+  height  : 80px;
+  resize  : none;
+  overflow: hidden; 
+}
 .btn-add-post{
   margin-bottom: 10px;
 }

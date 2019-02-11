@@ -6,7 +6,7 @@ const textareaEdit = (objNote) => {
   const createTextAreaEdit = document.createElement('div');
   createTextAreaEdit.setAttribute('id', 'edit-textarea');
   const tempEditTextarea = `
-    <textarea id="textarea-post-${objNote.id}" class="textare-post-hidden" disabled>${objNote.title}</textarea>
+    <textarea id="textarea-post-${ objNote.id }" class= " textarea-post-wall textare-post-hidden" disabled>${objNote.title}</textarea>
   `;
   return tempEditTextarea;
 };
@@ -19,25 +19,35 @@ const addItemPost = (objNote, uid) => {
   postDataSection.innerHTML = `
     <div class="post-total">
       <div class="container-data-post">
-        <img class="img-post" src="${objNote.profilePicUrl}" alt="imagen del usuario"/>
-        <span class="user-display-name">${objNote.name}</span>
-            ${objNote.state === 'publico' ? '<i class="fa fa-globe" aria-hidden="true"></i>' : ' <i class="fa fa-lock" aria-hidden="true"></i>'} 
-        <span class = "user-display-time">${datePost}</span>
-        <div>
-          <div id="btn-deleted-${objNote.id}"> 
-            ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
-          </div>
-          <div id="btn-edit-${objNote.id}"> 
-            ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>' : ''}
-          </div>
-          <div class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
-            ${objNote.uid === uid ? '<button class="material-icons" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>' : ''}
-          </div>
+        
+        <div class = "data-post-name-state">
+          <img class="img-post" src="${ objNote.profilePicUrl }" alt="imagen del usuario"/>
+          <span class="user-display-name"> ${ objNote.name } </span>
+          ${ objNote.state === 'publico' ? '<i class="fa fa-globe" aria-hidden="true"></i>' : ' <i class="fa fa-lock" aria-hidden="true"></i>' } 
+          <span class = "user-display-time"> ${ datePost } </span>
         </div>
+
+        <div class ="btn-post-delete-edit">
+          
+          <div id="btn-deleted-${objNote.id}"> 
+          ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
+          </div>
+          
+          <div id="btn-edit-${objNote.id}"> 
+          ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>' : ''}
+          </div>
+          
+          <div class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
+          ${objNote.uid === uid ? '<button class="material-icons" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>' : ''}
+          </div>
+
+        </div>
+
       </div>
       <div class="txt-post">
         <span>${textareaEdit(objNote)}</span>
-        <div><button id="btn-likes-post-${objNote.id}"><i class="fa fa-heart-o" aria-hidden="true"></i> <span id="number-likes-post">${objNote.likes}</span></button></div>
+      <div>
+        <button id="btn-likes-post-${ objNote.id }"><i class="fa fa-heart-o" aria-hidden="true"></i> <span id="number-likes-post">${objNote.likes}</span></button></div>
       </div>
       <div class="border-separation-post"></div>
     </div>
@@ -98,7 +108,7 @@ export const textarePublication = () => {
           <option value="publico">Amigos</option>
           <option value="privado">Privado</option>
         </select>
-        </div>
+      </div>
     </div>
   `;
   publicationSection.innerHTML = contentDivForPublication;
