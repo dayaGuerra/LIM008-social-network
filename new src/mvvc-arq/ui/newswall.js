@@ -82,7 +82,7 @@ export const addItemPost = (objNote, uid) => {
         <button id="btn-likes-post-${ objNote.id }"><img src="../new src/img/aplausos.png" alt=""><span id="number-likes-post">${objNote.likes}</span></button></div>
       </div>
 
-      <div id = "hola-mi-amor-${ objNote.id }" class ="hola-clase">
+      <div id = "confirmation-message-${ objNote.id }" class ="message-delete">
       <span>Deseas eliminar este mensaje?</span>
       <button id="btn-delete-${objNote.id}"> si </button>
       <button  id="btn-delete-not-${objNote.id}"> no </button>
@@ -113,7 +113,7 @@ export const addItemPost = (objNote, uid) => {
     updateNoteOnClick(objNote, textareaPos.value);
   });
   postDataSection.querySelector(`#btn-confirm-delete-${objNote.id}`).addEventListener('click', () => {
-    const viewModal = document.querySelector(`#hola-mi-amor-${ objNote.id }`);
+    const viewModal = document.querySelector(`#confirmation-message-${ objNote.id }`);
     console.log(viewModal);
     viewModal.style.display = 'block'; 
   });
@@ -121,7 +121,7 @@ export const addItemPost = (objNote, uid) => {
   postDataSection.querySelector(`#btn-delete-${objNote.id}`).addEventListener('click', () => deleteNoteOnClick(objNote));
   
   postDataSection.querySelector(`#btn-delete-not-${objNote.id}`).addEventListener('click', () => {
-    const viewModal = document.querySelector(`#hola-mi-amor-${ objNote.id }`);
+    const viewModal = document.querySelector(`#confirmation-message-${ objNote.id }`);
     viewModal.style.display = 'none'; 
   });
   
