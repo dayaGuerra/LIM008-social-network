@@ -42,7 +42,7 @@ export const signUpOnSubmit = (event) => {
   const lastName = document.querySelector('#lastname-social-media').value;
 
   const errorMessage = document.querySelector('#error-message-signup');
-  if (validation(email) === true && validation(password) === true && validation(name) === true && validation(lastname) === true) {
+  if (validation(email) === true && validation(password) === true && validation(name) === true && validation(lastName) === true) {
     signUp(email, password)
       .then(result => {
         // changeHash('/home')  
