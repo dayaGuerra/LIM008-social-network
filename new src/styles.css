@@ -24,12 +24,47 @@ width: 100%;
   display:none;
 }
 /* Login view */
-.signin-container{
-  margin-top: 12px; 
-  padding: 10px; 
-  max-width: 350px;
+
+body{
+  background-image: url(../img/achievement-3556674_1920.jpg);
+
+
+  
+}
+
+.nav{
+  background-color: #294b29;
+  z-index: 8;
+}
+.signin-container {
+  margin-left: 10px;
+  margin-top: 20px; 
+  padding: 15px; 
+  max-width: 340px;
   background-color: #f1f1f1;
-  ;
+  
+}
+
+div.signin-container{
+  margin: 30px;
+  background-color: #ffffff;
+  opacity: 0.94;
+  filter: alpha(opacity=60);
+}
+
+.form-sign-up{
+  margin-left: 10px;
+  margin-top: 20px;
+  padding: 15px; 
+  max-width: 340px;
+  background-color: #f1f1f1;
+}
+
+div.form-sign-up{
+  margin: 30px;
+  background-color: #ffffff;
+  opacity: 0.94;
+  filter: alpha(opacity=60);
 }
 /* Style the container */
 
