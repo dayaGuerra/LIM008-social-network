@@ -53,6 +53,6 @@ privatePost(post => {
   post.forEach(element => {
     return (addItemPost(element, isUserSignedIn()))
   });
-},isUserSignedIn(),select)
+},isUserSignedIn(),select.value)
 
 };

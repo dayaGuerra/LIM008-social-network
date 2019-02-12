@@ -19,8 +19,6 @@ const viewTmp = (routers) => {
   const main = document.getElementById('main');
   const root = document.getElementById('root');
   const navBar = document.getElementById('nav');
-
-     
   root.innerHTML = '';
   navBar.innerHTML = '';
   main.innerHTML = '';

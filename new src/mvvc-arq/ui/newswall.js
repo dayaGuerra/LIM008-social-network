@@ -6,6 +6,7 @@ export const filterSelect = () => {
   const createDivSelect = document.createElement('div');
   const templateSelect = `
   <select class="add-state-post" id ="filter-type-post">
+    <option>filtrar</option>
     <option value = "publico" >Todos</option>
     <option value = "privado">Privado</option>
   </select>
@@ -149,12 +150,20 @@ export const postListSection = (notes, uid) => {
       postList.appendChild(addItemPost(objnote, uid));
     }
   });
+  // aqui es el problema
   const select = document.querySelector('#filter-type-post');
   select.addEventListener('change', () => {
-    changeHash('#/privatePost')
-    postList.appendChild(showPrivatePostOnClick(select));
+    console.log(select.value)
+    if(select.value ==='privado'){
+      changeHash('#/privatePost')
+      postList.appendChild(showPrivatePostOnClick('privado'));
+    }else if (select.value === 'publico'){
+      changeHash('#/publicPost')
+      postList.appendChild(showPrivatePostOnClick('publico'));
+
+    }
   });
-  
+
   return createPostInWall;
 };
 
