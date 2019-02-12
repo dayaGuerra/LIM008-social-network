@@ -19,11 +19,13 @@ const viewTmp = (routers) => {
   const main = document.getElementById('main');
   const root = document.getElementById('root');
   const navBar = document.getElementById('nav');
+  const backgroundBody = document.getElementById('background-body');
   root.innerHTML = '';
   navBar.innerHTML = '';
   main.innerHTML = '';
   switch (router) {
-  case 'home': 
+  case 'home':
+   
     navBar.appendChild(logOut());
     main.appendChild(textarePublication());
     // llamo a getallpost y le paso la funcion anonima con parametro notes
@@ -31,10 +33,12 @@ const viewTmp = (routers) => {
       root.innerHTML = '';
       const uid = isUserSignedIn();
       root.appendChild(postListSection(notes, uid));
+      backgroundBody.style.background = 'white';
     });
     break;
   case 'signin':
-    root.appendChild(signInForm());
+    
+    root.appendChild(signInForm())
     break;
   case 'signup':
     root.appendChild(signUpForm());

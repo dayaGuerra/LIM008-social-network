@@ -166,7 +166,7 @@ export const textarePublication = () => {
           <option value="publico">Amigos</option>
           <option value="privado">Privado</option>
         </select>
-        <button class="btn-add-post" id="btn-add-post">Compartir</button>
+        <button class="btn-add-post" id="btn-add-post">Publicar</button>
         
       </div>
     </div>

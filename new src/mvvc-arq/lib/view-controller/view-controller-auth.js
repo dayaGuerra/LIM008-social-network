@@ -114,6 +114,7 @@ export const authStateObserver = (user) => {
   if (user && user.emailVerified) { 
     const profilePicUrl = getProfilePicUrl();
     const userName = getUserName();
+    
     changeHash('/home');
   } else {
     // alert('Verifica tu correo electronico para continuar');
