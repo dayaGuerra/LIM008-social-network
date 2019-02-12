@@ -120,6 +120,12 @@ export const logOut = () => {
     <div class = "container-nav">
       <a id="sign-out-btn"><i class="fa fa-sign-out fa-3x"></i></a>
     </div>
+
+    <div class = "container-nav">
+    <a href = "#/home"><i class="fa fa-home fa-3x" aria-hidden="true"></i></a>
+  </div>
+
+
   `;
   sectionElement.innerHTML = profileTemplate;
   const logoutBtn = sectionElement.querySelector('#sign-out-btn');
