@@ -1,18 +1,33 @@
 import { createNewPost, deleteNoteOnClick, updateNoteOnClick, updateLikeOnClick, showPrivatePostOnClick} from '../lib/view-controller/view-controller-post.js';
-import { logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
+import { logOutOnSubmit, changeHash } from '../lib/view-controller/view-controller-auth.js';
 import {postDate} from '../lib/util/app.js';
+
+export const filterSelect = () => {
+  const createDivSelect = document.createElement('div');
+  const templateSelect = `
+  <select class="add-state-post" id ="filter-type-post">
+    <option value = "publico" >Todos</option>
+    <option value = "privado">Privado</option>
+  </select>
+  `;
+  // createDivSelect.innerHTML = templateSelect;
+  // const select = createDivSelect.querySelector('#filter-type-post');
+  
+  return templateSelect;
+
+}
 
 const textareaEdit = (objNote) => {
   const createTextAreaEdit = document.createElement('div');
   createTextAreaEdit.setAttribute('id', 'edit-textarea');
   const tempEditTextarea = `
     <textarea id="textarea-post-${ objNote.id }" class= " textarea-post-wall textare-post-hidden" disabled>${objNote.title}</textarea>
-  `;
+  `;                    
   return tempEditTextarea;
 };
 
 
-const addItemPost = (objNote, uid) => {
+export const addItemPost = (objNote, uid) => {
   const datePost = postDate(objNote.date.toDate());
   const postDataSection = document.createElement('section');
   postDataSection.classList.add('list-post');
@@ -110,26 +125,14 @@ export const textarePublication = () => {
         </select>
       </div>
     </div>
+    <div>${filterSelect()}</div>
   `;
   publicationSection.innerHTML = contentDivForPublication;
   publicationSection.querySelector('#btn-add-post').addEventListener('click', createNewPost);
   return publicationSection;
 };
 
-export const filterSelect = () => {
-  const createDivSelect = document.createElement('div');
-  const templateSelect = `
-  <select class="add-state-post" id ="filter-type-post">
-    <option value = "publico" >Todos</option>
-    <option value = "privado">Privado</option>
-  </select>
-  `;
-  createDivSelect.innerHTML = templateSelect;
-  const select = createDivSelect.querySelector('#filter-type-post');
-  
-  return createDivSelect;
 
-}
 
 /* Post */
 export const postListSection = (notes, uid) => {
@@ -146,6 +149,33 @@ export const postListSection = (notes, uid) => {
       postList.appendChild(addItemPost(objnote, uid));
     }
   });
+  // const select = document.querySelector('#filter-type-post');
+  // select.addEventListener('change', () => {
+  //   changeHash('#/privatePost')
+  //   postList.appendChild(showPrivatePostOnClick(select));
+  // });
+  
   return createPostInWall;
 };
 
+
+export const postListSectionnn = () => {
+  const createPostInWalle = document.createElement('section');
+  const contentPostInWalle = ` 
+    <div id="post-listu"></div>
+  `;
+  createPostInWalle.innerHTML = contentPostInWalle;
+  const postListu = createPostInWalle.querySelector('#post-listu');
+ 
+  const select = document.querySelector('#filter-type-post');
+  select.addEventListener('change', () => {
+    changeHash('#/privatePost')
+    console.log(showPrivatePostOnClick(select.value));
+    // console.log(select.value)
+  });
+  
+  return createPostInWalle;
+};
+// export const postListBySelect = () => {
+//   const createPostInWall = document.createElement()
+// }

@@ -1,8 +1,8 @@
 import { signInForm, signUpForm } from '../../ui/logincreate.js';
-import { postListSection, textarePublication, logOut, filterSelect} from '../../ui/newswall.js';
+import { postListSectionnn, postListSection, textarePublication, logOut, filterSelect} from '../../ui/newswall.js';
 import { getAllPost, privatePost } from '../controller/controller-post.js';
 import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
-import { showPrivatePostOnClick } from '../view-controller/view-controller-post.js';
+// import { showPrivatePostOnClick } from '../view-controller/view-controller-post.js';
 
 const changeTmp = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
@@ -42,7 +42,17 @@ const viewTmp = (routers) => {
     root.appendChild(signUpForm());
     break;
   case 'privatePost':
-    root.appendChild(filterSelect());
+    privatePost(notes => {
+      root.innerHTML = '';
+      
+      root.appendChild(postListSection(notes, isUserSignedIn()));
+    },isUserSignedIn(), 'privado');
+      // const uids = isUserSignedIn();
+      // const abc = showPrivatePostOnClick();
+    navBar.appendChild(logOut());
+    main.appendChild(textarePublication());
+    root.appendChild(postListSectionnn());
+    
     break;
   default:
     root.appendChild(signInForm());

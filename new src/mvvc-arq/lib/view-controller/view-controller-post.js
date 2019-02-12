@@ -2,7 +2,7 @@ import {addNewPost, deletePost, updateTitle, updateLikePost, privatePost} from '
 import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 import {validation} from '../controller/validacion.js';
 import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
-
+import { addItemPost } from '../../ui/newswall.js';
 // --importando todas las funciones que necesitamos ---!//
 
 export const createNewPost = (event) => {
@@ -46,14 +46,13 @@ export const updateLikeOnClick = (objNote, like) => {
   return updateLikePost(objNote.id, like);
 };
 
-export const showPrivatePostOnClick = (objNote, select) => {
-  if (select.value === 'privado') {
-    privatePost(posts => {
-      console.log(posts);
-    }, isUserSignedIn(), 'privado');
-  } else if (select.value === 'publico') {
-    privatePost(posts => {
-      console.log(posts);
-    }, isUserSignedIn(), 'publico');
-  }
+export const showPrivatePostOnClick = (select) => {
+privatePost(post => {
+  console.log(post)
+  return post;
+  post.forEach(element => {
+    return (addItemPost(element, isUserSignedIn()))
+  });
+},isUserSignedIn(),select)
+
 };

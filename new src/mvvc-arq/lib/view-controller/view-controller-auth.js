@@ -1,7 +1,7 @@
 import { signUp, logIn, googleAuth, facebookAuth, logOut } from '../controller/controller-auth.js';
 import { validation } from '../controller/validacion.js';
 
-const changeHash = (hash) => {
+export const changeHash = (hash) => {
   location.hash = hash;
 };
 
