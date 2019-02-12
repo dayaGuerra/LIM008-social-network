@@ -15,8 +15,7 @@ export const filterSelect = () => {
   // const select = createDivSelect.querySelector('#filter-type-post');
   
   return templateSelect;
-
-}
+};
 
 const textareaEdit = (objNote) => {
   const createTextAreaEdit = document.createElement('div');
@@ -45,8 +44,10 @@ export const addItemPost = (objNote, uid) => {
 
         <div class ="btn-post-delete-edit">
           
-          <div id="btn-deleted-${objNote.id}"> 
+          
+         <div id="btn-confirmar-amor-${objNote.id}"> 
           ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
+        
           </div>
           
           <div id="btn-edit-${objNote.id}"> 
@@ -65,10 +66,17 @@ export const addItemPost = (objNote, uid) => {
       <div>
         <button id="btn-likes-post-${ objNote.id }"><i class="fa fa-heart-o" aria-hidden="true"></i> <span id="number-likes-post">${objNote.likes}</span></button></div>
       </div>
+
+      <div id = "hola-mi-amor-${ objNote.id }" class ="hola-clase">
+      <span>Deseas eliminar este mensaje?</span>
+      <button id="btn-delete-${objNote.id}"> si </button>
+      <button  id="btn-delete-not-${objNote.id}"> no </button>
+      </div>
+      
       <div class="border-separation-post"></div>
     </div>
   `;
-    
+  console.log(objNote.uid);
   // agregando evento de click al btn eliminar una nota
   postDataSection.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
     // console.log('tiene like :' + countLike);
@@ -89,12 +97,19 @@ export const addItemPost = (objNote, uid) => {
     const textareaPos = document.querySelector(`#textarea-post-${objNote.id}`);
     updateNoteOnClick(objNote, textareaPos.value);
   });
-  postDataSection.querySelector(`#btn-deleted-${objNote.id}`).addEventListener('click', () => 
-    deleteNoteOnClick(objNote)
-    // const modalConfirm = `<div></div>`;
+  postDataSection.querySelector(`#btn-confirmar-amor-${objNote.id}`).addEventListener('click', () => {
+    const viewModal = document.querySelector(`#hola-mi-amor-${ objNote.id }`);
+    console.log(viewModal);
+    viewModal.style.display = 'block'; 
+  });
+
+  postDataSection.querySelector(`#btn-delete-${objNote.id}`).addEventListener('click', () => deleteNoteOnClick(objNote));
   
-    // modalConfirm.innerHTML
-  );
+  postDataSection.querySelector(`#btn-delete-not-${objNote.id}`).addEventListener('click', () => {
+    const viewModal = document.querySelector(`#hola-mi-amor-${ objNote.id }`);
+    viewModal.style.display = 'none'; 
+  });
+  
   return postDataSection;
 };
 
@@ -134,7 +149,6 @@ export const textarePublication = () => {
 };
 
 
-
 /* Post */
 export const postListSection = (notes, uid) => {
   const createPostInWall = document.createElement('section');
@@ -153,14 +167,13 @@ export const postListSection = (notes, uid) => {
   // aqui es el problema
   const select = document.querySelector('#filter-type-post');
   select.addEventListener('change', () => {
-    console.log(select.value)
-    if(select.value ==='privado'){
-      changeHash('#/privatePost')
+    console.log(select.value);
+    if (select.value === 'privado') {
+      changeHash('#/privatePost');
       postList.appendChild(showPrivatePostOnClick('privado'));
-    }else if (select.value === 'publico'){
-      changeHash('#/publicPost')
+    } else if (select.value === 'publico') {
+      changeHash('#/publicPost');
       postList.appendChild(showPrivatePostOnClick('publico'));
-
     }
   });
 
@@ -175,7 +188,6 @@ export const postListSectionnn = () => {
   `;
   createPostInWalle.innerHTML = contentPostInWalle;
   const postListu = createPostInWalle.querySelector('#post-listu');
- 
   
   
   return createPostInWalle;

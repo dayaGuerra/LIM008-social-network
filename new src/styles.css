@@ -211,6 +211,10 @@ height: 2em;
   .btn-save-edit-post{
     display:none;
   }
+
+  .hola-clase{
+    display:none;
+  }
 /* end list post */
 /* btn-post */
 button{
