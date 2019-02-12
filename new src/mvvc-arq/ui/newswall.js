@@ -5,8 +5,8 @@ import {postDate} from '../lib/util/app.js';
 export const filterSelect = () => {
   const createDivSelect = document.createElement('div');
   const templateSelect = `
-  <select class="add-state-post" id ="filter-type-post">
-    <option>filtrar</option>
+  <select class="filter-post" id ="filter-type-post">
+    <option disabled selected hidden> Mis publicaciones</option>
     <option value = "publico" >Todos</option>
     <option value = "privado">Privado</option>
   </select>
@@ -21,10 +21,23 @@ const textareaEdit = (objNote) => {
   const createTextAreaEdit = document.createElement('div');
   createTextAreaEdit.setAttribute('id', 'edit-textarea');
   const tempEditTextarea = `
-    <textarea id="textarea-post-${ objNote.id }" class= " textarea-post-wall textare-post-hidden" disabled>${objNote.title}</textarea>
+    <textarea id="textarea-post-${ objNote.id }" class= " textarea-post-wall" disabled autofocus>${objNote.title}</textarea>
   `;                    
   return tempEditTextarea;
 };
+
+// export const userData = (objNote) => {
+//   const createUserData = document.createElement('div');
+//   createUserData.setAttribute('id', 'data-user');
+//   createUserData.innerHTML = `
+//   <div class = "data-post-name-state">
+//   <img class="img-post" src="${ objNote.profilePicUrl }" alt="imagen del usuario"/>
+//   <span class="user-display-name"> ${ objNote.name } </span>
+// </div>
+//   `;             
+//   return createUserData;
+// };
+
 
 
 export const addItemPost = (objNote, uid) => {
@@ -35,36 +48,38 @@ export const addItemPost = (objNote, uid) => {
     <div class="post-total">
       <div class="container-data-post">
         
+      <div class ="btn-post-delete-edit">
+          
+      
+      <div class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
+      ${objNote.uid === uid ? '<button class="material-icons" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>' : ''}
+      </div>
+         
+        <div id="btn-edit-${objNote.id}" class = "btn-edit-post"> 
+        ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>' : ''}
+        </div>
+        
+        <div id="btn-confirm-delete-${objNote.id}"> 
+        ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
+        </div> 
+        
+       </div>
+
         <div class = "data-post-name-state">
           <img class="img-post" src="${ objNote.profilePicUrl }" alt="imagen del usuario"/>
           <span class="user-display-name"> ${ objNote.name } </span>
           ${ objNote.state === 'publico' ? '<i class="fa fa-globe" aria-hidden="true"></i>' : ' <i class="fa fa-lock" aria-hidden="true"></i>' } 
-          <span class = "user-display-time"> ${ datePost } </span>
+        </div>
+        <div class = "data-post-name-state date-post">
+        <span class = "user-display-time"> ${ datePost } </span>
         </div>
 
-        <div class ="btn-post-delete-edit">
-          
-          
-         <div id="btn-confirmar-amor-${objNote.id}"> 
-          ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
-        
-          </div>
-          
-          <div id="btn-edit-${objNote.id}"> 
-          ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>' : ''}
-          </div>
-          
-          <div class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
-          ${objNote.uid === uid ? '<button class="material-icons" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>' : ''}
-          </div>
-
-        </div>
 
       </div>
       <div class="txt-post">
         <span>${textareaEdit(objNote)}</span>
       <div>
-        <button id="btn-likes-post-${ objNote.id }"><i class="fa fa-heart-o" aria-hidden="true"></i> <span id="number-likes-post">${objNote.likes}</span></button></div>
+        <button id="btn-likes-post-${ objNote.id }"><img src="../new src/img/aplausos.png" alt=""><span id="number-likes-post">${objNote.likes}</span></button></div>
       </div>
 
       <div id = "hola-mi-amor-${ objNote.id }" class ="hola-clase">
@@ -76,7 +91,7 @@ export const addItemPost = (objNote, uid) => {
       <div class="border-separation-post"></div>
     </div>
   `;
-  console.log(objNote.uid);
+
   // agregando evento de click al btn eliminar una nota
   postDataSection.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
     // console.log('tiene like :' + countLike);
@@ -97,7 +112,7 @@ export const addItemPost = (objNote, uid) => {
     const textareaPos = document.querySelector(`#textarea-post-${objNote.id}`);
     updateNoteOnClick(objNote, textareaPos.value);
   });
-  postDataSection.querySelector(`#btn-confirmar-amor-${objNote.id}`).addEventListener('click', () => {
+  postDataSection.querySelector(`#btn-confirm-delete-${objNote.id}`).addEventListener('click', () => {
     const viewModal = document.querySelector(`#hola-mi-amor-${ objNote.id }`);
     console.log(viewModal);
     viewModal.style.display = 'block'; 
@@ -118,12 +133,17 @@ export const logOut = () => {
   sectionElement.setAttribute('id', 'user-container');
   const profileTemplate = `
     <div class = "container-nav">
-      <a id="sign-out-btn"><i class="fa fa-sign-out fa-3x"></i></a>
+      <a href = "#/home"><i class="fa fa-home fa-1x"aria-hidden="true"></i></a>
+    </div>
+
+    <div class = "title-nav">
+      <a id="title-red-social" class = "title-red-social"> Ayni </a>
     </div>
 
     <div class = "container-nav">
-    <a href = "#/home"><i class="fa fa-home fa-3x" aria-hidden="true"></i></a>
-  </div>
+      <a id="sign-out-btn"><i class="fa fa-sign-out fa-1x"></i></a>
+    </div>
+    
 
 
   `;
@@ -136,18 +156,22 @@ export const logOut = () => {
 /* Publicacion */
 export const textarePublication = () => {
   const publicationSection = document.createElement('section');
+  publicationSection.classList.add('section-post');
   const contentDivForPublication = `
+   
     <div class="container-textarea">
-      <textarea class="textarea-post" type="text" id="input-new-note" placeholder="Agrega un post" required></textarea>
+      <textarea class="textarea-post" type="text" id="input-new-note" placeholder="Comparte tus ideas" required></textarea>
       <div class="btns-add-post-and-state">
-        <button class="btn-add-post" id="btn-add-post"><i class="material-icons">Compartir</i></button>
         <select class="add-state-post" id ="state-post">
           <option value="publico">Amigos</option>
           <option value="privado">Privado</option>
         </select>
+        <button class="btn-add-post" id="btn-add-post">Compartir</button>
+        
       </div>
     </div>
     <div>${filterSelect()}</div>
+
   `;
   publicationSection.innerHTML = contentDivForPublication;
   publicationSection.querySelector('#btn-add-post').addEventListener('click', createNewPost);

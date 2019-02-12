@@ -119,38 +119,27 @@ margin-bottom: 10px;
 }
 /* End btns-log */
 /* nav post */
-.container-nav{
-  background-color: #4c5a4c;
+#user-container{
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #bcbcbc;
+}
+
+#user-container > div {
+  width: 100%;
+  text-align: center;
+  line-height: 75px;
+  font-size: 40px;
+}
+
+
+.title-nav{
+  font-family: 'Dancing Script', cursive;
+  font-size: 30em;
 }
 /* end Nav post */
 
 /* Btn post */
-.btns-add-post-and-state{
-  background-color: #294b29;
-  display:flex;
-  justify-content: flex-end ;
-padding: 12px;
-}
-.btn-add-post{
-margin-right: 3px;
-width: 6em;
-height: 2em;
-
-}
-
-.add-state-post{
-  width: 6em;
-}
-
-
-/* btn post */
-
-
-
-/* list post */
-.container-textarea{
-  padding: 5px;
-}
 .textarea-post{
   display : block;
   padding : 10px;
@@ -159,6 +148,62 @@ height: 2em;
   height  : 80px;
   resize  : none;
   overflow: auto; 
+  font-family: 'Barlow', sans-serif;
+}
+
+.btns-add-post-and-state{
+  font-family: 'Barlow', sans-serif;
+  padding: 12px;
+  border-color: #bcbcbc;
+}
+.btn-add-post{
+ cursor: pointer;
+ height: 30px;
+}
+.add-state-post{
+  height: 30px;
+  margin-right: 5px;
+}
+.btns-add-post-and-state{
+display: flex;
+justify-content: flex-end;
+}
+
+.container-textarea{
+ border-bottom: 3px solid #bcbcbc;
+}
+
+.filter-post{
+margin-top: 10px;
+margin-left: 4px;
+height: 30px;
+}
+/* end btn post */
+
+
+
+/* list post */
+.data-post-name-state{
+  font-family: 'Barlow', sans-serif; 
+}
+.btn-post-delete-edit{
+  display:flex;
+  float: right;
+  height: 40px;
+}
+
+.btn-edit-post{
+ margin-right: 5px;
+}
+
+.btn-save-edit-post{
+  margin-right: 5px;
+}
+.date-post{
+  margin-left: 43px
+}
+.container-textarea{
+  padding: 5px;
 }
 
 .textarea-post-wall{
@@ -169,17 +214,15 @@ height: 2em;
   height  : 80px;
   resize  : none;
   overflow: hidden; 
+  background-color: white;
+  font-family: 'Barlow', sans-serif;
 }
-.btn-add-post{
-  margin-bottom: 10px;
-}
+
 .list-post{
   margin-top: 10px;
-  /* border: 1px solid #bcbcbc; */
   border-radius: 3px;
   margin-bottom: 10px;
 }
-
 
 .img-post{
   width: 40px;
@@ -203,6 +246,7 @@ height: 2em;
   padding: 10px;
   
 }
+
 .border-separation-post{
   border-bottom: 10px solid #f1f1f1;
   width: 100%;
