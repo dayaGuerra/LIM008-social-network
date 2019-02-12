@@ -149,11 +149,11 @@ export const postListSection = (notes, uid) => {
       postList.appendChild(addItemPost(objnote, uid));
     }
   });
-  // const select = document.querySelector('#filter-type-post');
-  // select.addEventListener('change', () => {
-  //   changeHash('#/privatePost')
-  //   postList.appendChild(showPrivatePostOnClick(select));
-  // });
+  const select = document.querySelector('#filter-type-post');
+  select.addEventListener('change', () => {
+    changeHash('#/privatePost')
+    postList.appendChild(showPrivatePostOnClick(select));
+  });
   
   return createPostInWall;
 };
@@ -167,12 +167,7 @@ export const postListSectionnn = () => {
   createPostInWalle.innerHTML = contentPostInWalle;
   const postListu = createPostInWalle.querySelector('#post-listu');
  
-  const select = document.querySelector('#filter-type-post');
-  select.addEventListener('change', () => {
-    changeHash('#/privatePost')
-    console.log(showPrivatePostOnClick(select.value));
-    // console.log(select.value)
-  });
+  
   
   return createPostInWalle;
 };

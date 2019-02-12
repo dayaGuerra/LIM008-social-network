@@ -7,7 +7,7 @@ import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 const changeTmp = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
     return viewTmp('#/signin');
-  } else if (hash === '#/signup' || hash === '#/home' || hash === '#/privatePost') {
+  } else if (hash === '#/signup' || hash === '#/home' || hash === '#/privatePost' || hash === '#/publicPost') {
     return viewTmp(hash);
   } else {
     return viewTmp('#/signin');
@@ -44,7 +44,6 @@ const viewTmp = (routers) => {
   case 'privatePost':
     privatePost(notes => {
       root.innerHTML = '';
-      
       root.appendChild(postListSection(notes, isUserSignedIn()));
     },isUserSignedIn(), 'privado');
       // const uids = isUserSignedIn();
@@ -54,6 +53,16 @@ const viewTmp = (routers) => {
     root.appendChild(postListSectionnn());
     
     break;
+    case 'publicPost':
+    privatePost(notes => {
+      root.innerHTML = '';
+      root.appendChild(postListSection(notes, isUserSignedIn()));
+    },isUserSignedIn(), 'publico');
+      // const uids = isUserSignedIn();
+      // const abc = showPrivatePostOnClick();
+      navBar.appendChild(logOut());
+      main.appendChild(textarePublication());
+      root.appendChild(postListSectionnn());
   default:
     root.appendChild(signInForm());
     break;
