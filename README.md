@@ -52,6 +52,7 @@ Medir con apoyo.
 
 
 
+Ayni esta dirigida a todos los emprendedores peruanos,  personas que deseen emprender, colaboradores que deseen ser parte de alguno de los proyectos innovadores.
 
 ### Cómo descubriste las necesidades de los usuarios
 En la actualidad existen redes sociales enfocadas a emprendedores pero para ser parte de este grupo es necesario pagar una menbresía y además no están enfocadas a la realidad de nuestro país, es por esto que vimos la necesidad que tienen muchos peruanos que en muchos casos tienen el deseo de emprender pero no cuentan con los conocimientos o no conocen a personas involucradas en emprendimiento.
@@ -89,7 +90,10 @@ Muro:
 ![inicio-sesion](images\login_desktop-prototype.jpg)
 ![registro](images\login_desktop.jpg)
 
+## Diseño de la Interfaz de Usuario 
 
+Diagrama de flujo del funcionamiento de la Red Social "Ayni"
+![flujo](images/flujo.jpg)
 
 
 

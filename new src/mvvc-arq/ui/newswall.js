@@ -48,41 +48,35 @@ export const addItemPost = (objNote, uid) => {
     <div class="post-total">
       <div class="container-data-post">
         
-      <div class ="btn-post-delete-edit">
-          
-      
-      <div class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
-      ${objNote.uid === uid ? '<button class="material-icons" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>' : ''}
-      </div>
-         
-        <div id="btn-edit-${objNote.id}" class = "btn-edit-post"> 
-        ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>' : ''}
-        </div>
-        
-        <div id="btn-confirm-delete-${objNote.id}"> 
-        ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
-        </div> 
-        
-       </div>
-
         <div class = "data-post-name-state">
           <img class="img-post" src="${ objNote.profilePicUrl }" alt="imagen del usuario"/>
           <span class="user-display-name"> ${ objNote.name } </span>
           ${ objNote.state === 'publico' ? '<i class="fa fa-globe" aria-hidden="true"></i>' : ' <i class="fa fa-lock" aria-hidden="true"></i>' } 
+          <span class = "user-display-time"> ${ datePost } </span>
         </div>
-        <div class = "data-post-name-state date-post">
-        <span class = "user-display-time"> ${ datePost } </span>
+        <div class ="btn-post-delete-edit">
+          
+          
+         <div id="btn-confirmar-amor-${objNote.id}"> 
+          ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
+        
+          </div>
+          
+          <div id="btn-edit-${objNote.id}"> 
+          ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>' : ''}
+          </div>
+          
+          <div class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
+          ${objNote.uid === uid ? '<button class="material-icons" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>' : ''}
+          </div>
         </div>
-
-
       </div>
       <div class="txt-post">
         <span>${textareaEdit(objNote)}</span>
       <div>
-        <button id="btn-likes-post-${ objNote.id }"><img src="../new src/img/aplausos.png" alt=""><span id="number-likes-post">${objNote.likes}</span></button></div>
+        <button id="btn-likes-post-${ objNote.id }"><i class="fa fa-heart-o" aria-hidden="true"></i> <span id="number-likes-post">${objNote.likes}</span></button></div>
       </div>
-
-      <div id = "confirmation-message-${ objNote.id }" class ="message-delete">
+      <div id = "hola-mi-amor-${ objNote.id }" class ="hola-clase">
       <span>Deseas eliminar este mensaje?</span>
       <button id="btn-delete-${objNote.id}"> si </button>
       <button  id="btn-delete-not-${objNote.id}"> no </button>
@@ -91,7 +85,7 @@ export const addItemPost = (objNote, uid) => {
       <div class="border-separation-post"></div>
     </div>
   `;
-
+  console.log(objNote.uid);
   // agregando evento de click al btn eliminar una nota
   postDataSection.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
     // console.log('tiene like :' + countLike);
@@ -112,8 +106,8 @@ export const addItemPost = (objNote, uid) => {
     const textareaPos = document.querySelector(`#textarea-post-${objNote.id}`);
     updateNoteOnClick(objNote, textareaPos.value);
   });
-  postDataSection.querySelector(`#btn-confirm-delete-${objNote.id}`).addEventListener('click', () => {
-    const viewModal = document.querySelector(`#confirmation-message-${ objNote.id }`);
+  postDataSection.querySelector(`#btn-confirmar-amor-${objNote.id}`).addEventListener('click', () => {
+    const viewModal = document.querySelector(`#hola-mi-amor-${ objNote.id }`);
     console.log(viewModal);
     viewModal.style.display = 'block'; 
   });
@@ -121,7 +115,7 @@ export const addItemPost = (objNote, uid) => {
   postDataSection.querySelector(`#btn-delete-${objNote.id}`).addEventListener('click', () => deleteNoteOnClick(objNote));
   
   postDataSection.querySelector(`#btn-delete-not-${objNote.id}`).addEventListener('click', () => {
-    const viewModal = document.querySelector(`#confirmation-message-${ objNote.id }`);
+    const viewModal = document.querySelector(`#hola-mi-amor-${ objNote.id }`);
     viewModal.style.display = 'none'; 
   });
   
