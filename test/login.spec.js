@@ -15,6 +15,8 @@ global.firebase = firebasemock.MockFirebaseSdk(
 
 // iniciando tests
 import { signUp, logIn, googleAuth, facebookAuth, logOut } from '../new src/mvvc-arq/lib/controller/controller-auth.js';
+import {isUserSignedIn } from '../new src/mvvc-arq/lib/view-controller/view-controller-auth.js';
+import { notEqual } from 'assert';
 describe('lista de notas', () => {
   it('Debería poder iniciar sesion', () => {
     return logIn('janetgutmont@gmail.com', '123456')
@@ -23,7 +25,22 @@ describe('lista de notas', () => {
       });
   });
 });
-
+describe('logearse con facebook', () => {
+  it('Debería poder iniciar sesión facebook', () => {
+    const userId = isUserSignedIn();
+    return facebookAuth().then((user) => {
+      expect(userId).not.toBe(null);
+    });
+  });
+});
+describe('logearse con google', () => {
+  it('Debería poder iniciar sesión google', () => {
+    const userId = isUserSignedIn();
+    return googleAuth().then((user) => {
+      expect(userId).not.toBe(null);
+    });
+  });
+});
 describe('crea cuenta', () => {
   it('Debería poder crear una cuenta', () => {
     return signUp('daya@example.com', 'mandalaman')

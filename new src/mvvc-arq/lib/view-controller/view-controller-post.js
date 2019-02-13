@@ -47,12 +47,7 @@ export const updateLikeOnClick = (objNote, like) => {
 };
 
 export const showPrivatePostOnClick = (select) => {
-privatePost(post => {
-  console.log(post)
-  return post;
-  post.forEach(element => {
-    return (addItemPost(element, isUserSignedIn()))
-  });
-},isUserSignedIn(),select.value)
-
+  privatePost(post => {
+    return post;
+  }, isUserSignedIn(), select.value);
 };

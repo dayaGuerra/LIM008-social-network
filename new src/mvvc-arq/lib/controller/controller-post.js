@@ -54,8 +54,8 @@ export const getAllPost = (callback) => {
 export const privatePost = (callback, userId, condition) => {
   let refPrivatePost = firebase.firestore().collection('post');
   const query = refPrivatePost
-  .where('uid', '==', userId)
-  .where('state', '==', condition)
+    .where('uid', '==', userId)
+    .where('state', '==', condition);
   query.onSnapshot(querySnapshot => {
     const dataPrivatePost = [];
     querySnapshot.forEach(doc => {
@@ -65,11 +65,6 @@ export const privatePost = (callback, userId, condition) => {
       });
     });
     callback(dataPrivatePost);
-  }); 
-
+  });
 };
 
-
-// export const datita = () => {
-//   console.log()
-// } 

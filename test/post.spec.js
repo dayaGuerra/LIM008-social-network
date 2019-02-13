@@ -42,8 +42,7 @@ const fixtureData = {
 
 global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled: true});
 
-import {addNewPost, getAllPost, deletePost, updateTitle, updateLikePost} from '../new src/mvvc-arq/lib/controller/controller-post.js';
-
+import {addNewPost, getAllPost, deletePost, updateTitle, updateLikePost, privatePost	} from '../new src/mvvc-arq/lib/controller/controller-post.js';
 describe('addNewPost', () => {
   it('debería de poder agregar una nota', (done) => {
     const callback = (posts) => {
@@ -92,6 +91,15 @@ describe('updateLikePost', () => {
         // función de callback recibe la data
       getAllPost(callback);
     });
+  });
+});
+
+describe('privatePost', () => {
+  it('deberia retornar un array de objetos con state privado', () => {
+    const callback = (post) => {
+      expect(post.length).toBe(1);
+    };
+    return privatePost(callback, 'abc123', 'privado');
   });
 });
 
