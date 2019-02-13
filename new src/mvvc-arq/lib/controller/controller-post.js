@@ -12,7 +12,6 @@ export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl, 
       likes: like,
       uid: userUid
     }).catch((error) => {
-      console.log(error);
     });
 
     
@@ -52,19 +51,18 @@ export const getAllPost = (callback) => {
 };
 
 export const privatePost = (callback, userId, condition) => {
-  let refPrivatePost = firebase.firestore().collection('post');
-  const query = refPrivatePost
+  firebase.firestore().collection('post')
     .where('uid', '==', userId)
-    .where('state', '==', condition);
-  query.onSnapshot(querySnapshot => {
-    const dataPrivatePost = [];
-    querySnapshot.forEach(doc => {
-      dataPrivatePost.push({ 
-        id: doc.id,
-        ...doc.data(), 
+    .where('state', '==', condition)
+    .onSnapshot(querySnapshot => {
+      const dataPrivatePost = [];
+      querySnapshot.forEach(doc => {
+        dataPrivatePost.push({ 
+          id: doc.id,
+          ...doc.data(), 
+        });
       });
+      callback(dataPrivatePost);
     });
-    callback(dataPrivatePost);
-  });
 };
 

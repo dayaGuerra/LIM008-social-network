@@ -12,7 +12,7 @@ const fixtureData = {
           name: 'Janet',
           title: 'terminar la pildora',
           profilePicUrl: 'imagendejanet.jpg',
-          userUid: 'abc123',
+          uid: 'abc123',
           like: 1,
           state: 'privado',
           date: {
@@ -95,9 +95,10 @@ describe('updateLikePost', () => {
 });
 
 describe('privatePost', () => {
-  it('deberia retornar un array de objetos con state privado', () => {
+  it('deberia retornar un array de objetos con state privado', (done) => {
     const callback = (post) => {
       expect(post.length).toBe(1);
+      done();
     };
     return privatePost(callback, 'abc123', 'privado');
   });
