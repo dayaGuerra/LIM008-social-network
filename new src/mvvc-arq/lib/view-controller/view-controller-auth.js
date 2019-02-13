@@ -13,14 +13,7 @@ export const logInOnSubmit = (event) => {
   if (validation(pass) === true) {
     logIn(email, pass)
       .then(result => {  
-        // if (result.user.sendEmailVerified) {
-        // agregar lo que se debe mostrar
         console.log('estas logueado');
-        // changeHash('/home');  
-        // } 
-        // else {
-        //   firebase.auth().signOut();  
-        // }
       }).catch(error => {
         console.log(error.code);
         if (error.code === 'auth/wrong-password') {
@@ -45,9 +38,8 @@ export const signUpOnSubmit = (event) => {
   if (validation(email) === true && validation(password) === true && validation(name) === true && validation(lastName) === true) {
     signUp(email, password)
       .then(result => {
-        // changeHash('/home')  
         const configuration = {
-          url: 'http://localhost:5000/' // gh-pages link
+          url: 'http://localhost:5000/'
         };
         result.user.sendEmailVerification(configuration).catch(error => {
           console.log(error.code);
@@ -100,11 +92,11 @@ export const logOutOnSubmit = () => {
 export const getProfilePicUrl = () => 
   firebase.auth().currentUser.photoURL;
 
-  export const getUserName = () => 
+export const getUserName = () => 
   firebase
-  .auth()
-  .currentUser
-  .displayName;
+    .auth()
+    .currentUser
+    .displayName;
 
 // Returns the uid  of the current user.
 export const isUserSignedIn = () => 
