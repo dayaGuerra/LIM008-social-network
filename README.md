@@ -100,17 +100,17 @@ Diagrama de flujo del funcionamiento de la Red Social "Ayni"
 
 Comentarios del usuario con respecto a la Red Social "Ayni"
 * Login
-![Usuario](images/Opinión del usuario.png)
+![Usuario](images\opinion-usuario4.png)
 
 Comentarios del usuario con respecto a la Red Social "Ayni"
 * Botones de inicio
-![Usuario](images/Opinión del usuario (1).png)
+![Usuario](images\opinion-usuario1.png)
 
 Comentarios del usuario con respecto a la Red Social "Ayni"
 * Recorrido por la Red Social
-![Usuario](images/Opinión del usuario (2).png)
+![Usuario](images\opinion-usuario2.png)
 
 Comentarios del usuario con respecto a la Red Social "Ayni"
 * Perspectiva de la Red Social
-![Usuario](images/Opinión del usuario (3).png)
+![Usuario](images\opinion-usuario3.png)
 
