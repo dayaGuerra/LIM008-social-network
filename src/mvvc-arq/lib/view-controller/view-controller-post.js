@@ -3,7 +3,6 @@ import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
 import {validation} from '../controller/validacion.js';
 import { getUserName, getProfilePicUrl } from '../view-controller/view-controller-auth.js';
 import { addItemPost } from '../../ui/newswall.js';
-// --importando todas las funciones que necesitamos ---!//
 
 export const createNewPost = (event) => {
   event.preventDefault();

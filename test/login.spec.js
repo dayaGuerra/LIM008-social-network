@@ -4,14 +4,12 @@ const mockfirestore = new firebasemock.MockFirestore();
 mockfirestore.autoFlush();
 mockauth.autoFlush();
 
-
 global.firebase = firebasemock.MockFirebaseSdk(
 // use null if your code does not use RTDB
   path => (path ? mockdatabase.child(path) : null),
   () => mockauth,
   () => mockfirestore
 );
-
 
 // iniciando tests
 import { signUp, logIn, googleAuth, facebookAuth, logOut } from '../src/mvvc-arq/lib/controller/controller-auth.js';

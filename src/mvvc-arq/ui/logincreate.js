@@ -1,4 +1,3 @@
-// Importas el archivo que contiene el elemento padre
 import { signUpOnSubmit, logInOnSubmit, googleOnSubmit, facebookOnSubmit, logOutOnSubmit } from '../lib/view-controller/view-controller-auth.js';
 import { createNewPost } from '../lib/view-controller/view-controller-post.js';
 export const signInForm = () => {

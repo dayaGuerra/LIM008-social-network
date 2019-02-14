@@ -1,6 +1,6 @@
 import { createNewPost, deleteNoteOnClick, updateNoteOnClick, updateLikeOnClick, showPrivatePostOnClick} from '../lib/view-controller/view-controller-post.js';
 import { logOutOnSubmit, changeHash } from '../lib/view-controller/view-controller-auth.js';
-import {postDate} from '../lib/util/app.js';
+import {postDate} from '../lib/util/date.js';
 
 export const filterSelect = () => {
   const createDivSelect = document.createElement('div');
@@ -11,9 +11,6 @@ export const filterSelect = () => {
     <option value = "privado">Privado</option>
   </select>
   `;
-  // createDivSelect.innerHTML = templateSelect;
-  // const select = createDivSelect.querySelector('#filter-type-post');
-  
   return templateSelect;
 };
 
@@ -25,20 +22,6 @@ const textareaEdit = (objNote) => {
   `;                    
   return tempEditTextarea;
 };
-
-// export const userData = (objNote) => {
-//   const createUserData = document.createElement('div');
-//   createUserData.setAttribute('id', 'data-user');
-//   createUserData.innerHTML = `
-//   <div class = "data-post-name-state">
-//   <img class="img-post" src="${ objNote.profilePicUrl }" alt="imagen del usuario"/>
-//   <span class="user-display-name"> ${ objNote.name } </span>
-// </div>
-//   `;             
-//   return createUserData;
-// };
-
-
 
 export const addItemPost = (objNote, uid) => {
   const datePost = postDate(objNote.date.toDate());
@@ -86,9 +69,7 @@ export const addItemPost = (objNote, uid) => {
     </div>
   `;
   console.log(objNote.uid);
-  // agregando evento de click al btn eliminar una nota
   postDataSection.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
-    // console.log('tiene like :' + countLike);
     updateLikeOnClick(objNote, objNote.likes += 1);
   });
 
@@ -147,7 +128,6 @@ export const logOut = () => {
   return sectionElement;
 };
 
-/* Publicacion */
 export const textarePublication = () => {
   const publicationSection = document.createElement('section');
   publicationSection.classList.add('section-post');
@@ -188,10 +168,8 @@ export const postListSection = (notes, uid) => {
       postList.appendChild(addItemPost(objnote, uid));
     }
   });
-  // aqui es el problema
   const select = document.querySelector('#filter-type-post');
   select.addEventListener('change', () => {
-    console.log(select.value);
     if (select.value === 'privado') {
       changeHash('#/privatePost');
       postList.appendChild(showPrivatePostOnClick('privado'));
@@ -200,10 +178,8 @@ export const postListSection = (notes, uid) => {
       postList.appendChild(showPrivatePostOnClick('publico'));
     }
   });
-
   return createPostInWall;
 };
-
 
 export const postListSectionnn = () => {
   const createPostInWalle = document.createElement('section');
@@ -211,11 +187,6 @@ export const postListSectionnn = () => {
     <div id="post-listu"></div>
   `;
   createPostInWalle.innerHTML = contentPostInWalle;
-  const postListu = createPostInWalle.querySelector('#post-listu');
-  
-  
+  const postListu = createPostInWalle.querySelector('#post-listu');  
   return createPostInWalle;
 };
-// export const postListBySelect = () => {
-//   const createPostInWall = document.createElement()
-// }

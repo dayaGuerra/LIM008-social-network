@@ -1,7 +1,3 @@
-// import {addNewPost} from '../new src/mvvc-arq/lib/controller/controller-post.js';
-// // usaremos un mock de firebase
-// // crearemos un firebase falso
-
 import MockFirebase from 'mock-cloud-firestore';
 
 const fixtureData = {

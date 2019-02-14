@@ -39,7 +39,7 @@ export const signUpOnSubmit = (event) => {
     signUp(email, password)
       .then(result => {
         const configuration = {
-          url: 'http://localhost:5000/'
+          url: 'https://dayaguerra.github.io/LIM008-social-network/src/#/home'
         };
         result.user.sendEmailVerification(configuration).catch(error => {
           console.log(error.code);
@@ -59,36 +59,30 @@ export const signUpOnSubmit = (event) => {
 export const googleOnSubmit = () => {
   googleAuth()
     .then(result => {
-      // const user = result.user;
       console.log('google logueado');
-      // changeHash('/home'); 
-      // que queremos hacer cuando se inicie sesion con google
     }).catch(error => {
       console.log(error.code);
     });
 };
+
 export const facebookOnSubmit = () => {
   facebookAuth()
     .then(result => {
       window.location.hash = '';
-      
       changeHash('/home'); 
-      // const user = result.user;
       console.log('facebook logueado');
-    // que queremos hacer cuando se inicie sesion con google
     }).catch(error => {
       console.log(error.code);
     });
 };
+
 export const logOutOnSubmit = () => {
   logOut()
     .then(() => {
       changeHash('/signin'); 
-    // que quiero que ocurra cuando el usuario ya no este logueado
     }).catch(error => console.log(error.code));
 };
 
-// Returns the signed-in user's profile Pic URL.
 export const getProfilePicUrl = () => 
   firebase.auth().currentUser.photoURL;
 
@@ -98,7 +92,6 @@ export const getUserName = () =>
     .currentUser
     .displayName;
 
-// Returns the uid  of the current user.
 export const isUserSignedIn = () => 
   firebase.auth().currentUser.uid;
 
@@ -109,12 +102,10 @@ export const authStateObserver = (user) => {
     
     changeHash('/home');
   } else {
-    // alert('Verifica tu correo electronico para continuar');
     changeHash('/signin');
   }
 };
 
 export const initFirebaseAuth = () => {
-  // Listen to auth state changes.
   firebase.auth().onAuthStateChanged(authStateObserver);
 };

@@ -1,4 +1,3 @@
-// hacemos una funcion pura pasandole parametros 
 export const addNewPost = (textNewNote, userUid, getUserName, getProfilePicUrl, type, like) =>
   firebase
     .firestore()
