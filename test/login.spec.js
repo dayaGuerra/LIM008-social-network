@@ -14,8 +14,8 @@ global.firebase = firebasemock.MockFirebaseSdk(
 
 
 // iniciando tests
-import { signUp, logIn, googleAuth, facebookAuth, logOut } from '../new src/mvvc-arq/lib/controller/controller-auth.js';
-import {isUserSignedIn } from '../new src/mvvc-arq/lib/view-controller/view-controller-auth.js';
+import { signUp, logIn, googleAuth, facebookAuth, logOut } from '../src/mvvc-arq/lib/controller/controller-auth.js';
+import {isUserSignedIn } from '../src/mvvc-arq/lib/view-controller/view-controller-auth.js';
 import { notEqual } from 'assert';
 describe('lista de notas', () => {
   it('Debería poder iniciar sesion', () => {

@@ -1,5 +1,20 @@
-// Este es el punto de entrada de tu aplicacion
+import { initRoutersSocialMedia } from './mvvc-arq/lib/util/root.js';
+import { initFirebaseAuth } from './mvvc-arq/lib/view-controller/view-controller-auth.js';
 
-import { myFunction } from './lib/index.js';
+const init = () => {
+  const config = {
+    apiKey: "AIzaSyAXmqrQbsryZXVALre99FwzbJAsp4TCeCk",
+    authDomain: "red-social-2-80717.firebaseapp.com",
+    databaseURL: "https://red-social-2-80717.firebaseio.com",
+    projectId: "red-social-2-80717",
+    storageBucket: "red-social-2-80717.appspot.com",
+    messagingSenderId: "615276403612"
+  };
 
-myFunction();
+  firebase.initializeApp(config);
+
+  initRoutersSocialMedia();
+  initFirebaseAuth();
+};
+
+window.onload = init;

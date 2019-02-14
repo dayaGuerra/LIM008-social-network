@@ -1,4 +1,4 @@
-import {validation} from '../new src/mvvc-arq/lib/controller/validacion.js';
+import {validation} from '../src/mvvc-arq/lib/controller/validacion.js';
 const input = 'se lo que quieras ser , se una barbie girl';
 const output = ' ';
 describe('validation', () => {

@@ -42,7 +42,7 @@ const fixtureData = {
 
 global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled: true});
 
-import {addNewPost, getAllPost, deletePost, updateTitle, updateLikePost, privatePost	} from '../new src/mvvc-arq/lib/controller/controller-post.js';
+import {addNewPost, getAllPost, deletePost, updateTitle, updateLikePost, privatePost	} from '../src/mvvc-arq/lib/controller/controller-post.js';
 
 describe('getAllPost', () => {
   it('deberia retornar un array de objetos', (done) => {
