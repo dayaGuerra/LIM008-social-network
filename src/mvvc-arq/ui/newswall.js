@@ -38,13 +38,13 @@ export const addItemPost = (objNote, uid) => {
           <span class = "user-display-time"> ${ datePost } </span>
         </div>
         <div class ="btn-post-delete-edit">
-          
-          
          <div id="btn-confirmar-amor-${objNote.id}"> 
           ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
-        
+
           </div>
-          
+        <div>
+        
+        </div>
           <div id="btn-edit-${objNote.id}"> 
           ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>' : ''}
           </div>
@@ -59,6 +59,7 @@ export const addItemPost = (objNote, uid) => {
       <div>
         <button id="btn-likes-post-${ objNote.id }"><i class="fa fa-heart-o" aria-hidden="true"></i> <span id="number-likes-post">${objNote.likes}</span></button></div>
       </div>
+      <div><button><img src="img/delete-button.png" class="icon"/></button></div>
       <div id = "hola-mi-amor-${ objNote.id }" class ="hola-clase">
       <span>Deseas eliminar este mensaje?</span>
       <button id="btn-delete-${objNote.id}"> si </button>
@@ -72,7 +73,6 @@ export const addItemPost = (objNote, uid) => {
   postDataSection.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
     updateLikeOnClick(objNote, objNote.likes += 1);
   });
-
 
   postDataSection.querySelector(`#btn-edit-${objNote.id}`).addEventListener('click', () => {
     const textareaPost = document.querySelector(`#textarea-post-${objNote.id}`);

@@ -93,16 +93,19 @@ export const getUserName = () =>
     .displayName;
 
 export const isUserSignedIn = () => 
-  firebase.auth().currentUser.uid;
+  userState() && firebase.auth().currentUser.uid;
+
+export const userState = () => 
+  firebase.auth().currentUser;
 
 export const authStateObserver = (user) => {
   if (user && user.emailVerified) { 
     const profilePicUrl = getProfilePicUrl();
     const userName = getUserName();
-    
     changeHash('/home');
   } else {
-    changeHash('/signin');
+    logOut();
+    changeHash('#/signin');
   }
 };
 

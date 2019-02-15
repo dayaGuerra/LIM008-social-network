@@ -1,15 +1,22 @@
 import { signInForm, signUpForm } from '../../ui/logincreate.js';
 import { postListSectionnn, postListSection, textarePublication, logOut, filterSelect} from '../../ui/newswall.js';
 import { getAllPost, privatePost } from '../controller/controller-post.js';
-import { isUserSignedIn } from '../view-controller/view-controller-auth.js';
+import { isUserSignedIn, userState } from '../view-controller/view-controller-auth.js';
 
 const changeTmp = (hash) => {
-  if (hash === '#/' || hash === '' || hash === '#') {
+  if (userState() === null) {
+    if ((hash === '#/signin' || hash === '#/signup')) {
+      return viewTmp(hash);
+    }
+    window.location.hash = '';
     return viewTmp('#/signin');
-  } else if (hash === '#/signup' || hash === '#/home' || hash === '#/privatePost' || hash === '#/publicPost') {
-    return viewTmp(hash);
   } else {
-    return viewTmp('#/signin');
+    if (hash === '#/' || hash === '' || hash === '#' || hash === '#/signin' || hash === '#/signup') {
+      window.location.hash = '';
+      return viewTmp('#/home');
+    } else if (hash === '#/home' || hash === '#/privatePost' || hash === '#/publicPost') {
+      return viewTmp(hash);
+    }
   }
 };
 
@@ -36,7 +43,7 @@ const viewTmp = (routers) => {
     break;
   case 'signin':
     
-    root.appendChild(signInForm())
+    root.appendChild(signInForm());
     break;
   case 'signup':
     root.appendChild(signUpForm());

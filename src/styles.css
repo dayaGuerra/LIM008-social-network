@@ -457,13 +457,16 @@ height: 30px;
   margin-left: 100px;
   margin-right: 100px;
 }
+
 /* end btn post */
 
 
 
 /* Fin de muro */
 
+}
 
-
-
+.icon{
+ width: 20px;
+ height: 20px; 
 }
