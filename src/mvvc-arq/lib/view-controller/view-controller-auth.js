@@ -38,6 +38,13 @@ export const signUpOnSubmit = (event) => {
   if (validation(email) === true && validation(password) === true && validation(name) === true && validation(lastName) === true) {
     signUp(email, password)
       .then(result => {
+        const user = firebase.auth().currentUser;
+        user.updateProfile({
+          displayName: name + ' ' + lastName,
+        }).then(() => {
+        }).catch((error) => {
+          console.log(error);
+        });
         const configuration = {
           url: 'https://dayaguerra.github.io/LIM008-social-network/src/#/home'
         };
@@ -67,7 +74,7 @@ export const googleOnSubmit = () => {
 
 export const facebookOnSubmit = () => {
   facebookAuth()
-    .then(result => {
+    .then(() => {
       window.location.hash = '';
       changeHash('/home'); 
       console.log('facebook logueado');

@@ -7,8 +7,8 @@ export const filterSelect = () => {
   const templateSelect = `
   <select class="filter-post" id ="filter-type-post">
     <option disabled selected hidden> Mis publicaciones</option>
-    <option value = "publico" >Todos</option>
-    <option value = "privado">Privado</option>
+    <option value="publico" >Todos</option>
+    <option value="privado">Privado</option>
   </select>
   `;
   return templateSelect;
@@ -59,6 +59,7 @@ export const addItemPost = (objNote, uid) => {
           <div class="btn-save-edit-post" id="btn-save-${objNote.id}"> 
           ${objNote.uid === uid ? '<button class="material-icons" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>' : ''}
           </div>
+          
         </div>
       </div>
       
@@ -142,6 +143,10 @@ export const textarePublication = () => {
     <div class="container-textarea">
       <textarea class="textarea-post" type="text" id="input-new-note" placeholder="Comparte tus ideas" required></textarea>
       <div class="btns-add-post-and-state">
+      <div class="input-field">
+      <label for="btnUploadFile">Imagen:</label>
+      <input type="file" value="upload" id="btnUploadFile" />
+      </div>
         <select class="add-state-post" id ="state-post">
           <option value="publico">Amigos</option>
           <option value="privado">Privado</option>
