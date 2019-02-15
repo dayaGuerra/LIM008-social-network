@@ -35,6 +35,12 @@ width: 100%;
   background-color: #f1f1f1;
   ;
 }
+
+/* prueba - boton subir imagen */
+.hidden {
+  visibility: hidden;
+}
+
 /* Style the container */
 
 /*End style container*/

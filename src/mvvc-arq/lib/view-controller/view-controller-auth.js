@@ -83,14 +83,13 @@ export const logOutOnSubmit = () => {
     }).catch(error => console.log(error.code));
 };
 
-export const getProfilePicUrl = () => 
-  firebase.auth().currentUser.photoURL;
+export const getProfilePicUrl = () => {
+  return firebase.auth().currentUser.photoURL || 'img/users.png';
+};
 
-export const getUserName = () => 
-  firebase
-    .auth()
-    .currentUser
-    .displayName;
+export const getUserName = () => {
+  return firebase.auth().currentUser.displayName;
+};
 
 export const isUserSignedIn = () => 
   userState() && firebase.auth().currentUser.uid;
@@ -100,8 +99,6 @@ export const userState = () =>
 
 export const authStateObserver = (user) => {
   if (user && user.emailVerified) { 
-    const profilePicUrl = getProfilePicUrl();
-    const userName = getUserName();
     changeHash('/home');
   } else {
     logOut();

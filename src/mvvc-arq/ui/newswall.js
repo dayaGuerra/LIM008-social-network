@@ -23,8 +23,15 @@ const textareaEdit = (objNote) => {
   return tempEditTextarea;
 };
 
+
 export const addItemPost = (objNote, uid) => {
   const datePost = postDate(objNote.date.toDate());
+  // const fileSelector = document.createElement('input');
+  // fileSelector.setAttribute('type', 'file');
+  // const buttonselectImage = document.createElement('button');
+  // buttonselectImage.setAttribute('id', 'upload-image-btn');
+  // buttonselectImage.innerText = 'Selecciona imagen';
+
   const postDataSection = document.createElement('section');
   postDataSection.classList.add('list-post');
   postDataSection.innerHTML = `
@@ -54,10 +61,11 @@ export const addItemPost = (objNote, uid) => {
           </div>
         </div>
       </div>
+      
       <div class="txt-post">
         <span>${textareaEdit(objNote)}</span>
       <div>
-        <button id="btn-likes-post-${ objNote.id }"><i class="fa fa-heart-o" aria-hidden="true"></i> <span id="number-likes-post">${objNote.likes}</span></button></div>
+        <button id="btn-likes-post-${ objNote.id }"><img class="claps" src="img/aplausos.png"> <span id="number-likes-post">${objNote.likes}</span></button></div>
       </div>
       <div><button><img src="img/delete-button.png" class="icon"/></button></div>
       <div id = "hola-mi-amor-${ objNote.id }" class ="hola-clase">
@@ -69,7 +77,6 @@ export const addItemPost = (objNote, uid) => {
       <div class="border-separation-post"></div>
     </div>
   `;
-  console.log(objNote.uid);
   postDataSection.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
     updateLikeOnClick(objNote, objNote.likes += 1);
   });
@@ -89,7 +96,6 @@ export const addItemPost = (objNote, uid) => {
   });
   postDataSection.querySelector(`#btn-confirmar-amor-${objNote.id}`).addEventListener('click', () => {
     const viewModal = document.querySelector(`#hola-mi-amor-${ objNote.id }`);
-    console.log(viewModal);
     viewModal.style.display = 'block'; 
   });
 
