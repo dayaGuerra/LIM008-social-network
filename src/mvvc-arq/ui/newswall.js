@@ -15,6 +15,7 @@ export const filterSelect = () => {
 };
 
 const textareaEdit = (objNote) => {
+  console.log(objNote);
   const createTextAreaEdit = document.createElement('div');
   createTextAreaEdit.setAttribute('id', 'edit-textarea');
   const tempEditTextarea = `
@@ -47,7 +48,6 @@ export const addItemPost = (objNote, uid) => {
         <div class ="btn-post-delete-edit">
          <div id="btn-confirmar-amor-${objNote.id}"> 
           ${objNote.uid === uid ? '<button class="material-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></button>' : ''}
-
           </div>
         <div>
         
@@ -68,7 +68,11 @@ export const addItemPost = (objNote, uid) => {
       <div>
         <button id="btn-likes-post-${ objNote.id }"><img class="claps" src="img/aplausos.png"> <span id="number-likes-post">${objNote.likes}</span></button></div>
       </div>
-      <div><button><img src="img/delete-button.png" class="icon"/></button></div>
+      <div>
+      <div id="btn-delete-clap-${objNote.id}"> 
+      ${objNote.uid === uid ? '<button class="material-icons"><img src="img/delete-button.png" class="icon"/></button>' : ''}
+      </div>
+  
       <div id = "hola-mi-amor-${ objNote.id }" class ="hola-clase">
       <span>Deseas eliminar este mensaje?</span>
       <button id="btn-delete-${objNote.id}"> si </button>
@@ -81,7 +85,9 @@ export const addItemPost = (objNote, uid) => {
   postDataSection.querySelector(`#btn-likes-post-${objNote.id}`).addEventListener('click', () => {
     updateLikeOnClick(objNote, objNote.likes += 1);
   });
-
+  postDataSection.querySelector(`#btn-delete-clap-${objNote.id}`).addEventListener('click', () => {
+    updateLikeOnClick(objNote, objNote.likes -= 1);
+  });
   postDataSection.querySelector(`#btn-edit-${objNote.id}`).addEventListener('click', () => {
     const textareaPost = document.querySelector(`#textarea-post-${objNote.id}`);
     textareaPost.disabled = false;
@@ -160,6 +166,7 @@ export const textarePublication = () => {
   `;
   publicationSection.innerHTML = contentDivForPublication;
   publicationSection.querySelector('#btn-add-post').addEventListener('click', createNewPost);
+  console.log(createNewPost);
   return publicationSection;
 };
 

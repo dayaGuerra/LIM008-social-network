@@ -77,14 +77,14 @@ Diagrama de flujo del funcionamiento de la Red Social "Ayni"
 Inicialmente creamos el siguiente prototipo, el cual fue variando debido a las recomendaciones de nuestros usuarios. 
 
 - Prototipo Desktop
-![primer-prototipo](images\primer_prototipo.JPG)
+![primer-prototipo](images/primer_prototipo.JPG)
 
 ## Prototipo
 - Prototipo Final de Baja fidelidad (mobile first) :
  Inicio de sesión:
-![inicio-creacion-cuenta](images\login_prototipo.jpg)
+![inicio-creacion-cuenta](images/login_prototipo.jpg)
 Muro:
-![muro](images\prototipo_final.jpg)
+![muro](images/prototipo_final.jpg)
 
 - Prototipo Final de Baja fidelidad( desktop version)
 ![inicio-sesion](images\login_desktop-prototype.jpg)

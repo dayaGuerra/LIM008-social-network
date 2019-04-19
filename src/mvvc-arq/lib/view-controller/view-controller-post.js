@@ -34,6 +34,7 @@ export const createNewPost = (event) => {
   }
 };
 
+
 export const deleteNoteOnClick = (objNote) =>
   deletePost(objNote.id);
 
