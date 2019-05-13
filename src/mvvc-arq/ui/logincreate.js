@@ -3,11 +3,13 @@ import { signUpOnSubmit, logInOnSubmit, googleOnSubmit, facebookOnSubmit, logOut
 import { createNewPost } from '../lib/view-controller/view-controller-post.js';
 export const signInForm = () => {
   const formElem = document.createElement('form');
-  formElem.setAttribute('id', 'signin');
+  formElem.setAttribute('class', 'flex-container');
   const tempformLogin = `
-  <div id="sign-in" class = "signin-container">
-    <div class="text-first text-login">
-      <h4>La primera Red Social para emprendedores peruanos</h4>
+  <div id="sign-in" class = "signin-container card-shadow">
+    <div class="text-first text-login ">
+    <h1 class = "ayni" >Ayni<h1>
+
+      <h4 class = "sub-ayni">La primera Red Social para emprendedores peruanos</h4>
     </div>
     <div>
       <div class="col-form-login-account">
@@ -43,9 +45,9 @@ export const signInForm = () => {
 
 export const signUpForm = () => {
   const formElem = document.createElement('form');
-  formElem.setAttribute('id', 'signup');
+  formElem.setAttribute('class', 'flex-container');
   const tempFormSignUp = `
-    <div class="form-sign-up" id="signup">
+    <div class="form-sign-up card-shadow" id="signup">
       <div class="col-form-create-account">
         <p class="text-login text-first">
           <a href="#/" class="back fa fa-chevron-circle-left "></a> Crea una cuenta ¡Es gratis!
@@ -65,7 +67,7 @@ export const signUpForm = () => {
         <input type="password" class="login-social-media" id="create-password" placeholder="Contraseña">
       </div>
       <p id="error-message-signup"></p>
-      <button class="login-social-media btn-login" id="btn-register">Registrate</button> 
+      <button class="login-social-media btn-login card-shadow" id="btn-register">Registrate</button> 
     </div>`;
   
   formElem.innerHTML = tempFormSignUp;

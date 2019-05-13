@@ -7,13 +7,16 @@ font-family: Open Sans,sans-serif;
 }
 
  .background-login{
-  background-image: url(./img/imagenanaranjada.jpg);  
+  background-image: url(./img/ayni-volunteer.jpg);  
   background-repeat: no-repeat;
   height: 100vh;
   background-position: center;
   background-size: cover;
   
 } 
+.card-shadow{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.329);
+}
 
 .header-social-media{
 display: block;
@@ -27,6 +30,15 @@ width: 100%;
 .background-social-media{
   display:none;
 }
+
+.ayni{
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 30px;
+}
+
+.sub-ayni{
+  font-family: 'Barlow', sans-serif;
+}
 /* Login view */
 .signin-container{
   margin-top: 12px; 
@@ -34,6 +46,11 @@ width: 100%;
   max-width: 350px;
   background-color: #f1f1f1;
   ;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
 }
 /* Style the container */
 
