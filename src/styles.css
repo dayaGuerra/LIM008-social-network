@@ -8,6 +8,7 @@ font-family: Open Sans,sans-serif;
 
  .background-login{
   background-image: url(./img/ayni-volunteer.jpg);  
+  width: 100%;
   background-repeat: no-repeat;
   height: 100vh;
   background-position: center;
@@ -33,6 +34,7 @@ width: 100%;
 
 .ayni{
   font-family: 'Dancing Script', cursive;
+  text-shadow: 2px 2px 8px rgba(43, 144, 198, 0.438);
   margin-bottom: 30px;
 }
 
